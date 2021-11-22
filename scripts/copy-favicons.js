@@ -6,8 +6,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const iconsFolder = path.resolve(__dirname, './src/img/favicon/');
-const distFolder = path.resolve(__dirname, './dist/');
+const iconsFolder = path.resolve(__dirname, '../src/img/favicon/');
+const distFolder = path.resolve(__dirname, '../dist/');
 
 const iconsToCopy = [
   'mstile-70x70.png',
