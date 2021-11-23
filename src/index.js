@@ -125,13 +125,14 @@ pageNavDarken.addEventListener('click', (event) => {
   if (event.target !== pageNavDarken) {
     return;
   }
-  submenu.classList.remove('menu-sub-nav_toggled');
-  menuButton.classList.remove('page-header__menu-button_toggled');
-  pageNavDarken.classList.remove('page-nav-darken_toggled');
 
-  if (!menuButton.classList.contains('page-header__menu-button_toggled')) {
+  if (menuButton.classList.contains('page-header__menu-button_toggled')) {
     topBarAnimation();
     middleBarAnimation();
     bottomBarAnimation();
   }
+
+  submenu.classList.remove('menu-sub-nav_toggled');
+  menuButton.classList.remove('page-header__menu-button_toggled');
+  pageNavDarken.classList.remove('page-nav-darken_toggled');
 });
