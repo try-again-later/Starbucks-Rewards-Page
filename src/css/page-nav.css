@@ -1,0 +1,177 @@
+.page-nav-darken {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+/* page navigation */
+
+.page-nav,
+.menu-sub-nav,
+.nav-list__item button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.page-nav,
+.menu-sub-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background-color: white;
+}
+
+.page-nav {
+  transform: translateX(100%);
+  transition: transform 0.2s;
+}
+
+.menu-sub-nav {
+  transform: translateX(100%);
+  transition: transform 0.2s;
+}
+
+.page-nav-darken_toggled {
+  background-color: rgba(0 0 0 / 15%);
+}
+
+.page-nav-darken_toggled .page-nav {
+  transform: none;
+}
+
+.menu-sub-nav_toggled {
+  transform: none;
+}
+
+/* nav list item */
+
+.nav-list__item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-list__item a {
+  text-decoration: none;
+  color: #555;
+}
+
+.nav-list__item :is(a, button) {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.nav-list__item:first-of-type :is(a, button) {
+  padding-top: 2rem;
+}
+
+.nav-list__item:last-of-type :is(a, button) {
+  padding-bottom: 2rem;
+}
+
+.nav-list__item_expandable :is(a, button)::after {
+  content: "";
+  position: absolute;
+  right: 2rem;
+  width: 1.25em;
+  height: 1.25em;
+  background-color: #555;
+  mask-image: url("../img/icons/arrow-right.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.nav-list__item:hover :is(a, button) {
+  text-decoration: underline;
+}
+
+/* separator */
+
+.page-nav__separator {
+  margin: 0 2rem 2rem;
+  border: none;
+  background-color: rgba(0 0 0 / 15%);
+  height: 2px;
+}
+
+.page-nav__buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+}
+
+.page-nav__find-store {
+  display: inline-block;
+  padding: 1rem 0;
+  margin-left: 2rem;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.page-nav__find-store::before {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.25em;
+  background-color: black;
+  vertical-align: top;
+  transition: background-color 0.2s;
+  mask-image: url("../img/icons/map-pin.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.page-nav__find-store:hover {
+  color: #00754a;
+}
+
+.page-nav__find-store:hover::before {
+  content: "";
+  background-color: #00754a;
+}
+
+/* menu sub nav */
+
+.menu-sub-nav__go-back-button {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.menu-sub-nav__go-back-button::before {
+  content: "";
+  position: absolute;
+  left: 2rem;
+  width: 1.25em;
+  height: 1.25em;
+  background-color: #555;
+  mask-image: url("../img/icons/arrow-left.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.menu-sub-nav__go-back-button:hover {
+  text-decoration: underline;
+}

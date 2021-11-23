@@ -25,24 +25,53 @@
 
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Starbucks Rewards&reg;</title>
+  <title>Starbucks&reg; Rewards</title>
 </head>
 
 <body>
   <h1 class="visually-hidden">Starbucks Rewards</h1>
 
   <header class="page-header">
-    <a href="#">
-      <img src="img/icons/logo.svg" alt="Starbucks Logo" class="page-header__logo">
-    </a>
-    <button aria-label="Open menu" class="page-header__menu-button">
-      <svg class="burger-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        <circle class="burger-icon__circle" cx="50" cy="50" r="50" />
-        <rect class="burger-icon__top" y="15" width="100" height="10" rx="5" />
-        <rect class="burger-icon__middle" y="45" width="100" height="10" rx="5" />
-        <rect class="burger-icon__bottom" y="75" width="100" height="10" rx="5" />
-      </svg>
-    </button>
+    <div class="page-header-top-bar">
+      <a href="#">
+        <img src="img/icons/logo.svg" alt="Starbucks Logo" class="page-header-top-bar__logo">
+      </a>
+      <button aria-label="Open menu" class="page-header-top-bar__menu-button">
+        <svg class="burger-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <circle class="burger-icon__circle" cx="50" cy="50" r="50" />
+          <rect class="burger-icon__top" y="15" width="100" height="10" rx="5" />
+          <rect class="burger-icon__middle" y="45" width="100" height="10" rx="5" />
+          <rect class="burger-icon__bottom" y="75" width="100" height="10" rx="5" />
+        </svg>
+      </button>
+    </div>
+    <div class="page-nav-darken">
+      <nav class="page-nav">
+        <ul class="nav-list">
+          <li class="nav-list__item nav-list__item_expandable">
+            <button aria-label="Open menu" class="nav-list__open-submenu-button">Menu</button>
+          </li>
+          <li class="nav-list__item"><a href="#">Rewards</a></li>
+          <li class="nav-list__item"><a href="#">Gift Cards</a></li>
+        </ul>
+        <hr class="page-nav__separator">
+        <div class="page-nav__buttons">
+          <a href="#" class="button light">Sign in</a>
+          <a href="#" class="button accent">Join now</a>
+        </div>
+        <a href="#" class="page-nav__find-store">Find a store</a>
+      </nav>
+      <div class="menu-sub-nav">
+        <button class="menu-sub-nav__go-back-button">Menu</button>
+        <ul class="menu-sublist">
+          <li class="nav-list__item"><a href="#">All products</a></li>
+          <li class="nav-list__item"><a href="#">Featured</a></li>
+          <li class="nav-list__item"><a href="#">Previous</a></li>
+          <li class="nav-list__item"><a href="#">Favorites</a></li>
+        </ul>
+        </ul>
+      </div>
+    </div>
   </header>
 
   <script src="index.js" type="module"></script>
