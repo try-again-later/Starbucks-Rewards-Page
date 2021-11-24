@@ -1,5 +1,7 @@
 const menuButton = document.querySelector('.page-header-top-bar__menu-button');
 const pageNavDarken = document.querySelector('.page-nav-darken');
+
+const pageMain = document.querySelector('.page-main');
 const submenu = document.querySelector('.menu-sub-nav');
 
 const topBar = menuButton.querySelector('.burger-icon__top');
@@ -121,11 +123,7 @@ menuButton.addEventListener('click', () => {
   bottomBarAnimation();
 });
 
-pageNavDarken.addEventListener('click', (event) => {
-  if (event.target !== pageNavDarken) {
-    return;
-  }
-
+pageMain.addEventListener('click', () => {
   if (menuButton.classList.contains('page-header__menu-button_toggled')) {
     topBarAnimation();
     middleBarAnimation();

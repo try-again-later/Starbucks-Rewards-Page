@@ -1,17 +1,20 @@
 @import url("./page-nav.css");
+@import url("./promo.css");
 
 .page-header-top-bar {
   display: flex;
   align-items: center;
+  position: relative;
   padding: 1.25rem 1.5rem;
   background-color: white;
   box-shadow: 0 0 4px rgba(0 0 0 / 25%);
-  z-index: 1;
+  z-index: 2;
 }
 
 .page-header-top-bar__logo {
   width: 2rem;
   height: auto;
+  transform: scale(1.5);
 }
 
 /* Button with the burger icon */
@@ -58,4 +61,46 @@
 
 .page-header-top-bar__menu-button .burger-icon__bottom {
   transform-origin: 50px 80px;
+}
+
+/* "Join in the app" sticky */
+
+.page-main {
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  pointer-events: all;
+}
+
+.join-app-sticky {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  background-color: #1e3932;
+  box-shadow: 0 0 4px rgba(0 0 0 / 25%);
+}
+
+.join-app-sticky__heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.join-app__join-button {
+  border: 1px solid white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1.25em;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: white;
+  background-color: #1e3932;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.join-app__join-button:hover {
+  background-color: #39514b;
 }

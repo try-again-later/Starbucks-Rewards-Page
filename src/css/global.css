@@ -8,6 +8,19 @@ ul {
   list-style-type: none;
 }
 
+a.link {
+  color: black;
+  text-decoration: underline;
+}
+
+a.link:hover {
+  text-decoration: none;
+}
+
+sup {
+  font-size: 0.625em;
+}
+
 .visually-hidden {
   width: 1px;
   height: 1px;
@@ -18,7 +31,7 @@ ul {
   clip-path: inset(50%);
 }
 
-a.button:is(.light, .accent) {
+a.button:is(.light, .accent, .primary) {
   display: inline-block;
   text-decoration: none;
   border: 1px solid #333;
@@ -29,6 +42,17 @@ a.button:is(.light, .accent) {
   text-align: center;
   color: #333;
   transition: background-color 0.2s;
+}
+
+a.button.primary {
+  background-color: #00754a;
+  border-color: #00754a;
+  color: white;
+}
+
+a.button.primary:hover {
+  background-color: #148159;
+  border-color: #148159;
 }
 
 a.button.accent {

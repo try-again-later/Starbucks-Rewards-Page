@@ -1,0 +1,36 @@
+.promo {
+  min-height: 37.5rem;
+  background: url("../img/hero-mobile.jpg");
+  background-color: #d0eae4;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position-y: bottom;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.promo__big-heading {
+  margin-bottom: 0.75em;
+  font-family:
+    "Lucida Sans",
+    "Lucida Sans Regular",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    Geneva,
+    Verdana,
+    sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.promo__smaller-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.promo__button {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
