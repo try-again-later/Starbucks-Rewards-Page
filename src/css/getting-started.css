@@ -1,0 +1,50 @@
+.getting-started {
+  padding: 4rem 1rem;
+  background-color: white;
+  color: #212121;
+}
+
+.getting-started__sub-heading {
+  margin-bottom: 3rem;
+}
+
+.getting-started__steps-list {
+  list-style-type: none;
+}
+
+.step-item {
+  display: grid;
+  grid-template:
+    "counter heading    "
+    "counter description" / 4rem 1fr;
+  gap: 1rem 1rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.step-item__counter {
+  grid-area: counter;
+  display: grid;
+  place-items: center;
+}
+
+.step-item__digit {
+  display: grid;
+  place-items: center;
+  border: 2px solid #00a862;
+  color: #00a862;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.step-item__description {
+  grid-area: description;
+}
+
+.step-item__heading {
+  font-weight: 700;
+}

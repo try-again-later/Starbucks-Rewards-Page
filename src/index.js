@@ -1,23 +1,15 @@
+const pageMain = document.querySelector('.page-main');
+
 const menuButton = document.querySelector('.page-header-top-bar__menu-button');
 const pageNavDarken = document.querySelector('.page-nav-darken');
-
-const pageMain = document.querySelector('.page-main');
-const submenu = document.querySelector('.menu-sub-nav');
 
 const topBar = menuButton.querySelector('.burger-icon__top');
 const middleBar = menuButton.querySelector('.burger-icon__middle');
 const bottomBar = menuButton.querySelector('.burger-icon__bottom');
 
+const submenu = document.querySelector('.menu-sub-nav');
 const submenuOpenButton = document.querySelector('.nav-list__open-submenu-button');
 const submenuCloseButton = document.querySelector('.menu-sub-nav__go-back-button');
-
-submenuOpenButton.addEventListener('click', () => {
-  submenu.classList.toggle('menu-sub-nav_toggled');
-});
-
-submenuCloseButton.addEventListener('click', () => {
-  submenu.classList.remove('menu-sub-nav_toggled');
-});
 
 const playBackAndForth = (animation) => {
   if (animation === undefined) {
@@ -110,27 +102,55 @@ const bottomBarAnimation = playBackAndForth(
   ),
 );
 
-menuButton.addEventListener('click', () => {
-  menuButton.classList.toggle('page-header__menu-button_toggled');
-  pageNavDarken.classList.toggle('page-nav-darken_toggled');
+let menuOpened = false;
 
-  if (!menuButton.classList.contains('page-header__menu-button_toggled')) {
-    submenu.classList.remove('menu-sub-nav_toggled');
-  }
-
-  topBarAnimation();
-  middleBarAnimation();
-  bottomBarAnimation();
-});
-
-pageMain.addEventListener('click', () => {
-  if (menuButton.classList.contains('page-header__menu-button_toggled')) {
-    topBarAnimation();
-    middleBarAnimation();
-    bottomBarAnimation();
-  }
-
+const closeMenu = () => {
+  menuOpened = false;
   submenu.classList.remove('menu-sub-nav_toggled');
   menuButton.classList.remove('page-header__menu-button_toggled');
   pageNavDarken.classList.remove('page-nav-darken_toggled');
+
+  document.body.style.overflow = 'auto';
+};
+
+const openMenu = () => {
+  menuOpened = true;
+  menuButton.classList.add('page-header__menu-button_toggled');
+  pageNavDarken.classList.add('page-nav-darken_toggled');
+
+  document.body.style.overflow = 'hidden';
+};
+
+const toggleMenu = () => {
+  if (menuOpened) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+};
+
+menuButton.addEventListener('click', () => {
+  topBarAnimation();
+  middleBarAnimation();
+  bottomBarAnimation();
+
+  toggleMenu();
+});
+
+pageMain.addEventListener('click', () => {
+  if (menuOpened) {
+    topBarAnimation();
+    middleBarAnimation();
+    bottomBarAnimation();
+
+    closeMenu();
+  }
+});
+
+submenuOpenButton.addEventListener('click', () => {
+  submenu.classList.add('menu-sub-nav_toggled');
+});
+
+submenuCloseButton.addEventListener('click', () => {
+  submenu.classList.remove('menu-sub-nav_toggled');
 });

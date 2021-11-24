@@ -13,12 +13,32 @@ a.link {
   text-decoration: underline;
 }
 
+a.link.primary {
+  color: #00a862;
+}
+
 a.link:hover {
   text-decoration: none;
 }
 
 sup {
   font-size: 0.625em;
+}
+
+p.centered {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-family:
+    "Gill Sans",
+    "Gill Sans MT",
+    Calibri,
+    "Trebuchet MS",
+    sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
 }
 
 .visually-hidden {
@@ -31,17 +51,31 @@ sup {
   clip-path: inset(50%);
 }
 
-a.button:is(.light, .accent, .primary) {
+a.button {
   display: inline-block;
   text-decoration: none;
-  border: 1px solid #333;
+  border: 1px solid;
   border-radius: 1.5em;
-  padding: 0.5em 0.75em;
-  font-size: 0.875rem;
+  padding: 0.5em 1em;
+  font-size: 0.8rem;
   font-weight: 700;
   text-align: center;
-  color: #333;
   transition: background-color 0.2s;
+  transition: transform 0.1s;
+}
+
+a.button:active {
+  transform: scale(0.9);
+}
+
+a.button.light {
+  border-color: #333;
+  color: #333;
+  background-color: white;
+}
+
+a.button.light:hover {
+  background-color: #f0f0f0;
 }
 
 a.button.primary {
@@ -58,10 +92,6 @@ a.button.primary:hover {
 a.button.accent {
   background-color: black;
   color: white;
-}
-
-a.button.light:hover {
-  background-color: #f0f0f0;
 }
 
 a.button.accent:hover {
