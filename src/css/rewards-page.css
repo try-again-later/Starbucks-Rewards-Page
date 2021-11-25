@@ -1,6 +1,7 @@
 @import url("./page-nav.css");
 @import url("./promo.css");
 @import url("./getting-started.css");
+@import url("./star-prices-section.css");
 
 .page-header-top-bar {
   display: flex;
@@ -83,6 +84,7 @@
   color: white;
   background-color: #1e3932;
   box-shadow: rgba(0 0 0 / 25%) 0 4px 4px;
+  z-index: 2;
 }
 
 .join-app-sticky__heading {

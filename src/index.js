@@ -110,7 +110,7 @@ const closeMenu = () => {
   menuButton.classList.remove('page-header__menu-button_toggled');
   pageNavDarken.classList.remove('page-nav-darken_toggled');
 
-  document.body.style.overflow = 'auto';
+  document.body.style.overflowY = 'auto';
 };
 
 const openMenu = () => {
@@ -118,7 +118,7 @@ const openMenu = () => {
   menuButton.classList.add('page-header__menu-button_toggled');
   pageNavDarken.classList.add('page-nav-darken_toggled');
 
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflowY = 'hidden';
 };
 
 const toggleMenu = () => {

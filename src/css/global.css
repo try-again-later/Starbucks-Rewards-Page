@@ -41,6 +41,11 @@ h2 {
   margin-bottom: 1em;
 }
 
+h3 {
+  text-align: center;
+  margin-bottom: 1.25em;
+}
+
 .visually-hidden {
   width: 1px;
   height: 1px;
@@ -60,8 +65,7 @@ a.button {
   font-size: 0.8rem;
   font-weight: 700;
   text-align: center;
-  transition: background-color 0.2s;
-  transition: transform 0.1s;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
 a.button:active {

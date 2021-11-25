@@ -1,0 +1,159 @@
+.star-prices-section {
+  padding-top: 2.5rem;
+  background-color: #f1f8f5;
+}
+
+.star-prices-section__tablist {
+  display: grid;
+
+  /* google chrome does not like repeat(5, 1fr) for some reason */
+  grid-template:
+    "price-25 price-50 price-150 price-200 price-400" auto
+    "slider   slider   slider    slider    slider   " auto
+    "item     item     item      item      item     " auto / 1fr 1fr 1fr 1fr 1fr;
+}
+
+.star-prices-section__navigation {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  grid-template-columns: repeat(5, 1fr);
+  box-shadow: 0 4px 4px rgba(0 0 0 / 7.5%);
+}
+
+.star-prices-section__box-shadow {
+  grid-area: slider;
+  z-index: 1;
+  box-shadow: 0 4px 4px rgba(0 0 0 / 7.5%);
+}
+
+.star-prices-section__slider {
+  grid-area: slider;
+  height: 5px;
+  width: 20%;
+  background-color: #00754a;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+
+.star-prices-section__price-label {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  padding: 1em 0;
+  cursor: pointer;
+  font-size: 1.125rem;
+}
+
+.star-prices-section__price-label::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: hsl(158, 70%, 73%);
+  transform: scaleX(0.3);
+  opacity: 0;
+  transform-origin: 50% 50%;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.star-prices-section__price-label:hover::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.star-prices-section__price-label::after {
+  content: "★";
+  color: #cba258;
+  font-size: 0.75em;
+}
+
+.item-card {
+  grid-area: item;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-bottom: 2.5rem;
+  background-color: #dedede;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.item-card__hero {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  order: -1;
+}
+
+.item-card__description {
+  text-align: center;
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.star-prices-section__price-label:nth-of-type(1),
+.star-prices-section__price-radio:nth-of-type(1) {
+  grid-area: price-25;
+}
+
+.star-prices-section__price-radio:nth-of-type(1):checked ~ .star-prices-section__slider {
+  transform: translateX(0);
+}
+
+.star-prices-section__price-radio:nth-of-type(1):checked ~ .item-card:nth-last-of-type(5) {
+  opacity: 1;
+}
+
+.star-prices-section__price-label:nth-of-type(2),
+.star-prices-section__price-radio:nth-of-type(2) {
+  grid-area: price-50;
+}
+
+.star-prices-section__price-radio:nth-of-type(2):checked ~ .star-prices-section__slider {
+  transform: translateX(100%);
+}
+
+.star-prices-section__price-radio:nth-of-type(2):checked ~ .item-card:nth-last-of-type(4) {
+  opacity: 1;
+}
+
+.star-prices-section__price-label:nth-of-type(3),
+.star-prices-section__price-radio:nth-of-type(3) {
+  grid-area: price-150;
+}
+
+.star-prices-section__price-radio:nth-of-type(3):checked ~ .star-prices-section__slider {
+  transform: translateX(200%);
+}
+
+.star-prices-section__price-radio:nth-of-type(3):checked ~ .item-card:nth-last-of-type(3) {
+  opacity: 1;
+}
+
+.star-prices-section__price-label:nth-of-type(4),
+.star-prices-section__price-radio:nth-of-type(4) {
+  grid-area: price-200;
+}
+
+.star-prices-section__price-radio:nth-of-type(4):checked ~ .star-prices-section__slider {
+  transform: translateX(300%);
+}
+
+.star-prices-section__price-radio:nth-of-type(4):checked ~ .item-card:nth-last-of-type(2) {
+  opacity: 1;
+}
+
+.star-prices-section__price-label:nth-of-type(5),
+.star-prices-section__price-radio:nth-of-type(5) {
+  grid-area: price-400;
+}
+
+.star-prices-section__price-radio:nth-of-type(5):checked ~ .star-prices-section__slider {
+  transform: translateX(400%);
+}
+
+.star-prices-section__price-radio:nth-of-type(5):checked ~ .item-card:nth-last-of-type(1) {
+  opacity: 1;
+}
