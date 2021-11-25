@@ -52,7 +52,7 @@
   left: 0;
   right: 0;
   height: 5px;
-  background-color: hsl(158, 70%, 73%);
+  background-color: hsl(158deg 70% 73%);
   transform: scaleX(0.3);
   opacity: 0;
   transform-origin: 50% 50%;
@@ -82,6 +82,8 @@
 }
 
 .item-card__hero {
+  width: 100%;
+  height: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
   order: -1;
