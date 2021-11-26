@@ -87,6 +87,7 @@
 }
 
 .learn-more-modal__prev-page-button {
+  visibility: hidden;
   grid-column: 2;
   background-image: url("../img/icons/arrow-left.svg");
 }
@@ -151,6 +152,7 @@
   font-size: 0.9rem;
   right: 1.5rem;
   padding: 0.5em 1.25em;
+  visibility: hidden;
 }
 
 .learn-more-modal__content-carousel {

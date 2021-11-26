@@ -201,17 +201,34 @@ learnMoreModalOverlay.addEventListener('click', (event) => {
 
 // carousel
 
-document.querySelectorAll('.learn-more-modal__page-radios').forEach((controlBlock) => {
-  if (!controlBlock.dataset.controlsCarousel) {
+document.querySelectorAll('.learn-more-modal__page-radios').forEach((radiosBlock) => {
+  if (!radiosBlock.dataset.controlsCarousel) {
     return;
   }
-  const carousel = document.getElementById(controlBlock.dataset.controlsCarousel);
+  const controlsBlock = radiosBlock.parentElement;
+  const prevButton = controlsBlock.querySelector('.learn-more-modal__prev-page-button');
+  const nextButton = controlsBlock.querySelector('.learn-more-modal__next-page-button');
+  const acceptButton = controlsBlock.querySelector('.learn-more-modal__accept-modal');
+
+  const carousel = document.getElementById(radiosBlock.dataset.controlsCarousel);
   const slidesCount = Number.parseInt(carousel.dataset.slidesCount, 10);
-  controlBlock.addEventListener('change', (event) => {
+  radiosBlock.addEventListener('change', (event) => {
     if (!event.target.dataset?.pageNumber) {
       return;
     }
     const pageNumber = Number.parseInt(event.target.dataset.pageNumber, 10);
+    if (pageNumber === 1) {
+      prevButton.style.visibility = 'hidden';
+    } else {
+      prevButton.style.visibility = 'visible';
+    }
+    if (pageNumber === slidesCount) {
+      nextButton.style.visibility = 'hidden';
+      acceptButton.style.visibility = 'visible';
+    } else {
+      nextButton.style.visibility = 'visible';
+      acceptButton.style.visibility = 'hidden';
+    }
     carousel.style.transform = `translateX(-${((pageNumber - 1) * 100) / slidesCount}%)`;
   });
 });

@@ -36,6 +36,7 @@
     "image title      " auto
     "image description" 1fr / 7rem 1fr;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .way-to-earn-stars__title {

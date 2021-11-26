@@ -4,6 +4,8 @@
 @import url("./star-prices-section.css");
 @import url("./endless-extras-section.css");
 @import url("./earn-stars-section.css");
+@import url("./star-code-section.css");
+@import url("./rewards-page-footer.css");
 
 .page-header-top-bar {
   display: flex;
@@ -106,9 +108,26 @@
   color: white;
   background-color: #1e3932;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .join-app__join-button:hover {
   background-color: #39514b;
+}
+
+.terms-of-use-section {
+  padding: 2rem 1rem 4rem;
+  font-size: 0.75rem;
+  background-color: #f9f9f9;
+  color: #666;
+}
+
+.terms-of-use-section p {
+  margin-bottom: 0.5rem;
+}
+
+.terms-of-use-section h3 {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 2rem;
 }
