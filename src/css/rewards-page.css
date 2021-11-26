@@ -3,6 +3,7 @@
 @import url("./getting-started.css");
 @import url("./star-prices-section.css");
 @import url("./endless-extras-section.css");
+@import url("./earn-stars-section.css");
 
 .page-header-top-bar {
   display: flex;

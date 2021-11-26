@@ -14,7 +14,24 @@ a.link {
 }
 
 a.link.primary {
-  color: #00a862;
+  color: #006241;
+}
+
+a.link[href^="https://"]::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5ch;
+  vertical-align: text-bottom;
+  background-color: black;
+  mask-image: url("../img/icons/external-link.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+a.link[href^="https://"].primary::after {
+  background-color: #006241;
 }
 
 a.link:hover {
