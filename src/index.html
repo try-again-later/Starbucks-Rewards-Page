@@ -183,6 +183,100 @@
         </div>
       </div>
     </section>
+
+    <section class="endless-extras-section">
+
+      <div class="endless-extras-section__learn-more-overlay">
+        <div id="fun-freebies-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+          <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
+            data-closes-modal="fun-freebies-modal"></button>
+
+          <div class="learn-more-modal__content-carousel" id="fun-freebies-carousel" data-slides-count="3">
+            <article class="learn-more-modal__learn-more-card learn-more-card">
+              <h3 class="learn-more-card__heading">Free food, drinks & more</h3>
+              <p class="learn-more-card__description">Redeem your Stars for favorites like a handcrafted cold brew,
+                protein box or even a coffee tumbler.</p>
+              <img src="./img/extras/fun-freebies-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+            </article>
+            <article class="learn-more-modal__learn-more-card learn-more-card">
+              <h3 class="learn-more-card__heading">Complimentary birthday treat</h3>
+              <p class="learn-more-card__description">Every year on your birthday get a free drink or food item of your
+                choice.</p>
+              <img src="./img/extras/fun-freebies-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+            </article>
+            <article class="learn-more-modal__learn-more-card learn-more-card">
+              <h3 class="learn-more-card__heading">Brewed coffee & tea refills on us</h3>
+              <p class="learn-more-card__description">More Caffè Verona<sup>®</sup> Blend, please. We’re happy to refill
+                your hot cup while you’re in the store. Just ask.</p>
+              <img src="./img/extras/fun-freebies-3.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+            </article>
+          </div>
+
+          <div class="learn-more-modal__controls">
+            <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
+              data-selects-from="fun-freebies-carousel-radios" data-shifts-by="-1"></button>
+
+            <div class="learn-more-modal__page-radios" data-controls-carousel="fun-freebies-carousel"
+              id="fun-freebies-carousel-radios">
+              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                checked aria-label="Go to page 1" id="fun-freebies-controls-page-1" data-page-number="1">
+              <label for="fun-freebies-controls-page-1" class="learn-more-modal__page-radio-label"></label>
+
+              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                aria-label="Go to page 2" id="fun-freebies-controls-page-2" data-page-number="2">
+              <label for="fun-freebies-controls-page-2" class="learn-more-modal__page-radio-label"></label>
+
+              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                aria-label="Go to page 3" id="fun-freebies-controls-page-3" data-page-number="3">
+              <label for="fun-freebies-controls-page-3" class="learn-more-modal__page-radio-label"></label>
+            </div>
+
+            <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
+              data-selects-from="fun-freebies-carousel-radios" data-shifts-by="1"></button>
+
+            <button data-closes-modal="fun-freebies-modal"
+              class="button light learn-more-modal__accept-modal">Ok</button>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="endless-extras-section__heading">Endless extras</h2>
+      <p class="endless-extras-section__description">Joining Starbucks<sup>®</sup> Rewards means unlocking access to
+        exclusive
+        benefits. Say hello to easy ordering, tasty Rewards and—yes, free coffee.</p>
+      <ul class="endless-extras-section__extras-list">
+        <li class="endless-extras-section__extras-item extras-item">
+          <h3 class="extras-item__heading">Fun freebies</h3>
+          <p class="extras-item__description">Not only can you earn free coffee, look forward to a birthday treat plus
+            coffee and tea refills.</p>
+          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
+            data-opens-modal="fun-freebies-modal">
+            <img class="extras-item_image" src="./img/extras/1.jpg" alt="">
+          </button>
+          <button data-opens-modal="fun-freebies-modal" class="extras-item__learn-more-button">Learn more</button>
+        </li>
+
+        <li class="endless-extras-section__extras-item extras-item">
+          <h3 class="extras-item__heading">Order & pay ahead</h3>
+          <p class="extras-item__description">Enjoy the convenience of in-store, curbside or drive-thru pickup at select
+            stores.</p>
+          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1">
+            <img class="extras-item_image" src="./img/extras/2.jpg" alt="">
+          </button>
+          <button class="extras-item__learn-more-button">Learn more</button>
+        </li>
+
+        <li class="endless-extras-section__extras-item extras-item">
+          <h3 class="extras-item__heading">Get to free faster</h3>
+          <p class="extras-item__description">Earn Stars even quicker with Bonus Star challenges, Double Star Days and
+            exciting games.</p>
+          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1">
+            <img class="extras-item_image" src="./img/extras/3.jpg" alt="">
+          </button>
+          <button class="extras-item__learn-more-button">Learn more</button>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <script src="index.js" type="module"></script>

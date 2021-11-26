@@ -1,0 +1,68 @@
+@import url("./learn-more-modal.css");
+
+.endless-extras-section {
+  padding: 4rem 1.5rem;
+  background-color: white;
+}
+
+.endless-extras-section__description {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.endless-extras-section__extras-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.extras-item {
+  display: grid;
+  grid-template:
+    "image heading    "
+    "image description"
+    "image learn-more " / 7rem 1fr;
+  gap: 1rem 1rem;
+}
+
+.extras-item__heading {
+  grid-area: heading;
+  margin: 0;
+}
+
+.extras-item__description {
+  grid-area: description;
+}
+
+.extras-item_learn-more-image-button {
+  grid-area: image;
+  display: grid;
+  place-items: top;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.extras-item_image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.extras-item__learn-more-button {
+  grid-area: learn-more;
+  border: none;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: #006241;
+  cursor: pointer;
+}
+
+.extras-item__learn-more-button:hover {
+  text-decoration: none;
+}

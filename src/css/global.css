@@ -42,7 +42,7 @@ h2 {
 }
 
 h3 {
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 1.25em;
 }
 
@@ -56,7 +56,7 @@ h3 {
   clip-path: inset(50%);
 }
 
-a.button {
+.button {
   display: inline-block;
   text-decoration: none;
   border: 1px solid;
@@ -65,40 +65,42 @@ a.button {
   font-size: 0.8rem;
   font-weight: 700;
   text-align: center;
+  background-color: transparent;
   transition: background-color 0.2s, transform 0.1s;
+  cursor: pointer;
 }
 
-a.button:active {
+.button:active {
   transform: scale(0.9);
 }
 
-a.button.light {
+.button.light {
   border-color: #333;
   color: #333;
   background-color: white;
 }
 
-a.button.light:hover {
+.button.light:hover {
   background-color: #f0f0f0;
 }
 
-a.button.primary {
+.button.primary {
   background-color: #00754a;
   border-color: #00754a;
   color: white;
 }
 
-a.button.primary:hover {
+.button.primary:hover {
   background-color: #148159;
   border-color: #148159;
 }
 
-a.button.accent {
+.button.accent {
   background-color: black;
   color: white;
 }
 
-a.button.accent:hover {
+.button.accent:hover {
   background-color: #4c4c4c;
   border-color: #4c4c4c;
 }

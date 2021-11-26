@@ -81,6 +81,10 @@
   transition: opacity 0.2s;
 }
 
+.item-card__heading {
+  text-align: center;
+}
+
 .item-card__hero {
   width: 100%;
   height: auto;
