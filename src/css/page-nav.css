@@ -15,7 +15,7 @@
 .page-nav,
 .menu-sub-nav,
 .nav-list__item button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Poppins, Verdana, sans-serif;
   font-size: 1.125rem;
   color: #555;
 }
@@ -32,8 +32,10 @@
 
 .page-nav {
   transform: translateX(100%);
-  transition: transform 0.2s;
+  transition: transform 0.2s, opacity 0s;
+  transition-delay: 0s, 0.2s;
   pointer-events: all;
+  opacity: 0;
 }
 
 .menu-sub-nav {
@@ -48,10 +50,52 @@
 
 .page-nav-darken_toggled .page-nav {
   transform: none;
+  transition: transform 0.2s, opacity 0s;
+  transition-delay: 0s, 0s;
+  opacity: 1;
 }
 
 .menu-sub-nav_toggled {
   transform: none;
+}
+
+@media (min-width: 50rem) {
+  .page-nav-darken {
+    position: static;
+    width: auto;
+    height: auto;
+    flex: 1;
+    pointer-events: none;
+    background-color: transparent;
+  }
+
+  .menu-sub-nav {
+    display: none;
+  }
+
+  .page-nav {
+    flex: 1;
+    width: unset;
+    position: static;
+    transform: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1rem;
+    font-family: Oswald, Impact, Arial, sans-serif;
+  }
+
+  .nav-list,
+  .nav-list button {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
 }
 
 /* nav list item */
@@ -98,6 +142,30 @@
 
 .nav-list__item:hover :is(a, button) {
   text-decoration: underline;
+}
+
+@media (min-width: 50rem) {
+  .nav-list__item :is(a, button) {
+    color: rgba(0 0 0 / 80%);
+    padding: 0;
+    transition: color 0.2s;
+  }
+
+  .nav-list__item:hover :is(a, button) {
+    color: #00754a;
+  }
+
+  .nav-list__item :is(a, button)::after {
+    content: unset;
+  }
+
+  .nav-list__item:first-of-type :is(a, button) {
+    padding: 0;
+  }
+
+  .nav-list__item:last-of-type :is(a, button) {
+    padding: 0;
+  }
 }
 
 /* separator */
@@ -150,6 +218,35 @@
   background-color: #00754a;
 }
 
+@media (min-width: 50rem) {
+  .page-nav {
+    opacity: 0;
+    animation: 0s ease-out nav-appearance forwards;
+  }
+
+  .page-nav__separator {
+    display: none;
+  }
+
+  .page-nav__buttons {
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0;
+    gap: 1rem;
+    order: 1;
+    margin-right: 1rem;
+  }
+
+  .page-nav__find-store {
+    margin: 0 2rem 0 auto;
+  }
+}
+
+@keyframes nav-appearance {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* menu sub nav */
 
 .menu-sub-nav__go-back-button {
@@ -159,7 +256,7 @@
   padding: 1rem;
   background-color: #f9f9f9;
   cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Poppins, Verdana, sans-serif;
   font-size: 1.25rem;
   color: #555;
 }

@@ -121,6 +121,21 @@ const openMenu = () => {
   document.body.style.overflowY = 'hidden';
 };
 
+const scrollBarMediaQuery = window.matchMedia('(min-width: 50rem)');
+scrollBarMediaQuery.addEventListener('change', () => {
+  if (scrollBarMediaQuery.matches) {
+    document.body.style.overflowY = 'auto';
+    return;
+  }
+  if (!menuOpened) {
+    document.body.style.overflowY = 'auto';
+    return;
+  }
+
+  document.body.style.overflowY = 'hidden';
+  window.scrollTo({ top: 0 });
+});
+
 const toggleMenu = () => {
   if (menuOpened) {
     closeMenu();

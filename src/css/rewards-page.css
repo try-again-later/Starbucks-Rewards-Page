@@ -11,21 +11,22 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding: 1.25rem 1.5rem;
   background-color: white;
   box-shadow: 0 0 4px rgba(0 0 0 / 25%);
   z-index: 4;
 }
 
 .page-header-top-bar__logo {
-  width: 2rem;
+  width: 3.5rem;
+  margin: 0.5rem;
   height: auto;
-  transform: scale(1.5);
 }
 
 /* Button with the burger icon */
 
 .page-header-top-bar__menu-button {
+  box-sizing: content-box;
+  padding: 1rem;
   width: 1.5rem;
   height: 1.5rem;
   margin-left: auto;
@@ -67,6 +68,27 @@
 
 .page-header-top-bar__menu-button .burger-icon__bottom {
   transform-origin: 50px 80px;
+}
+
+@media (min-width: 50rem) {
+  .page-header-top-bar {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .page-header-top-bar__logo {
+    transform: none;
+  }
+
+  .page-header-top-bar__menu-button {
+    display: none;
+    transition: none;
+  }
+
+  .page-header {
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 /* "Join in the app" sticky */
