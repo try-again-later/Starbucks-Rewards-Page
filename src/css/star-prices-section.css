@@ -110,7 +110,7 @@
     display: grid;
     grid-template:
       "hero heading"
-      "hero description";
+      "hero description" / 4fr 3fr;
     row-gap: 1rem;
     min-height: 20rem;
   }

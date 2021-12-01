@@ -7,6 +7,11 @@
 @import url("./star-code-section.css");
 @import url("./rewards-page-footer.css");
 
+.page-header {
+  width: 100%;
+  max-width: 93.75rem;
+}
+
 .page-header-top-bar {
   display: flex;
   align-items: center;

@@ -37,6 +37,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 50rem) {
+  .endless-extras-section__learn-more-modal {
+    max-width: 30rem;
+  }
+}
+
 .learn-more-modal__close-button {
   position: absolute;
   top: 1rem;

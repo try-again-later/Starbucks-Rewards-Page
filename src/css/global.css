@@ -134,3 +134,8 @@ h3 {
     font-size: 0.9rem;
   }
 }
+
+.container {
+  display: grid;
+  place-items: center;
+}

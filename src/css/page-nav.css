@@ -156,7 +156,7 @@
 
   .nav-list__item :is(a, button) {
     color: rgba(0 0 0 / 80%);
-    padding: 0;
+    padding: 2rem 0;
     transition: color 0.2s;
   }
 

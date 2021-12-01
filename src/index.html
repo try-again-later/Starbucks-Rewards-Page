@@ -38,48 +38,50 @@
 <body>
   <h1 class="visually-hidden">Starbucks Rewards</h1>
 
-  <header class="page-header">
-    <div class="page-header-top-bar">
-      <a href="#">
-        <img src="img/icons/logo.svg" alt="Starbucks Logo" class="page-header-top-bar__logo">
-      </a>
-      <button aria-label="Open menu" class="page-header-top-bar__menu-button">
-        <svg class="burger-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-          <circle class="burger-icon__circle" cx="50" cy="50" r="50" />
-          <rect class="burger-icon__top" y="15" width="100" height="10" rx="5" />
-          <rect class="burger-icon__middle" y="45" width="100" height="10" rx="5" />
-          <rect class="burger-icon__bottom" y="75" width="100" height="10" rx="5" />
-        </svg>
-      </button>
-    </div>
-    <div class="page-nav-darken">
-      <nav class="page-nav">
-        <ul class="nav-list">
-          <li class="nav-list__item nav-list__item_expandable">
-            <button aria-label="Open menu" class="nav-list__open-submenu-button">Menu</button>
-          </li>
-          <li class="nav-list__item nav-list__item_selected"><a href="#">Rewards</a></li>
-          <li class="nav-list__item"><a href="#">Gift Cards</a></li>
-        </ul>
-        <hr class="page-nav__separator">
-        <div class="page-nav__buttons">
-          <a href="#" class="button light">Sign in</a>
-          <a href="#" class="button accent">Join now</a>
-        </div>
-        <a href="#" class="page-nav__find-store">Find a store</a>
-      </nav>
-      <div class="menu-sub-nav">
-        <button class="menu-sub-nav__go-back-button">Menu</button>
-        <ul class="menu-sublist">
-          <li class="nav-list__item"><a href="#">All products</a></li>
-          <li class="nav-list__item"><a href="#">Featured</a></li>
-          <li class="nav-list__item"><a href="#">Previous</a></li>
-          <li class="nav-list__item"><a href="#">Favorites</a></li>
-        </ul>
-        </ul>
+  <div class="page-header-wrapper container">
+    <header class="page-header">
+      <div class="page-header-top-bar">
+        <a href="#">
+          <img src="img/icons/logo.svg" alt="Starbucks Logo" class="page-header-top-bar__logo">
+        </a>
+        <button aria-label="Open menu" class="page-header-top-bar__menu-button">
+          <svg class="burger-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <circle class="burger-icon__circle" cx="50" cy="50" r="50" />
+            <rect class="burger-icon__top" y="15" width="100" height="10" rx="5" />
+            <rect class="burger-icon__middle" y="45" width="100" height="10" rx="5" />
+            <rect class="burger-icon__bottom" y="75" width="100" height="10" rx="5" />
+          </svg>
+        </button>
       </div>
-    </div>
-  </header>
+      <div class="page-nav-darken">
+        <nav class="page-nav">
+          <ul class="nav-list">
+            <li class="nav-list__item nav-list__item_expandable">
+              <button aria-label="Open menu" class="nav-list__open-submenu-button">Menu</button>
+            </li>
+            <li class="nav-list__item nav-list__item_selected"><a href="#">Rewards</a></li>
+            <li class="nav-list__item"><a href="#">Gift Cards</a></li>
+          </ul>
+          <hr class="page-nav__separator">
+          <div class="page-nav__buttons">
+            <a href="#" class="button light">Sign in</a>
+            <a href="#" class="button accent">Join now</a>
+          </div>
+          <a href="#" class="page-nav__find-store">Find a store</a>
+        </nav>
+        <div class="menu-sub-nav">
+          <button class="menu-sub-nav__go-back-button">Menu</button>
+          <ul class="menu-sublist">
+            <li class="nav-list__item"><a href="#">All products</a></li>
+            <li class="nav-list__item"><a href="#">Featured</a></li>
+            <li class="nav-list__item"><a href="#">Previous</a></li>
+            <li class="nav-list__item"><a href="#">Favorites</a></li>
+          </ul>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
 
   <main class="page-main">
     <div class="join-app-sticky">
@@ -197,193 +199,201 @@
       </div>
     </section>
 
-    <section class="endless-extras-section">
-      <div class="endless-extras-section__learn-more-overlay">
-        <div id="fun-freebies-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
-          <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-            data-closes-modal="fun-freebies-modal"></button>
+    <div class="container">
+      <section class="endless-extras-section">
+        <div class="endless-extras-section__learn-more-overlay">
+          <div id="fun-freebies-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+            <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
+              data-closes-modal="fun-freebies-modal"></button>
 
-          <div class="learn-more-modal__content-carousel" id="fun-freebies-carousel" data-slides-count="3">
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Free food, drinks & more</h3>
-              <p class="learn-more-card__description">Redeem your Stars for favorites like a handcrafted cold brew,
-                protein box or even a coffee tumbler.</p>
-              <img src="./img/extras/fun-freebies-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Complimentary birthday treat</h3>
-              <p class="learn-more-card__description">Every year on your birthday get a free drink or food item of your
-                choice.</p>
-              <img src="./img/extras/fun-freebies-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Brewed coffee & tea refills on us</h3>
-              <p class="learn-more-card__description">More Caffè Verona<sup>®</sup> Blend, please. We’re happy to refill
-                your hot cup while you’re in the store. Just ask.</p>
-              <img src="./img/extras/fun-freebies-3.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-          </div>
-
-          <div class="learn-more-modal__controls">
-            <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="fun-freebies-carousel-radios" data-shifts-by="-1"></button>
-
-            <div class="learn-more-modal__page-radios" data-controls-carousel="fun-freebies-carousel"
-              id="fun-freebies-carousel-radios">
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                checked aria-label="Go to page 1" id="fun-freebies-controls-page-1" data-page-number="1">
-              <label for="fun-freebies-controls-page-1" class="learn-more-modal__page-radio-label"></label>
-
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                aria-label="Go to page 2" id="fun-freebies-controls-page-2" data-page-number="2">
-              <label for="fun-freebies-controls-page-2" class="learn-more-modal__page-radio-label"></label>
-
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                aria-label="Go to page 3" id="fun-freebies-controls-page-3" data-page-number="3">
-              <label for="fun-freebies-controls-page-3" class="learn-more-modal__page-radio-label"></label>
+            <div class="learn-more-modal__content-carousel" id="fun-freebies-carousel" data-slides-count="3">
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Free food, drinks & more</h3>
+                <p class="learn-more-card__description">Redeem your Stars for favorites like a handcrafted cold brew,
+                  protein box or even a coffee tumbler.</p>
+                <img src="./img/extras/fun-freebies-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Complimentary birthday treat</h3>
+                <p class="learn-more-card__description">Every year on your birthday get a free drink or food item of
+                  your
+                  choice.</p>
+                <img src="./img/extras/fun-freebies-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Brewed coffee & tea refills on us</h3>
+                <p class="learn-more-card__description">More Caffè Verona<sup>®</sup> Blend, please. We’re happy to
+                  refill
+                  your hot cup while you’re in the store. Just ask.</p>
+                <img src="./img/extras/fun-freebies-3.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
             </div>
 
-            <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="fun-freebies-carousel-radios" data-shifts-by="1"></button>
+            <div class="learn-more-modal__controls">
+              <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="-1"></button>
 
-            <button data-closes-modal="fun-freebies-modal"
-              class="button light learn-more-modal__accept-modal">Ok</button>
+              <div class="learn-more-modal__page-radios" data-controls-carousel="fun-freebies-carousel"
+                id="fun-freebies-carousel-radios">
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                  checked aria-label="Go to page 1" id="fun-freebies-controls-page-1" data-page-number="1">
+                <label for="fun-freebies-controls-page-1" class="learn-more-modal__page-radio-label"></label>
+
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                  aria-label="Go to page 2" id="fun-freebies-controls-page-2" data-page-number="2">
+                <label for="fun-freebies-controls-page-2" class="learn-more-modal__page-radio-label"></label>
+
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
+                  aria-label="Go to page 3" id="fun-freebies-controls-page-3" data-page-number="3">
+                <label for="fun-freebies-controls-page-3" class="learn-more-modal__page-radio-label"></label>
+              </div>
+
+              <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="1"></button>
+
+              <button data-closes-modal="fun-freebies-modal"
+                class="button light learn-more-modal__accept-modal">Ok</button>
+            </div>
+          </div>
+
+          <div id="order-ahead-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+            <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
+              data-closes-modal="order-ahead-modal"></button>
+
+            <div class="learn-more-modal__content-carousel" id="order-ahead-carousel" data-slides-count="2">
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Tap, go.</h3>
+                <p class="learn-more-card__description">Select your menu items in the app along with your store
+                  location.
+                  Then tell the barista your name when you swing by the pickup area to grab your order.</p>
+                <img src="./img/extras/order-ahead-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Just for you</h3>
+                <p class="learn-more-card__description">Our app lets you customize your order and track an estimated
+                  pickup time. Make sure to save your favorites so they’re all ready for your next order.</p>
+                <img src="./img/extras/order-ahead-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+            </div>
+
+            <div class="learn-more-modal__controls">
+              <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="order-ahead-carousel-radios" data-shifts-by="-1"></button>
+
+              <div class="learn-more-modal__page-radios" data-controls-carousel="order-ahead-carousel"
+                id="order-ahead-carousel-radios">
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
+                  checked aria-label="Go to page 1" id="order-ahead-controls-page-1" data-page-number="1">
+                <label for="order-ahead-controls-page-1" class="learn-more-modal__page-radio-label"></label>
+
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
+                  aria-label="Go to page 2" id="order-ahead-controls-page-2" data-page-number="2">
+                <label for="order-ahead-controls-page-2" class="learn-more-modal__page-radio-label"></label>
+              </div>
+
+              <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="order-ahead-carousel-radios" data-shifts-by="1"></button>
+
+              <button data-closes-modal="order-ahead-modal"
+                class="button light learn-more-modal__accept-modal">Ok</button>
+            </div>
+          </div>
+
+          <div id="get-faster-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+            <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
+              data-closes-modal="get-faster-modal"></button>
+
+            <div class="learn-more-modal__content-carousel" id="get-faster-carousel" data-slides-count="3">
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Bonus Star challenges</h3>
+                <p class="learn-more-card__description">Rack up the Stars with regular opportunities to get rewarded for
+                  what you love.</p>
+                <img src="./img/extras/get-faster-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Double Star Days</h3>
+                <p class="learn-more-card__description">Watch for those special days where you’ll earn twice the Stars
+                  on
+                  almost everything.</p>
+                <img src="./img/extras/get-faster-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+              <article class="learn-more-modal__learn-more-card learn-more-card">
+                <h3 class="learn-more-card__heading">Member-only games</h3>
+                <p class="learn-more-card__description">Play for a chance to win exclusive prizes, free food and drinks,
+                  and more.</p>
+                <img src="./img/extras/get-faster-3.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
+              </article>
+            </div>
+
+            <div class="learn-more-modal__controls">
+              <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="get-faster-carousel-radios" data-shifts-by="-1"></button>
+
+              <div class="learn-more-modal__page-radios" data-controls-carousel="get-faster-carousel"
+                id="get-faster-carousel-radios">
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
+                  checked aria-label="Go to page 1" id="get-faster-controls-page-1" data-page-number="1">
+                <label for="get-faster-controls-page-1" class="learn-more-modal__page-radio-label"></label>
+
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
+                  aria-label="Go to page 2" id="get-faster-controls-page-2" data-page-number="2">
+                <label for="get-faster-controls-page-2" class="learn-more-modal__page-radio-label"></label>
+
+                <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
+                  aria-label="Go to page 3" id="get-faster-controls-page-3" data-page-number="3">
+                <label for="get-faster-controls-page-3" class="learn-more-modal__page-radio-label"></label>
+              </div>
+
+              <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
+                data-selects-from="get-faster-carousel-radios" data-shifts-by="1"></button>
+
+              <button data-closes-modal="get-faster-modal"
+                class="button light learn-more-modal__accept-modal">Ok</button>
+            </div>
           </div>
         </div>
 
-        <div id="order-ahead-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
-          <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-            data-closes-modal="order-ahead-modal"></button>
+        <h2 class="endless-extras-section__heading">Endless extras</h2>
+        <p class="endless-extras-section__description">Joining Starbucks<sup>®</sup> Rewards means unlocking access to
+          exclusive
+          benefits. Say hello to easy ordering, tasty Rewards and—yes, free coffee.</p>
+        <ul class="endless-extras-section__extras-list">
+          <li class="endless-extras-section__extras-item extras-item">
+            <h3 class="extras-item__heading">Fun freebies</h3>
+            <p class="extras-item__description">Not only can you earn free coffee, look forward to a birthday treat plus
+              coffee and tea refills.</p>
+            <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
+              data-opens-modal="fun-freebies-modal">
+              <img class="extras-item_image" src="./img/extras/1.jpg" alt="">
+            </button>
+            <button data-opens-modal="fun-freebies-modal" class="extras-item__learn-more-button">Learn more</button>
+          </li>
 
-          <div class="learn-more-modal__content-carousel" id="order-ahead-carousel" data-slides-count="2">
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Tap, go.</h3>
-              <p class="learn-more-card__description">Select your menu items in the app along with your store location.
-                Then tell the barista your name when you swing by the pickup area to grab your order.</p>
-              <img src="./img/extras/order-ahead-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Just for you</h3>
-              <p class="learn-more-card__description">Our app lets you customize your order and track an estimated
-                pickup time. Make sure to save your favorites so they’re all ready for your next order.</p>
-              <img src="./img/extras/order-ahead-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-          </div>
+          <li class="endless-extras-section__extras-item extras-item">
+            <h3 class="extras-item__heading">Order & pay ahead</h3>
+            <p class="extras-item__description">Enjoy the convenience of in-store, curbside or drive-thru pickup at
+              select
+              stores.</p>
+            <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
+              data-opens-modal="order-ahead-modal">
+              <img class="extras-item_image" src="./img/extras/2.jpg" alt="">
+            </button>
+            <button class="extras-item__learn-more-button" data-opens-modal="order-ahead-modal">Learn more</button>
+          </li>
 
-          <div class="learn-more-modal__controls">
-            <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="order-ahead-carousel-radios" data-shifts-by="-1"></button>
-
-            <div class="learn-more-modal__page-radios" data-controls-carousel="order-ahead-carousel"
-              id="order-ahead-carousel-radios">
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
-                checked aria-label="Go to page 1" id="order-ahead-controls-page-1" data-page-number="1">
-              <label for="order-ahead-controls-page-1" class="learn-more-modal__page-radio-label"></label>
-
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
-                aria-label="Go to page 2" id="order-ahead-controls-page-2" data-page-number="2">
-              <label for="order-ahead-controls-page-2" class="learn-more-modal__page-radio-label"></label>
-            </div>
-
-            <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="order-ahead-carousel-radios" data-shifts-by="1"></button>
-
-            <button data-closes-modal="order-ahead-modal"
-              class="button light learn-more-modal__accept-modal">Ok</button>
-          </div>
-        </div>
-
-        <div id="get-faster-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
-          <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-            data-closes-modal="get-faster-modal"></button>
-
-          <div class="learn-more-modal__content-carousel" id="get-faster-carousel" data-slides-count="3">
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Bonus Star challenges</h3>
-              <p class="learn-more-card__description">Rack up the Stars with regular opportunities to get rewarded for
-                what you love.</p>
-              <img src="./img/extras/get-faster-1.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Double Star Days</h3>
-              <p class="learn-more-card__description">Watch for those special days where you’ll earn twice the Stars on
-                almost everything.</p>
-              <img src="./img/extras/get-faster-2.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-            <article class="learn-more-modal__learn-more-card learn-more-card">
-              <h3 class="learn-more-card__heading">Member-only games</h3>
-              <p class="learn-more-card__description">Play for a chance to win exclusive prizes, free food and drinks,
-                and more.</p>
-              <img src="./img/extras/get-faster-3.jpg" alt="" class="learn-more-card__image" aria-hidden="true">
-            </article>
-          </div>
-
-          <div class="learn-more-modal__controls">
-            <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="get-faster-carousel-radios" data-shifts-by="-1"></button>
-
-            <div class="learn-more-modal__page-radios" data-controls-carousel="get-faster-carousel"
-              id="get-faster-carousel-radios">
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                checked aria-label="Go to page 1" id="get-faster-controls-page-1" data-page-number="1">
-              <label for="get-faster-controls-page-1" class="learn-more-modal__page-radio-label"></label>
-
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                aria-label="Go to page 2" id="get-faster-controls-page-2" data-page-number="2">
-              <label for="get-faster-controls-page-2" class="learn-more-modal__page-radio-label"></label>
-
-              <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                aria-label="Go to page 3" id="get-faster-controls-page-3" data-page-number="3">
-              <label for="get-faster-controls-page-3" class="learn-more-modal__page-radio-label"></label>
-            </div>
-
-            <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-              data-selects-from="get-faster-carousel-radios" data-shifts-by="1"></button>
-
-            <button data-closes-modal="get-faster-modal" class="button light learn-more-modal__accept-modal">Ok</button>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="endless-extras-section__heading">Endless extras</h2>
-      <p class="endless-extras-section__description">Joining Starbucks<sup>®</sup> Rewards means unlocking access to
-        exclusive
-        benefits. Say hello to easy ordering, tasty Rewards and—yes, free coffee.</p>
-      <ul class="endless-extras-section__extras-list">
-        <li class="endless-extras-section__extras-item extras-item">
-          <h3 class="extras-item__heading">Fun freebies</h3>
-          <p class="extras-item__description">Not only can you earn free coffee, look forward to a birthday treat plus
-            coffee and tea refills.</p>
-          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
-            data-opens-modal="fun-freebies-modal">
-            <img class="extras-item_image" src="./img/extras/1.jpg" alt="">
-          </button>
-          <button data-opens-modal="fun-freebies-modal" class="extras-item__learn-more-button">Learn more</button>
-        </li>
-
-        <li class="endless-extras-section__extras-item extras-item">
-          <h3 class="extras-item__heading">Order & pay ahead</h3>
-          <p class="extras-item__description">Enjoy the convenience of in-store, curbside or drive-thru pickup at select
-            stores.</p>
-          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
-            data-opens-modal="order-ahead-modal">
-            <img class="extras-item_image" src="./img/extras/2.jpg" alt="">
-          </button>
-          <button class="extras-item__learn-more-button" data-opens-modal="order-ahead-modal">Learn more</button>
-        </li>
-
-        <li class="endless-extras-section__extras-item extras-item">
-          <h3 class="extras-item__heading">Get to free faster</h3>
-          <p class="extras-item__description">Earn Stars even quicker with Bonus Star challenges, Double Star Days and
-            exciting games.</p>
-          <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
-            data-opens-modal="get-faster-modal">
-            <img class="extras-item_image" src="./img/extras/3.jpg" alt="">
-          </button>
-          <button class="extras-item__learn-more-button" data-opens-modal="get-faster-modal">Learn more</button>
-        </li>
-      </ul>
-    </section>
+          <li class="endless-extras-section__extras-item extras-item">
+            <h3 class="extras-item__heading">Get to free faster</h3>
+            <p class="extras-item__description">Earn Stars even quicker with Bonus Star challenges, Double Star Days and
+              exciting games.</p>
+            <button class="extras-item_learn-more-image-button" aria-hidden="true" tabindex="-1"
+              data-opens-modal="get-faster-modal">
+              <img class="extras-item_image" src="./img/extras/3.jpg" alt="">
+            </button>
+            <button class="extras-item__learn-more-button" data-opens-modal="get-faster-modal">Learn more</button>
+          </li>
+        </ul>
+      </section>
+    </div>
 
     <section class="earn-stars-section">
       <h2 class="earn-stars-section__heading">Cash or card, you earn Stars</h2>
