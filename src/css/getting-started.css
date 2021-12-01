@@ -1,7 +1,13 @@
+.getting-started-wrapper {
+  display: grid;
+  place-items: center;
+}
+
 .getting-started {
   padding: 4rem 1rem;
   background-color: white;
   color: #212121;
+  max-width: 93.75rem;
 }
 
 .getting-started__sub-heading {
@@ -47,4 +53,31 @@
 
 .step-item__heading {
   font-weight: 700;
+}
+
+@media (min-width: 50rem) {
+  .getting-started {
+    padding: 4rem;
+  }
+
+  .getting-started__steps-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step-item {
+    grid-template:
+      "counter"
+      "heading"
+      "description";
+    text-align: center;
+  }
+
+  .step-item__description {
+  }
+
+  .step-item__heading {
+    font-size: 1.125rem;
+  }
 }

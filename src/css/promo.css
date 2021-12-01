@@ -1,10 +1,13 @@
 .promo {
-  min-height: 37.5rem;
   background: url("../img/hero-mobile.jpg");
   background-color: #d0eae4;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position-y: bottom;
+}
+
+.promo__content {
+  min-height: 37.5rem;
   padding-top: 2rem;
   text-align: center;
 }
@@ -33,4 +36,50 @@
 .promo__button {
   display: inline-block;
   margin-bottom: 1.25rem;
+}
+
+@media (min-width: 50rem) {
+  .promo {
+    position: relative;
+    background: url("../img/hero-desktop.png") 50% / auto 100% no-repeat #d0eae4;
+    font-size: 1rem;
+  }
+
+  .promo__content {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    min-height: unset;
+    text-align: left;
+  }
+
+  /* an aspect ratio box hack https://css-tricks.com/aspect-ratio-boxes */
+  .promo::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  .promo::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .promo__big-heading {
+    text-align: left;
+    font-size: 2.25rem;
+  }
+
+  .promo__smaller-heading {
+    text-align: left;
+    font-size: 1.25rem;
+  }
 }
