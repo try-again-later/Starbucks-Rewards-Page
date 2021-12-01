@@ -44,34 +44,41 @@
 
 @media (min-width: 50rem) {
   .promo {
-    position: relative;
     background: url("../img/hero-desktop.png") 50% / auto 100% no-repeat #d0eae4;
     font-size: 1rem;
   }
 
   .promo__content {
+    min-height: unset;
+    width: 100%;
     position: absolute;
-    display: flex;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     padding: 2rem;
-    min-height: unset;
     text-align: left;
   }
 
+  .promo__content-wrapper {
+    width: 100%;
+    max-width: 93.75rem;
+    position: relative;
+  }
+
   /* an aspect ratio box hack https://css-tricks.com/aspect-ratio-boxes */
-  .promo::before {
+  .promo__content-wrapper::before {
     content: "";
     width: 1px;
     margin-left: -1px;
     float: left;
     height: 0;
-    padding-top: 56.25%;
+    padding-top: 45%;
   }
 
-  .promo::after {
+  .promo__content-wrapper::after {
     content: "";
     display: table;
     clear: both;

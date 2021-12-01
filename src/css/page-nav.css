@@ -111,6 +111,7 @@
 .nav-list__item a {
   text-decoration: none;
   color: #555;
+  white-space: nowrap;
 }
 
 .nav-list__item :is(a, button) {
@@ -151,7 +152,7 @@
     height: 100%;
     place-items: center;
     position: relative;
-    padding: 0 0.5rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .nav-list__item :is(a, button) {
@@ -200,6 +201,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 0 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .page-nav__find-store {
@@ -211,6 +213,7 @@
   font-size: 0.875rem;
   font-weight: 700;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .page-nav__find-store::before {
@@ -253,6 +256,7 @@
     gap: 1rem;
     order: 1;
     margin-right: 1rem;
+    margin: 0;
   }
 
   .page-nav__find-store {

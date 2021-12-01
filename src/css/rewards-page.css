@@ -15,6 +15,7 @@
 .page-header-top-bar {
   display: flex;
   align-items: center;
+  padding: 0.25rem 1rem;
   position: relative;
   background-color: white;
   box-shadow: 0 0 4px rgba(0 0 0 / 25%);
@@ -76,6 +77,14 @@
 }
 
 @media (min-width: 50rem) {
+  .page-header-wrapper {
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: white;
+  }
+
   .page-header-top-bar {
     box-shadow: none;
     padding: 0;
@@ -111,17 +120,22 @@
   }
 }
 
-.join-app-sticky {
+.join-app-sticky-wrapper {
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0.75rem;
-  color: white;
+  z-index: 2;
   background-color: #1e3932;
   box-shadow: rgba(0 0 0 / 25%) 0 4px 4px;
-  z-index: 2;
+  padding: 0.5rem 1rem;
+}
+
+.join-app-sticky {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 93.75rem;
+  color: white;
 }
 
 .join-app-sticky__heading {
@@ -147,10 +161,25 @@
   background-color: #39514b;
 }
 
+@media (min-width: 50rem) {
+  .join-app-sticky-wrapper {
+    top: 95px;
+    padding: 0.75rem 1rem;
+  }
+
+  .join-app-sticky__heading {
+    font-size: 1rem;
+  }
+}
+
+.terms-of-use-section-wrapper {
+  background-color: #f9f9f9;
+}
+
 .terms-of-use-section {
+  max-width: 93.75rem;
   padding: 2rem 1rem 4rem;
   font-size: 0.75rem;
-  background-color: #f9f9f9;
   color: #666;
 }
 
@@ -163,4 +192,45 @@
   text-transform: uppercase;
   font-size: 0.8rem;
   margin-top: 2rem;
+}
+
+@media (min-width: 50rem) {
+  .terms-of-use-section {
+    display: grid;
+    gap: 2rem;
+    grid-template:
+      "description   description "
+      "earning-stars terms-of-use"
+      "benefits      redeeming   " / 1fr 1fr;
+    font-size: 0.9rem;
+  }
+
+  .terms-of-use-section__description {
+    grid-area: description;
+  }
+
+  .terms-of-use-section__text-block_redeeming {
+    grid-area: redeeming;
+  }
+
+  .terms-of-use-section__text-block_benefits {
+    grid-area: benefits;
+  }
+
+  .terms-of-use-section__text-block_earning-stars {
+    grid-area: earning-stars;
+  }
+
+  .terms-of-use-section p {
+    margin: 0;
+  }
+
+  .terms-of-use-section h3 {
+    margin: 0;
+    margin-bottom: 0.75em;
+  }
+
+  .terms-of-use-section p + p {
+    margin-top: 0.75em;
+  }
 }

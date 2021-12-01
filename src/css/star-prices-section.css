@@ -8,18 +8,10 @@
 
   /* google chrome does not like repeat(5, 1fr) for some reason */
   grid-template:
-    "left   price-25 price-50 price-150 price-200 price-400 right" auto
+    "left price-25 price-50 price-150 price-200 price-400 right" auto
     "left slider   slider   slider    slider    slider    right" auto
     "left item     item     item      item      item      right" auto;
-  grid-template-columns: 1fr repeat(5, minmax(auto, 9rem)) 1fr;
-}
-
-.star-prices-section__navigation {
-  display: grid;
-  position: relative;
-  z-index: 1;
-  grid-template-columns: repeat(5, 1fr);
-  box-shadow: 0 4px 4px rgba(0 0 0 / 7.5%);
+  grid-template-columns: auto repeat(5, 1fr) auto;
 }
 
 .star-prices-section__box-shadow {
@@ -73,7 +65,7 @@
 .star-prices-section__price-label::after {
   content: "★";
   color: #cba258;
-  font-size: 0.75em;
+  font-size: 0.875em;
 }
 
 .item-card {
@@ -105,6 +97,10 @@
 }
 
 @media (min-width: 50rem) {
+  .star-prices-section__tablist {
+    grid-template-columns: 1fr repeat(5, minmax(9rem, 14rem)) 1fr;
+  }
+
   .item-card {
     padding: 2rem;
     display: grid;
