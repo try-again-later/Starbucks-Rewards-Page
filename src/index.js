@@ -1,3 +1,12 @@
+document.querySelectorAll('[data-toggles-class]').forEach((toggler) => {
+  const className = toggler.dataset.togglesClass;
+  const classToggleTarget = document.getElementById(toggler.dataset.togglesClassFor);
+
+  toggler.addEventListener('click', () => {
+    classToggleTarget.classList.toggle(className);
+  });
+});
+
 const pageMain = document.querySelector('.page-main');
 
 const menuButton = document.querySelector('.page-header-top-bar__menu-button');
