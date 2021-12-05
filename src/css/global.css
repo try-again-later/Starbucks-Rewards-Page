@@ -10,6 +10,11 @@
   }
 }
 
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.875rem;
+}
+
 ul {
   list-style-type: none;
 }
@@ -93,6 +98,10 @@ h3 {
   transition: background-color 0.2s, transform 0.1s;
   cursor: pointer;
   white-space: nowrap;
+}
+
+.button:focus {
+  outline-offset: 4px;
 }
 
 .button:active {

@@ -110,8 +110,6 @@
 
 .page-main {
   position: relative;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.875rem;
   pointer-events: all;
 }
 
@@ -160,6 +158,11 @@
 
 .join-app__join-button:hover {
   background-color: #39514b;
+}
+
+.join-app__join-button:focus {
+  outline: 2px solid white;
+  outline-offset: 4px;
 }
 
 @media (min-width: 50rem) {

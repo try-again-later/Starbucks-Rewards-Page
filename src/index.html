@@ -38,6 +38,15 @@
 <body>
   <h1 class="visually-hidden">Starbucks Rewards</h1>
 
+  <div class="cookies-pop-up" id="cookies-pop-up" tabindex="-1">
+    <p class="cookies-pop-up__heading">This site uses cookies, but not the kind you eat</p>
+    <p class="cookies-pop-up__description">We use cookies to remember log in details, provide secure log in, improve
+      site functionality, and deliver personalized content. By continuing to browse the site, you accept cookies.</p>
+    <a href="#" class="cookies-pop-up__change-settings-button">Change cookie settings</a>
+    <button class="button primary cookies-pop-up__agree-button" data-toggles-class="cookies-pop-up_hidden"
+      data-toggles-class-for="cookies-pop-up">Agree</button>
+  </div>
+
   <div class="page-header-wrapper container">
     <header class="page-header">
       <div class="page-header-top-bar">
@@ -54,29 +63,30 @@
         </button>
       </div>
       <div class="page-nav-darken">
-        <nav class="page-nav">
+        <nav class="page-nav" tabindex="-1">
           <ul class="nav-list">
             <li class="nav-list__item nav-list__item_expandable">
-              <button aria-label="Open menu" class="nav-list__open-submenu-button">Menu</button>
+              <button aria-label="Open menu" class="nav-list__open-submenu-button"
+                data-focus-hidden="true">Menu</button>
             </li>
-            <li class="nav-list__item nav-list__item_selected"><a href="#">Rewards</a></li>
-            <li class="nav-list__item"><a href="#">Gift Cards</a></li>
+            <li class="nav-list__item nav-list__item_selected"><a href="#" data-focus-hidden="true">Rewards</a></li>
+            <li class="nav-list__item"><a href="#" data-focus-hidden="true">Gift Cards</a></li>
           </ul>
           <hr class="page-nav__separator">
           <div class="page-nav__buttons">
-            <a href="#" class="button light">Sign in</a>
-            <a href="#" class="button accent">Join now</a>
+            <a href="#" class="button light" data-focus-hidden="true">Sign in</a>
+            <a href="#" class="button accent" data-focus-hidden="true">Join now</a>
           </div>
-          <a href="#" class="page-nav__find-store">Find a store</a>
+          <a href="#" class="page-nav__find-store" data-focus-hidden="true">Find a store</a>
+          <button data-focus-hidden="true" class="button light page-nav__close-menu">Close menu</button>
         </nav>
-        <div class="menu-sub-nav">
-          <button class="menu-sub-nav__go-back-button">Menu</button>
+        <div class="menu-sub-nav" tabindex="-1">
+          <button class="menu-sub-nav__go-back-button" data-focus-hidden="true">Menu</button>
           <ul class="menu-sublist">
-            <li class="nav-list__item"><a href="#">All products</a></li>
-            <li class="nav-list__item"><a href="#">Featured</a></li>
-            <li class="nav-list__item"><a href="#">Previous</a></li>
-            <li class="nav-list__item"><a href="#">Favorites</a></li>
-          </ul>
+            <li class="nav-list__item"><a href="#" data-focus-hidden="true">All products</a></li>
+            <li class="nav-list__item"><a href="#" data-focus-hidden="true">Featured</a></li>
+            <li class="nav-list__item"><a href="#" data-focus-hidden="true">Previous</a></li>
+            <li class="nav-list__item"><a href="#" data-focus-hidden="true">Favorites</a></li>
           </ul>
         </div>
       </div>
@@ -89,15 +99,6 @@
         <h2 class="join-app-sticky__heading">Starbucks<sup>&reg;</sup> rewards</h2>
         <a href="#" class="join-app__join-button button">Join in the app</a>
       </div>
-    </div>
-
-    <div class="cookies-pop-up" id="cookies-pop-up">
-      <p class="cookies-pop-up__heading">This site uses cookies, but not the kind you eat</p>
-      <p class="cookies-pop-up__description">We use cookies to remember log in details, provide secure log in, improve
-        site functionality, and deliver personalized content. By continuing to browse the site, you accept cookies.</p>
-      <a href="#" class="cookies-pop-up__change-settings-button">Change cookie settings</a>
-      <button class="button primary cookies-pop-up__agree-button" data-toggles-class="cookies-pop-up_hidden"
-        data-toggles-class-for="cookies-pop-up">Agree</button>
     </div>
 
     <section class="promo">
@@ -150,60 +151,55 @@
 
     <section class="star-prices-section">
       <h2 class="star-prices-section__heading">Get your favorites for free</h2>
-      <div class="star-prices-section__tablist" role="tablist" aria-label="What you can get for stars">
-        <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices" role="tab"
+      <div class="star-prices-section__tablist" aria-label="What you can get for stars">
+        <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices"
           id="stars-price-25" aria-controls="stars-item-25" checked>
         <label class="star-prices-section__price-label" for="stars-price-25">25</label>
 
         <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices"
-          id="stars-price-50" role="tab" aria-controls="stars-item-50">
+          id="stars-price-50" aria-controls="stars-item-50">
         <label class="star-prices-section__price-label" for="stars-price-50">50</label>
 
         <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices"
-          id="stars-price-150" role="tab" aria-controls="stars-item-150">
+          id="stars-price-150" aria-controls="stars-item-150">
         <label class="star-prices-section__price-label" for="stars-price-150">150</label>
 
         <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices"
-          id="stars-price-200" role="tab" aria-controls="stars-item-200">
+          id="stars-price-200" aria-controls="stars-item-200">
         <label class="star-prices-section__price-label" for="stars-price-200">200</label>
 
         <input class="star-prices-section__price-radio visually-hidden" type="radio" name="star-prices"
-          id="stars-price-400" role="tab" aria-controls="stars-item-400">
+          id="stars-price-400" aria-controls="stars-item-400">
         <label class="star-prices-section__price-label" for="stars-price-400">400</label>
 
         <div class="star-prices-section__box-shadow"></div>
         <div class="star-prices-section__slider"></div>
         <div class="star-prices-section__item-background"></div>
 
-        <div class="star-prices-section__item-card item-card" tabindex="0" role="tabpanel" id="stars-item-25"
-          aria-labelledby="stars-price-25">
+        <div class="star-prices-section__item-card item-card" id="stars-item-25" aria-labelledby="stars-price-25">
           <h3 class="item-card__heading">Customize your drink</h3>
           <img src="./img/items-for-stars/item-25.png" alt="" class="item-card__hero" aria-hidden="true">
           <p class="item-card__description">Make your drink just right with an extra espresso shot, dairy substitute or
             a dash of your favorite syrup.</p>
         </div>
-        <div class="star-prices-section__item-card item-card" tabindex="0" role="tabpanel" id="stars-item-50"
-          aria-labelledby="stars-price-50">
+        <div class="star-prices-section__item-card item-card" id="stars-item-50" aria-labelledby="stars-price-50">
           <h3 class="item-card__heading">Brewed hot coffee, bakery item or hot tea</h3>
           <img src="./img/items-for-stars/item-50.png" alt="" class="item-card__hero" aria-hidden="true">
           <p class="item-card__description">Pair coffee cake or an almond croissant with your fresh cup of hot brew.</p>
         </div>
-        <div class="star-prices-section__item-card item-card" tabindex="0" role="tabpanel" id="stars-item-150"
-          aria-labelledby="stars-price-150">
+        <div class="star-prices-section__item-card item-card" id="stars-item-150" aria-labelledby="stars-price-150">
           <h3 class="item-card__heading">Handcrafted drink, hot breakfast or parfait</h3>
           <img src="./img/items-for-stars/item-150.png" alt="" class="item-card__hero" aria-hidden="true">
           <p class="item-card__description">Have a really good morning with a breakfast sandwich, oatmeal or your
             favorite drink.</p>
         </div>
-        <div class="star-prices-section__item-card item-card" tabindex="0" role="tabpanel" id="stars-item-200"
-          aria-labelledby="stars-price-200">
+        <div class="star-prices-section__item-card item-card" id="stars-item-200" aria-labelledby="stars-price-200">
           <h3 class="item-card__heading">Salad, sandwich or protein box</h3>
           <img src="./img/items-for-stars/item-200.png" alt="" class="item-card__hero" aria-hidden="true">
           <p class="item-card__description">Nourish your day with a hearty Chipotle Chicken Wrap or Eggs & Cheese
             Protein Box.</p>
         </div>
-        <div class="star-prices-section__item-card item-card" tabindex="0" role="tabpanel" id="stars-item-400"
-          aria-labelledby="stars-price-400">
+        <div class="star-prices-section__item-card item-card" id="stars-item-400" aria-labelledby="stars-price-400">
           <h3 class="item-card__heading">Select merchandise or at-home coffee</h3>
           <img src="./img/items-for-stars/item-400.png" alt="" class="item-card__hero" aria-hidden="true">
           <p class="item-card__description">Take home a signature cup, a bag of coffee or your choice of select coffee
@@ -215,9 +211,9 @@
     <div class="container">
       <section class="endless-extras-section">
         <div class="endless-extras-section__learn-more-overlay">
-          <div id="fun-freebies-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+          <div id="fun-freebies-modal" class="endless-extras-section__learn-more-modal learn-more-modal" tabindex="-1">
             <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-              data-closes-modal="fun-freebies-modal"></button>
+              data-closes-modal="fun-freebies-modal" data-focus-hidden="true"></button>
 
             <div class="learn-more-modal__content-carousel" id="fun-freebies-carousel" data-slides-count="3">
               <article class="learn-more-modal__learn-more-card learn-more-card">
@@ -244,34 +240,37 @@
 
             <div class="learn-more-modal__controls">
               <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="-1"></button>
+                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="-1" data-focus-hidden="true"></button>
 
               <div class="learn-more-modal__page-radios" data-controls-carousel="fun-freebies-carousel"
                 id="fun-freebies-carousel-radios">
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                  checked aria-label="Go to page 1" id="fun-freebies-controls-page-1" data-page-number="1">
+                  checked aria-label="Go to page 1" id="fun-freebies-controls-page-1" data-page-number="1"
+                  data-focus-hidden="true">
                 <label for="fun-freebies-controls-page-1" class="learn-more-modal__page-radio-label"></label>
 
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                  aria-label="Go to page 2" id="fun-freebies-controls-page-2" data-page-number="2">
+                  aria-label="Go to page 2" id="fun-freebies-controls-page-2" data-page-number="2"
+                  data-focus-hidden="true">
                 <label for="fun-freebies-controls-page-2" class="learn-more-modal__page-radio-label"></label>
 
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="fun-freebies-controls"
-                  aria-label="Go to page 3" id="fun-freebies-controls-page-3" data-page-number="3">
+                  aria-label="Go to page 3" id="fun-freebies-controls-page-3" data-page-number="3"
+                  data-focus-hidden="true">
                 <label for="fun-freebies-controls-page-3" class="learn-more-modal__page-radio-label"></label>
               </div>
 
               <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="1"></button>
+                data-selects-from="fun-freebies-carousel-radios" data-shifts-by="1" data-focus-hidden="true"></button>
 
-              <button data-closes-modal="fun-freebies-modal"
-                class="button light learn-more-modal__accept-modal">Ok</button>
+              <button data-closes-modal="fun-freebies-modal" class="button light learn-more-modal__accept-modal"
+                data-focus-hidden="true">Ok</button>
             </div>
           </div>
 
-          <div id="order-ahead-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+          <div id="order-ahead-modal" class="endless-extras-section__learn-more-modal learn-more-modal" tabindex="-1">
             <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-              data-closes-modal="order-ahead-modal"></button>
+              data-closes-modal="order-ahead-modal" data-focus-hidden="true"></button>
 
             <div class="learn-more-modal__content-carousel" id="order-ahead-carousel" data-slides-count="2">
               <article class="learn-more-modal__learn-more-card learn-more-card">
@@ -291,30 +290,32 @@
 
             <div class="learn-more-modal__controls">
               <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="order-ahead-carousel-radios" data-shifts-by="-1"></button>
+                data-selects-from="order-ahead-carousel-radios" data-shifts-by="-1" data-focus-hidden="true"></button>
 
               <div class="learn-more-modal__page-radios" data-controls-carousel="order-ahead-carousel"
                 id="order-ahead-carousel-radios">
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
-                  checked aria-label="Go to page 1" id="order-ahead-controls-page-1" data-page-number="1">
+                  checked aria-label="Go to page 1" id="order-ahead-controls-page-1" data-page-number="1"
+                  data-focus-hidden="true">
                 <label for="order-ahead-controls-page-1" class="learn-more-modal__page-radio-label"></label>
 
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="order-ahead-controls"
-                  aria-label="Go to page 2" id="order-ahead-controls-page-2" data-page-number="2">
+                  aria-label="Go to page 2" id="order-ahead-controls-page-2" data-page-number="2"
+                  data-focus-hidden="true">
                 <label for="order-ahead-controls-page-2" class="learn-more-modal__page-radio-label"></label>
               </div>
 
               <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="order-ahead-carousel-radios" data-shifts-by="1"></button>
+                data-selects-from="order-ahead-carousel-radios" data-shifts-by="1" data-focus-hidden="true"></button>
 
-              <button data-closes-modal="order-ahead-modal"
-                class="button light learn-more-modal__accept-modal">Ok</button>
+              <button data-closes-modal="order-ahead-modal" class="button light learn-more-modal__accept-modal"
+                data-focus-hidden="true">Ok</button>
             </div>
           </div>
 
-          <div id="get-faster-modal" class="endless-extras-section__learn-more-modal learn-more-modal">
+          <div id="get-faster-modal" class="endless-extras-section__learn-more-modal learn-more-modal" tabindex="-1">
             <button class="learn-more-modal__close-button" type="button" aria-label="Close modal"
-              data-closes-modal="get-faster-modal"></button>
+              data-closes-modal="get-faster-modal" data-focus-hidden="true"></button>
 
             <div class="learn-more-modal__content-carousel" id="get-faster-carousel" data-slides-count="3">
               <article class="learn-more-modal__learn-more-card learn-more-card">
@@ -340,28 +341,31 @@
 
             <div class="learn-more-modal__controls">
               <button class="learn-more-modal__prev-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="get-faster-carousel-radios" data-shifts-by="-1"></button>
+                data-selects-from="get-faster-carousel-radios" data-shifts-by="-1" data-focus-hidden="true"></button>
 
               <div class="learn-more-modal__page-radios" data-controls-carousel="get-faster-carousel"
                 id="get-faster-carousel-radios">
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                  checked aria-label="Go to page 1" id="get-faster-controls-page-1" data-page-number="1">
+                  checked aria-label="Go to page 1" id="get-faster-controls-page-1" data-page-number="1"
+                  data-focus-hidden="true">
                 <label for="get-faster-controls-page-1" class="learn-more-modal__page-radio-label"></label>
 
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                  aria-label="Go to page 2" id="get-faster-controls-page-2" data-page-number="2">
+                  aria-label="Go to page 2" id="get-faster-controls-page-2" data-page-number="2"
+                  data-focus-hidden="true">
                 <label for="get-faster-controls-page-2" class="learn-more-modal__page-radio-label"></label>
 
                 <input class="learn-more-modal__page-radio visually-hidden" type="radio" name="get-faster-controls"
-                  aria-label="Go to page 3" id="get-faster-controls-page-3" data-page-number="3">
+                  aria-label="Go to page 3" id="get-faster-controls-page-3" data-page-number="3"
+                  data-focus-hidden="true">
                 <label for="get-faster-controls-page-3" class="learn-more-modal__page-radio-label"></label>
               </div>
 
               <button class="learn-more-modal__next-page-button" type="button" aria-label="Go to previous page"
-                data-selects-from="get-faster-carousel-radios" data-shifts-by="1"></button>
+                data-selects-from="get-faster-carousel-radios" data-shifts-by="1" data-focus-hidden="true"></button>
 
-              <button data-closes-modal="get-faster-modal"
-                class="button light learn-more-modal__accept-modal">Ok</button>
+              <button data-closes-modal="get-faster-modal" class="button light learn-more-modal__accept-modal"
+                data-focus-hidden="true">Ok</button>
             </div>
           </div>
         </div>
@@ -576,11 +580,12 @@
 
         <div class="page-footer__links-list-wrapper">
           <input type="checkbox" class="page-footer__links-list-expand-button visually-hidden"
-            id="careers-expand-button">
+            id="careers-expand-button" aria-label="Expand careers links list">
           <label for="careers-expand-button" class="page-footer__links-list-expand-button-label">Careers</label>
           <ul class="page-footer__links-list">
             <li class="page-footer__link-item"><a href="#">Culture and Values</a></li>
-            <li class="page-footer__link-item"><a href="#">Inclusion, Diversity, and Equity</a></li>
+            <li class="page-footer__link-item"><a href="#">Inclusion, Diversity, and Equity</a>
+            </li>
             <li class="page-footer__link-item"><a href="#">College Achievement Plan</a></li>
             <li class="page-footer__link-item"><a href="#">Alumni Community</a></li>
             <li class="page-footer__link-item"><a href="#">U.S. Careers</a></li>
@@ -590,32 +595,34 @@
 
         <div class="page-footer__links-list-wrapper">
           <input type="checkbox" class="page-footer__links-list-expand-button visually-hidden"
-            id="social-impact-expand-button">
+            id="social-impact-expand-button" aria-label="Expand social impact links list">
           <label for="social-impact-expand-button" class="page-footer__links-list-expand-button-label">Social
             Impact</label>
           <ul class="page-footer__links-list">
             <li class="page-footer__link-item"><a href="#">People</a></li>
             <li class="page-footer__link-item"><a href="#">Planet</a></li>
-            <li class="page-footer__link-item"><a href="#">Environmental and Social Impact Reporting</a></li>
+            <li class="page-footer__link-item"><a href="#">Environmental and Social Impact
+                Reporting</a></li>
           </ul>
         </div>
 
         <div class="page-footer__links-list-wrapper">
           <input type="checkbox" class="page-footer__links-list-expand-button visually-hidden"
-            id="business-partners-expand-button">
+            id="business-partners-expand-button" aria-label="Expand business partners links list">
           <label for="business-partners-expand-button" class="page-footer__links-list-expand-button-label">For Business
             Partners</label>
           <ul class="page-footer__links-list">
             <li class="page-footer__link-item"><a href="#">Landlord Support Center</a></li>
             <li class="page-footer__link-item"><a href="#">Suppliers</a></li>
             <li class="page-footer__link-item"><a href="#">Corporate Gift Card Sales</a></li>
-            <li class="page-footer__link-item"><a href="#">Office and Foodservice Coffee</a></li>
+            <li class="page-footer__link-item"><a href="#">Office and Foodservice Coffee</a>
+            </li>
           </ul>
         </div>
 
         <div class="page-footer__links-list-wrapper">
           <input type="checkbox" class="page-footer__links-list-expand-button visually-hidden"
-            id="order-and-pickup-expand-button">
+            id="order-and-pickup-expand-button" aria-label="Expand order and pickup links list">
           <label for="order-and-pickup-expand-button" class="page-footer__links-list-expand-button-label">Order and
             Pickup</label>
           <ul class="page-footer__links-list">
@@ -623,7 +630,8 @@
             <li class="page-footer__link-item"><a href="#">Order on the Web</a></li>
             <li class="page-footer__link-item"><a href="#">Delivery</a></li>
             <li class="page-footer__link-item"><a href="#">Order and Pickup Options</a></li>
-            <li class="page-footer__link-item"><a href="#">Explore and Find Coffee for Home</a></li>
+            <li class="page-footer__link-item"><a href="#">Explore and Find Coffee for Home</a>
+            </li>
           </ul>
         </div>
       </div>

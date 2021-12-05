@@ -1,3 +1,5 @@
+import * as focusTrap from 'focus-trap';
+
 document.querySelectorAll('[data-toggles-class]').forEach((toggler) => {
   const className = toggler.dataset.togglesClass;
   const classToggleTarget = document.getElementById(toggler.dataset.togglesClassFor);
@@ -5,6 +7,19 @@ document.querySelectorAll('[data-toggles-class]').forEach((toggler) => {
   toggler.addEventListener('click', () => {
     classToggleTarget.classList.toggle(className);
   });
+});
+
+const cookiesModal = document.getElementById('cookies-pop-up');
+cookiesModal.focus();
+const cookiesModalTrap = focusTrap.createFocusTrap(cookiesModal, { allowOutsideClick: true });
+cookiesModalTrap.activate();
+const cookiesModalCloseButton = cookiesModal.querySelector('.cookies-pop-up__agree-button');
+cookiesModalCloseButton.addEventListener('click', () => {
+  cookiesModalTrap.deactivate();
+});
+
+document.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+  element.tabIndex = -1;
 });
 
 const pageMain = document.querySelector('.page-main');
@@ -113,11 +128,19 @@ const bottomBarAnimation = playBackAndForth(
 
 let menuOpened = false;
 
+const navList = document.querySelector('.page-nav');
+const menuFocusTrap = focusTrap.createFocusTrap(navList, { allowOutsideClick: true });
+
 const closeMenu = () => {
   menuOpened = false;
   submenu.classList.remove('menu-sub-nav_toggled');
   menuButton.classList.remove('page-header__menu-button_toggled');
   pageNavDarken.classList.remove('page-nav-darken_toggled');
+
+  navList.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+    element.tabIndex = -1;
+  });
+  menuFocusTrap.deactivate();
 
   document.body.style.overflowY = 'auto';
 };
@@ -126,6 +149,12 @@ const openMenu = () => {
   menuOpened = true;
   menuButton.classList.add('page-header__menu-button_toggled');
   pageNavDarken.classList.add('page-nav-darken_toggled');
+
+  navList.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+    element.tabIndex = 0;
+  });
+  navList.focus({ preventScroll: true });
+  menuFocusTrap.activate();
 
   document.body.style.overflowY = 'hidden';
 };
@@ -171,12 +200,49 @@ pageMain.addEventListener('click', () => {
   }
 });
 
+const menuCloseButton = document.querySelector('.page-nav__close-menu');
+menuCloseButton.addEventListener('click', () => {
+  if (menuOpened) {
+    topBarAnimation();
+    middleBarAnimation();
+    bottomBarAnimation();
+
+    closeMenu();
+  }
+});
+
+const submenuFocusTrap = focusTrap.createFocusTrap(submenu, { allowOutsideClick: true });
+
 submenuOpenButton.addEventListener('click', () => {
   submenu.classList.add('menu-sub-nav_toggled');
+
+  setTimeout(() => {
+    submenu.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+      element.tabIndex = 0;
+    });
+    submenu.focus({ preventScroll: true });
+    submenuFocusTrap.activate();
+  }, 200);
 });
 
 submenuCloseButton.addEventListener('click', () => {
   submenu.classList.remove('menu-sub-nav_toggled');
+  submenu.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+    element.tabIndex = -1;
+  });
+  submenuFocusTrap.deactivate();
+});
+
+const largeScreenMedia = window.matchMedia('(min-width: 50rem)');
+if (largeScreenMedia.matches) {
+  navList.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+    element.tabIndex = 0;
+  });
+}
+largeScreenMedia.addEventListener('change', (event) => {
+  navList.querySelectorAll('[data-focus-hidden="true"]').forEach((element) => {
+    element.tabIndex = event.matches ? 0 : -1;
+  });
 });
 
 // modals
@@ -184,22 +250,26 @@ submenuCloseButton.addEventListener('click', () => {
 const learnMoreModalOverlay = document.querySelector('.endless-extras-section__learn-more-overlay');
 let currentModal = null;
 
-function openModal(modal) {
+const modalFocusTraps = new Map();
+
+function openModal(modal, modalFocusTrap) {
   learnMoreModalOverlay.classList.add('endless-extras-section__learn-more-overlay_toggled');
   modal.classList.add('toggled');
+  modal.querySelectorAll('[data-focus-hidden]').forEach((element) => {
+    element.tabIndex = 0;
+  });
+  modalFocusTrap.activate();
   currentModal = modal;
 }
 
-function closeModal(modal) {
+function closeModal(modal, modalFocusTrap) {
   learnMoreModalOverlay.classList.remove('endless-extras-section__learn-more-overlay_toggled');
+  modal.querySelectorAll('[data-focus-hidden]').forEach((element) => {
+    element.tabIndex = -1;
+  });
   modal.classList.remove('toggled');
+  modalFocusTrap.deactivate();
 }
-
-learnMoreModalOverlay.addEventListener('click', (event) => {
-  if (event.target === learnMoreModalOverlay) {
-    closeModal(currentModal);
-  }
-});
 
 [
   ...document.querySelectorAll('.extras-item__learn-more-button'),
@@ -209,7 +279,9 @@ learnMoreModalOverlay.addEventListener('click', (event) => {
     return;
   }
   const modal = document.querySelector(`#${button.dataset.opensModal}`);
-  button.addEventListener('click', () => openModal(modal));
+  const modalFocusTrap = focusTrap.createFocusTrap(modal, { allowOutsideClick: true });
+  modalFocusTraps.set(modal, modalFocusTrap);
+  button.addEventListener('click', () => openModal(modal, modalFocusTraps.get(modal)));
 });
 
 [
@@ -220,7 +292,13 @@ learnMoreModalOverlay.addEventListener('click', (event) => {
     return;
   }
   const modal = document.getElementById(button.dataset.closesModal);
-  button.addEventListener('click', () => closeModal(modal));
+  button.addEventListener('click', () => closeModal(modal, modalFocusTraps.get(modal)));
+});
+
+learnMoreModalOverlay.addEventListener('click', (event) => {
+  if (event.target === learnMoreModalOverlay) {
+    closeModal(currentModal, modalFocusTraps.get(currentModal));
+  }
 });
 
 // carousel

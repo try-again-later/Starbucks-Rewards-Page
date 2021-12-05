@@ -204,6 +204,24 @@
   margin-bottom: 0.75rem;
 }
 
+.page-nav__close-menu {
+  display: block;
+  margin-left: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  cursor: auto;
+}
+
+@media (min-width: 50rem) {
+  .page-nav__close-menu {
+    display: none;
+  }
+}
+
+.page-nav__close-menu:focus {
+  opacity: 1;
+}
+
 .page-nav__find-store {
   display: inline-block;
   padding: 1rem 0;

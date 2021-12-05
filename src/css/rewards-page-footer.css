@@ -63,6 +63,11 @@
   transform: rotate(180deg);
 }
 
+.page-footer__links-list-wrapper:focus-within {
+  outline: 2px solid black;
+}
+
+.page-footer__links-list:focus-within,
 .page-footer__links-list-expand-button:checked ~ .page-footer__links-list {
   max-height: 100vh;
   pointer-events: all;

@@ -44,24 +44,26 @@
 }
 
 .learn-more-modal__close-button {
+  box-sizing: content-box;
   position: absolute;
+  width: 1rem;
+  height: 1rem;
   top: 1rem;
   right: 1rem;
-  background-color: #444;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem;
   z-index: 1;
-  mask-image: url("../img/icons/cross.svg");
-  mask-size: 1.5rem;
-  mask-repeat: no-repeat;
-  mask-position: center;
+  background: url("../img/icons/cross.svg") center / 1.5rem no-repeat;
   cursor: pointer;
   transition: transform 0.1s, background-color 0.1s;
 }
 
 .learn-more-modal__close-button:hover {
-  background-color: black;
   transform: scale(1.2);
+}
+
+.learn-more-modal__close-button:focus {
+  outline: 2px solid black;
 }
 
 .learn-more-modal__controls {
@@ -147,6 +149,11 @@
 .learn-more-modal__page-radio:checked + .learn-more-modal__page-radio-label {
   background-color: #444;
   transform: scale(1);
+}
+
+.learn-more-modal__page-radio:focus + .learn-more-modal__page-radio-label {
+  outline: 2px solid black;
+  outline-offset: 2px;
 }
 
 .learn-more-modal__page-radio:checked + .learn-more-modal__page-radio-label:hover {
