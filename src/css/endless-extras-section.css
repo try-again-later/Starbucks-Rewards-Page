@@ -57,18 +57,28 @@
 
 .extras-item__learn-more-button {
   grid-area: learn-more;
-  border: none;
-  padding: 0;
-  text-align: left;
-  text-decoration: underline;
-  font-size: 0.9rem;
-  background-color: transparent;
-  color: #006241;
   cursor: pointer;
+  max-width: max-content;
+  outline-offset: 4px;
 }
 
 .extras-item__learn-more-button:hover {
   text-decoration: none;
+}
+
+li:nth-of-type(1) .extras-item__learn-more-button,
+li:nth-of-type(1) .extras-item__learn-more-button::before {
+  animation-delay: 0s;
+}
+
+li:nth-of-type(2) .extras-item__learn-more-button,
+li:nth-of-type(2) .extras-item__learn-more-button::before {
+  animation-delay: 0.4s;
+}
+
+li:nth-of-type(3) .extras-item__learn-more-button,
+li:nth-of-type(3) .extras-item__learn-more-button::before {
+  animation-delay: 0.2s;
 }
 
 @media (min-width: 50rem) {
