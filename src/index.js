@@ -134,9 +134,8 @@ const bottomBarAnimation = playBackAndForth(
 let menuOpened = false;
 
 const navList = document.querySelector('.page-nav');
-const menuFocusTrap = focusTrap.createFocusTrap(navList, { allowOutsideClick: true });
-
-const submenuFocusTrap = focusTrap.createFocusTrap(submenu, { allowOutsideClick: true });
+let menuFocusTrap;
+let submenuFocusTrap;
 
 submenuOpenButton.addEventListener('click', () => {
   submenu.classList.add('menu-sub-nav_toggled');
@@ -146,6 +145,7 @@ submenuOpenButton.addEventListener('click', () => {
       element.tabIndex = 0;
     });
     submenu.focus({ preventScroll: true });
+    submenuFocusTrap = focusTrap.createFocusTrap(submenu, { allowOutsideClick: true });
     submenuFocusTrap.activate();
   }, 200);
 });
@@ -198,6 +198,7 @@ const openMenu = () => {
     element.tabIndex = 0;
   });
   navList.focus({ preventScroll: true });
+  menuFocusTrap = focusTrap.createFocusTrap(navList, { allowOutsideClick: true });
   menuFocusTrap.activate();
 
   document.body.style.overflowY = 'hidden';
@@ -284,22 +285,25 @@ let currentModal = null;
 
 const modalFocusTraps = new Map();
 
-function openModal(modal, modalFocusTrap) {
+function openModal(modal) {
   learnMoreModalOverlay.classList.add('endless-extras-section__learn-more-overlay_toggled');
   modal.classList.add('toggled');
   modal.querySelectorAll('[data-focus-hidden]').forEach((element) => {
     element.tabIndex = 0;
   });
+  const modalFocusTrap = focusTrap.createFocusTrap(modal, { allowOutsideClick: true });
+  modalFocusTraps.set(modal, modalFocusTrap);
   modalFocusTrap.activate();
   currentModal = modal;
 }
 
-function closeModal(modal, modalFocusTrap) {
+function closeModal(modal) {
   learnMoreModalOverlay.classList.remove('endless-extras-section__learn-more-overlay_toggled');
   modal.querySelectorAll('[data-focus-hidden]').forEach((element) => {
     element.tabIndex = -1;
   });
   modal.classList.remove('toggled');
+  const modalFocusTrap = modalFocusTraps.get(modal);
   modalFocusTrap.deactivate();
 }
 
@@ -311,13 +315,11 @@ function closeModal(modal, modalFocusTrap) {
     return;
   }
   const modal = document.querySelector(`#${button.dataset.opensModal}`);
-  const modalFocusTrap = focusTrap.createFocusTrap(modal, { allowOutsideClick: true });
-  modalFocusTraps.set(modal, modalFocusTrap);
-  button.addEventListener('click', () => openModal(modal, modalFocusTraps.get(modal)));
+  button.addEventListener('click', () => openModal(modal));
 
   modal.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-      closeModal(modal, modalFocusTraps.get(modal));
+      closeModal(modal);
     }
   });
 });
@@ -330,12 +332,12 @@ function closeModal(modal, modalFocusTrap) {
     return;
   }
   const modal = document.getElementById(button.dataset.closesModal);
-  button.addEventListener('click', () => closeModal(modal, modalFocusTraps.get(modal)));
+  button.addEventListener('click', () => closeModal(modal));
 });
 
 learnMoreModalOverlay.addEventListener('click', (event) => {
   if (event.target === learnMoreModalOverlay) {
-    closeModal(currentModal, modalFocusTraps.get(currentModal));
+    closeModal(currentModal);
   }
 });
 
