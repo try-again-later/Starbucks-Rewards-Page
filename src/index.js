@@ -11,7 +11,7 @@ document.querySelectorAll('[data-toggles-class]').forEach((toggler) => {
 
 const cookiesModal = document.getElementById('cookies-pop-up');
 cookiesModal.focus();
-const cookiesModalTrap = focusTrap.createFocusTrap(cookiesModal, { allowOutsideClick: true });
+const cookiesModalTrap = focusTrap.createFocusTrap(cookiesModal);
 cookiesModalTrap.activate();
 const cookiesModalCloseButton = cookiesModal.querySelector('.cookies-pop-up__agree-button');
 cookiesModalCloseButton.addEventListener('click', () => {
