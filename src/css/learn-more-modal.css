@@ -19,6 +19,7 @@
   pointer-events: none;
   transform: translate(-50%, -50%) scale(1.2) translateY(-2rem);
   transition: transform 0.2s, opacity 0.2s;
+  width: 95%;
 }
 
 .endless-extras-section__learn-more-overlay_toggled .learn-more-modal.toggled {
