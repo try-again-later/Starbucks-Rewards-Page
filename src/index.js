@@ -208,6 +208,12 @@ const scrollBarMediaQuery = window.matchMedia('(min-width: 50rem)');
 scrollBarMediaQuery.addEventListener('change', () => {
   if (scrollBarMediaQuery.matches) {
     document.body.style.overflowY = 'auto';
+    if (menuOpened) {
+      topBarAnimation();
+      middleBarAnimation();
+      bottomBarAnimation();
+      closeMenu();
+    }
     return;
   }
   if (!menuOpened) {
