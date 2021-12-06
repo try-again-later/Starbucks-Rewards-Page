@@ -11,7 +11,7 @@ document.querySelectorAll('[data-toggles-class]').forEach((toggler) => {
 
 const cookiesModal = document.getElementById('cookies-pop-up');
 cookiesModal.focus();
-const cookiesModalTrap = focusTrap.createFocusTrap(cookiesModal);
+const cookiesModalTrap = focusTrap.createFocusTrap(cookiesModal, { preventScroll: true });
 cookiesModalTrap.activate();
 const cookiesModalCloseButton = cookiesModal.querySelector('.cookies-pop-up__agree-button');
 cookiesModalCloseButton.addEventListener('click', () => {
@@ -145,7 +145,10 @@ submenuOpenButton.addEventListener('click', () => {
       element.tabIndex = 0;
     });
     submenu.focus({ preventScroll: true });
-    submenuFocusTrap = focusTrap.createFocusTrap(submenu, { allowOutsideClick: true });
+    submenuFocusTrap = focusTrap.createFocusTrap(submenu, {
+      allowOutsideClick: true,
+      preventScroll: true,
+    });
     submenuFocusTrap.activate();
   }, 200);
 });
@@ -198,7 +201,10 @@ const openMenu = () => {
     element.tabIndex = 0;
   });
   navList.focus({ preventScroll: true });
-  menuFocusTrap = focusTrap.createFocusTrap(navList, { allowOutsideClick: true });
+  menuFocusTrap = focusTrap.createFocusTrap(navList, {
+    allowOutsideClick: true,
+    preventScroll: true,
+  });
   menuFocusTrap.activate();
 
   document.body.style.overflowY = 'hidden';
@@ -297,7 +303,10 @@ function openModal(modal) {
   modal.querySelectorAll('[data-focus-hidden]').forEach((element) => {
     element.tabIndex = 0;
   });
-  const modalFocusTrap = focusTrap.createFocusTrap(modal, { allowOutsideClick: true });
+  const modalFocusTrap = focusTrap.createFocusTrap(modal, {
+    allowOutsideClick: true,
+    preventScroll: true,
+  });
   modalFocusTraps.set(modal, modalFocusTrap);
   modalFocusTrap.activate();
   currentModal = modal;
