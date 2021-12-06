@@ -1,12 +1,12 @@
 .endless-extras-section__learn-more-overlay {
-  display: grid;
-  place-items: center;
   position: fixed;
+  top: 0;
   inset: 0;
   z-index: 5;
   pointer-events: none;
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
+  height: 100vh;
 }
 
 .endless-extras-section__learn-more-overlay_toggled {
@@ -17,24 +17,27 @@
 .learn-more-modal {
   opacity: 0;
   pointer-events: none;
-  transform: scale(1.2) translateY(-2rem);
+  transform: translate(-50%, -50%) scale(1.2) translateY(-2rem);
   transition: transform 0.2s, opacity 0.2s;
 }
 
 .endless-extras-section__learn-more-overlay_toggled .learn-more-modal.toggled {
   opacity: 1;
   pointer-events: all;
-  transform: none;
+  transform: translate(-50%, -50%);
 }
 
 .endless-extras-section__learn-more-modal {
   position: absolute;
+  top: 50%;
+  left: 50%;
   max-width: 80%;
   padding-bottom: 2rem;
   border-radius: 0.5rem;
   background-color: white;
   z-index: 4;
-  overflow: hidden;
+  overflow-x: hidden;
+  max-height: 90%;
 }
 
 @media (min-width: 50rem) {

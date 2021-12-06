@@ -27,6 +27,22 @@
   }
 }
 
+@media (max-height: 18rem) and (max-width: 50rem) {
+  .cookies-pop-up {
+    height: 90vh;
+    top: 5vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-height: 27rem) and (min-width: 50rem) {
+  .cookies-pop-up {
+    max-height: 90vh;
+    top: 5vh;
+    overflow-y: auto;
+  }
+}
+
 .cookies-pop-up__heading {
   font-size: 1.125rem;
   text-align: center;
