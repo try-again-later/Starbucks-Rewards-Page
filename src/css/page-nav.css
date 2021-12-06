@@ -303,7 +303,9 @@
 /* menu sub nav */
 
 .menu-sub-nav__go-back-button {
-  display: block;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
   width: 100%;
   border: none;
   padding: 1rem;
@@ -316,8 +318,6 @@
 
 .menu-sub-nav__go-back-button::before {
   content: "";
-  position: absolute;
-  left: 2rem;
   width: 1.25em;
   height: 1.25em;
   background-color: #555;
