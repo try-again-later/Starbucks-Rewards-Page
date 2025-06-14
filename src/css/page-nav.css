@@ -145,7 +145,7 @@
   width: 1.25em;
   height: 1.25em;
   background-color: #555;
-  mask-image: url("../img/icons/arrow-right.svg");
+  mask-image: url("./icons/arrow-right.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
 }
@@ -251,7 +251,7 @@
   background-color: black;
   vertical-align: top;
   transition: background-color 0.2s;
-  mask-image: url("../img/icons/map-pin.svg");
+  mask-image: url("./icons/map-pin.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
 }
@@ -281,8 +281,8 @@
     padding: 0;
     gap: 1rem;
     order: 1;
-    margin-right: 1rem;
     margin: 0;
+    margin-right: 1rem;
   }
 
   .page-nav__find-store {
@@ -321,7 +321,7 @@
   width: 1.25em;
   height: 1.25em;
   background-color: #555;
-  mask-image: url("../img/icons/arrow-left.svg");
+  mask-image: url("./icons/arrow-left.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
 }

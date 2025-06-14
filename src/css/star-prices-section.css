@@ -43,11 +43,6 @@
   font-size: 1.125rem;
 }
 
-.star-prices-section__price-radio:focus + .star-prices-section__price-label {
-  outline: 2px solid black;
-  outline-offset: 4px;
-}
-
 .star-prices-section__price-label::before {
   content: "";
   position: absolute;
@@ -203,6 +198,11 @@
 .star-prices-section__price-label:nth-of-type(5),
 .star-prices-section__price-radio:nth-of-type(5) {
   grid-area: price-400;
+}
+
+.star-prices-section__price-radio:focus + .star-prices-section__price-label {
+  outline: 2px solid black;
+  outline-offset: 4px;
 }
 
 .star-prices-section__price-radio:nth-of-type(5):checked ~ .star-prices-section__slider {

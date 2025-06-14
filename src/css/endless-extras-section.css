@@ -27,7 +27,7 @@
     "image heading    "
     "image description"
     "image learn-more " / 7rem 1fr;
-  gap: 1rem 1rem;
+  gap: 1rem;
 }
 
 .extras-item__heading {
@@ -42,7 +42,7 @@
 .extras-item_learn-more-image-button {
   grid-area: image;
   display: grid;
-  place-items: top;
+  align-items: start;
   border: none;
   background-color: transparent;
   cursor: pointer;

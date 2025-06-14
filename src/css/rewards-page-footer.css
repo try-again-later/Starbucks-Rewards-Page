@@ -51,7 +51,7 @@
   height: 2em;
   margin-left: auto;
   background-color: #444;
-  mask-image: url("../img/icons/arrow-down.svg");
+  mask-image: url("./icons/arrow-down.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: 100%;
@@ -191,27 +191,27 @@
 }
 
 .page-footer__social-link-item_spotify {
-  background-image: url("../img/socials/spotify.svg");
+  background-image: url("./icons/socials/spotify.svg");
 }
 
 .page-footer__social-link-item_facebook {
-  background-image: url("../img/socials/facebook.svg");
+  background-image: url("./icons/socials/facebook.svg");
 }
 
 .page-footer__social-link-item_pinterest {
-  background-image: url("../img/socials/pinterest.svg");
+  background-image: url("./icons/socials/pinterest.svg");
 }
 
 .page-footer__social-link-item_instagram {
-  background-image: url("../img/socials/instagram.svg");
+  background-image: url("./icons/socials/instagram.svg");
 }
 
 .page-footer__social-link-item_youtube {
-  background-image: url("../img/socials/youtube.svg");
+  background-image: url("./icons/socials/youtube.svg");
 }
 
 .page-footer__social-link-item_twitter {
-  background-image: url("../img/socials/twitter.svg");
+  background-image: url("./icons/socials/twitter.svg");
 }
 
 .page-footer__other-links-list {
