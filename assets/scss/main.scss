@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Lunasima:wght@400;700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+}
