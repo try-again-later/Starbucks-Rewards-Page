@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint'],
   css: ['~/assets/scss/main.scss'],
   app: {
-    baseURL: '/Starbucks-Rewards-Page/',
     head: {
       title: 'Starbucks® Rewards',
       htmlAttrs: {
