@@ -1,11 +1,7 @@
 <script setup lang="ts">
   import { ref, watch, useTemplateRef, onMounted } from 'vue';
 
-  const emit = defineEmits<{
-    click: [pressed: boolean]
-  }>();
-
-  const pressed = ref(false);
+  const pressed = defineModel<boolean>('pressed', { required: true });
 
   const topBar = useTemplateRef('top-bar');
   const middleBar = useTemplateRef('middle-bar');
@@ -17,7 +13,7 @@
       fill: 'forwards',
       duration: 300,
       easing: 'ease-in-out',
-    };
+    } as const;
 
     const topBarAnimation = new Animation(new KeyframeEffect(
       topBar.value,
@@ -52,24 +48,32 @@
     ));
 
     // Initialize animations as reversed...
-    topBarAnimation.playbackRate = -1;
-    middleBarAnimation.playbackRate = -1;
-    bottomBarAnimation.playbackRate = -1;
+    if (pressed.value) {
+      topBarAnimation.finish();
+      middleBarAnimation.finish();
+      bottomBarAnimation.finish();
+    } else {
+      topBarAnimation.playbackRate = -1;
+      middleBarAnimation.playbackRate = -1;
+      bottomBarAnimation.playbackRate = -1;
+    }
 
     watch(pressed, (newPressed) => {
       // ...so that we could reverse them on each button press and get the correct direction.
       topBarAnimation.reverse();
       middleBarAnimation.reverse();
       bottomBarAnimation.reverse();
-
-      emit('click', newPressed);
     });
   });
 </script>
 
 <template>
   <button @click="pressed = !pressed" aria-label="Open menu" class="button">
-    <svg class="burger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <svg
+      class="burger-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+    >
       <circle class="circle" cx="50" cy="50" r="50" />
       <rect ref="top-bar" class="top-bar" y="15" width="100" height="10" rx="5" />
       <rect ref="middle-bar" class="middle-bar" y="45" width="100" height="10" rx="5" />
@@ -82,14 +86,13 @@
   .button {
     box-sizing: content-box;
     padding: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
     border: none;
     background-color: transparent;
     cursor: pointer;
   }
 
   .burger-icon {
+    height: 100%;
     fill: #777;
     overflow: visible;
   }

@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2025-05-15',
-  devtools: { enabled: true },
-  modules: ['@nuxt/eslint'],
+  devtools: { enabled: false },
+  modules: ['@nuxt/eslint', 'nuxt-svgo'],
   css: ['~/assets/scss/main.scss'],
   app: {
     head: {
@@ -30,6 +30,16 @@ export default defineNuxtConfig({
           additionalData: '@use "~/assets/scss/_variables.scss" as *;',
         },
       },
+    },
+  },
+  svgo: {
+    dts: true,
+    svgoConfig: {
+      plugins: [
+        {
+          name: 'preset-default',
+        },
+      ],
     },
   },
 });
