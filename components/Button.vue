@@ -29,7 +29,7 @@
 
 <style scoped lang="scss">
   .button {
-    font-family: Roboto, sans-serif;
+    font-family: $body-font-family;
     font-size: 0.875rem;
     font-weight: 700;
     text-align: center;
@@ -40,12 +40,11 @@
     gap: 0.25em;
 
     text-decoration: none;
-    border: 1px solid;
     border-radius: 1.5em;
     padding: 0.5em 1em;
+    border: 1px solid transparent;
 
-    color: black;
-    border-color: transparent;
+    color: $color-dark;
     background-color: transparent;
     cursor: pointer;
     transition:
@@ -68,7 +67,7 @@
   }
 
   .button.text:hover {
-    color: #00754a;
+    color: $color-primary;
   }
 
   .button.text:focus {
@@ -76,44 +75,40 @@
   }
 
   .button.dark {
-    background-color: black;
-    color: white;
-    border-color: black;
+    background-color: $color-dark;
+    color: $color-light;
   }
 
   .button.dark:hover {
-    background-color: #4c4c4c;
-    border-color: #4c4c4c;
+    background-color: $color-dark-lighten;
   }
 
   .button.light {
-    border-color: #333;
-    color: #333;
-    background-color: white;
+    border-color: $color-neutral;
+    color: $color-neutral;
+    background-color: $color-light;
   }
 
   .button.light:hover {
-    background-color: #f0f0f0;
+    background-color: $color-light-darken;
   }
 
   .button.primary {
-    background-color: #00754a;
-    border-color: #00754a;
-    color: white;
+    background-color: $color-primary;
+    color: $color-light;
   }
 
   .button.primary:hover {
-    background-color: #148159;
-    border-color: #148159;
+    background-color: $color-primary-lighten;
   }
 
   .button.secondary {
-    background-color: #1e3932;
-    border-color: white;
-    color: white;
+    background-color: $color-secondary;
+    border-color: $color-light;
+    color: $color-light;
   }
 
   .button.secondary:hover {
-    background-color: #39514b;
+    background-color: $color-secondary-lighten;
   }
 </style>

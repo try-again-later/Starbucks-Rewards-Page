@@ -1,126 +1,63 @@
+<script lang="ts">
+  export type Variant = 'link' | 'open-sub-menu' | 'close-sub-menu';
+</script>
+
 <script setup lang="ts">
-  import { ref, watch, useTemplateRef, onMounted } from 'vue';
+  import ArrowLeft from './icons/arrow-left.svg?component';
+  import ArrowRight from './icons/arrow-right.svg?component';
 
-  const pressed = defineModel<boolean>('pressed', { required: true });
-
-  const topBar = useTemplateRef('top-bar');
-  const middleBar = useTemplateRef('middle-bar');
-  const bottomBar = useTemplateRef('bottom-bar');
-
-  onMounted(() => {
-    const animationOptions = {
-      direction: 'normal',
-      fill: 'forwards',
-      duration: 300,
-      easing: 'ease-in-out',
-    } as const;
-
-    const topBarAnimation = new Animation(new KeyframeEffect(
-      topBar.value,
-      [
-        { transform: 'none' },
-        { transform: 'translateY(30%)', offset: 0.3 },
-        { transform: 'translateY(30%)', offset: 0.6 },
-        { transform: 'translateY(30%) rotate(45deg)' },
-      ],
-      animationOptions
-    ));
-
-    const middleBarAnimation = new Animation(new KeyframeEffect(
-      middleBar.value,
-      [
-        { transform: 'none', opacity: 1 },
-        { transform: 'none', offset: 0.6 },
-        { transform: 'rotate(45deg)', opacity: 0 },
-      ],
-      animationOptions
-    ));
-
-    const bottomBarAnimation = new Animation(new KeyframeEffect(
-      bottomBar.value,
-      [
-        { transform: 'none' },
-        { transform: 'translateY(-30%)', offset: 0.3 },
-        { transform: 'translateY(-30%)', offset: 0.6 },
-        { transform: 'translateY(-30%) rotate(135deg)' },
-      ],
-      animationOptions
-    ));
-
-    // Initialize animations as reversed...
-    if (pressed.value) {
-      topBarAnimation.finish();
-      middleBarAnimation.finish();
-      bottomBarAnimation.finish();
-    } else {
-      topBarAnimation.playbackRate = -1;
-      middleBarAnimation.playbackRate = -1;
-      bottomBarAnimation.playbackRate = -1;
-    }
-
-    watch(pressed, (newPressed) => {
-      // ...so that we could reverse them on each button press and get the correct direction.
-      topBarAnimation.reverse();
-      middleBarAnimation.reverse();
-      bottomBarAnimation.reverse();
-    });
-  });
+  type Props = {
+    variant?: Variant;
+  };
+  const { variant = 'link' } = defineProps<Props>();
 </script>
 
 <template>
-  <button @click="pressed = !pressed" aria-label="Open menu" class="button">
-    <svg
-      class="burger-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-    >
-      <circle class="circle" cx="50" cy="50" r="50" />
-      <rect ref="top-bar" class="top-bar" y="15" width="100" height="10" rx="5" />
-      <rect ref="middle-bar" class="middle-bar" y="45" width="100" height="10" rx="5" />
-      <rect ref="bottom-bar" class="bottom-bar" y="75" width="100" height="10" rx="5" />
-    </svg>
-  </button>
+  <component
+    :is="variant === 'link' ? 'a' : 'button'"
+    class="button"
+    :class="{'darker': variant === 'close-sub-menu'}"
+  >
+    <ArrowLeft v-if="variant === 'close-sub-menu'" class="icon" />
+    <span class="title" :class="{'centered': variant === 'close-sub-menu'}">
+      <slot></slot>
+    </span>
+    <ArrowRight v-if="variant === 'open-sub-menu'" class="icon" />
+  </component>
 </template>
 
 <style scoped lang="scss">
   .button {
-    box-sizing: content-box;
-    padding: 1rem;
-    border: none;
+    font-family: $heading-font-family;
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: $color-muted;
+    white-space: nowrap;
+
+    display: flex;
+    width: 100%;
+    padding: 1rem 2rem;
+    align-items: center;
+
     background-color: transparent;
+    border: none;
     cursor: pointer;
+    text-align: left;
   }
 
-  .burger-icon {
-    height: 100%;
-    fill: #777;
-    overflow: visible;
+  .button:hover {
+    text-decoration: underline;
   }
 
-  .top-bar {
-    transform-origin: 50px 20px;
+  .button.darker {
+    background-color: $color-light-darken;
   }
 
-  .middle-bar {
-    transform-origin: 50px 50px;
+  .title {
+    flex: 1;
   }
 
-  .bottom-bar {
-    transform-origin: 50px 80px;
-  }
-
-  .circle {
-    transform: scale(0.75);
-    fill: #ddd;
-    fill-opacity: 0;
-    transform-origin: center;
-    transition-property: transform, fill-opacity;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in;
-  }
-
-  .button:hover .circle {
-    transform: scale(1.75);
-    fill-opacity: 1;
+  .title.centered {
+    text-align: center;
   }
 </style>

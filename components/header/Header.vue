@@ -15,10 +15,10 @@
 
 <template>
   <header>
-    <div class="header-wrapper">
+    <div class="header-wrapper" :class="{ 'header-wrapper-fixed': menuOpened }">
       <div class="header-content">
         <a class="logo-link" href="#"><Logo class="logo" /></a>
-        <HeaderMenuButton v-model:pressed="menuOpened" class="menu-button" />
+        <HeaderBurgerButton v-model:pressed="menuOpened" class="menu-button" />
       </div>
     </div>
 
@@ -48,6 +48,10 @@
 
     background-color: white;
     box-shadow: 0 0 4px rgba(0 0 0 / 25%);
+  }
+
+  .header-wrapper-fixed {
+    position: fixed;
   }
 
   .header-content {
@@ -101,7 +105,7 @@
     max-width: 30rem;
     padding-top: $header-height;
 
-    transition: transform 300ms ease-in-out;
+    transition: transform 200ms ease-in-out;
     transform: translateX(100%);
   }
 

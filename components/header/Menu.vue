@@ -1,9 +1,7 @@
 <script setup lang="ts">
-  import ArrowLeft from './icons/arrow-left.svg?component';
-  import ArrowRight from './icons/arrow-right.svg?component';
   import MapPin from './icons/map-pin.svg?component';
 
-  import { watch, ref, nextTick } from 'vue';
+  import { watch, ref, nextTick, useTemplateRef } from 'vue';
 
   const { isOpened } = defineProps<{
     isOpened: boolean,
@@ -14,6 +12,8 @@
   }>();
 
   const menu = useTemplateRef('menu');
+  const subMenu = useTemplateRef('sub-menu');
+
   const menuTabIndex = ref(isOpened ? 0 : -1);
   const { activate: menuFocus, deactivate: menuBlur } = useFocusTrap(menu);
   watch(
@@ -25,6 +25,7 @@
         menuFocus();
       } else {
         menuTabIndex.value = -1;
+        subMenu.value?.close();
         menuBlur();
       }
     },
@@ -36,16 +37,28 @@
   <nav class="nav" tabindex="-1">
     <div class="nav-content">
       <div ref="menu" class="menu">
-        <ul class="menu-list">
-          <li><button class="menu-button" aria-label="Open menu" :tabindex="menuTabIndex">
-            Menu
-            <ArrowRight class="icon" aria-hidden="true" />
-          </button></li>
-          <li><a class="menu-button" href="#" :tabindex="menuTabIndex">Rewards</a></li>
-          <li><a class="menu-button" href="#" :tabindex="menuTabIndex">Gift Cards</a></li>
+        <ul>
+          <li>
+            <HeaderMenuButton
+              variant="open-sub-menu"
+              aria-label="Open menu"
+              :tabindex="menuTabIndex"
+              @click="subMenu?.open()"
+            >
+              Menu
+            </HeaderMenuButton>
+          </li>
+          <li>
+            <HeaderMenuButton href="#" :tabindex="menuTabIndex">Rewards</HeaderMenuButton>
+          </li>
+          <li>
+            <HeaderMenuButton href="#" :tabindex="menuTabIndex">Gift Cards</HeaderMenuButton>
+          </li>
         </ul>
 
-        <hr class="separator" />
+        <div class="section">
+          <hr class="separator" />
+        </div>
 
         <div class="section">
           <Button is-link variant="light" href="#" :tabindex="menuTabIndex">Sign in</Button>
@@ -71,15 +84,11 @@
         </div>
       </div>
 
-      <div class="sub-menu">
-        <button tabindex="-1">Menu</button>
-        <ul class="sub-menu-list">
-          <li><a href="#" tabindex="-1">All products</a></li>
-          <li><a href="#" tabindex="-1">Featured</a></li>
-          <li><a href="#" tabindex="-1">Previous</a></li>
-          <li><a href="#" tabindex="-1">Favorites</a></li>
-        </ul>
-      </div>
+      <HeaderSubMenu
+        ref="sub-menu"
+        title="Menu"
+        :items="['All products', 'Featured', 'Previous', 'Favorites']"
+      />
     </div>
   </nav>
 </template>
@@ -95,43 +104,8 @@
     position: relative;
   }
 
-  .menu,
-  .sub-menu {
-    padding: 1rem 2rem;
-  }
-
-  .sub-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: white;
-    transform: translateX(100%);
-  }
-
-  .menu-button {
-    font-family: Lunasima, sans-serif;
-    font-size: 1.125rem;
-    text-decoration: none;
-    color: #555;
-    white-space: nowrap;
-
-    display: flex;
-    width: 100%;
-    padding: 1rem 0;
-    align-items: center;
-    justify-content: space-between;
-
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-  }
-
-  .menu-button:hover {
-    text-decoration: underline;
+  .menu {
+    padding: 0;
   }
 
   .close-menu-button {
@@ -145,15 +119,17 @@
 
   .separator {
     border: none;
+    width: 100%;
     height: 2px;
-    margin: 1rem 0;
-    background-color: rgba(0 0 0 / 15%);
+    background-color: $color-disabled;
   }
 
   .section {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 2rem 0;
+    padding: 0 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 </style>
