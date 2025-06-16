@@ -3,14 +3,24 @@
 </script>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, watchEffect } from 'vue';
   import Logo from '~/assets/logo.svg?component';
+
+  import exportedCSS from '~/assets/scss/exported.module.scss';
+  const { maxWidthMobile } = exportedCSS;
 
   const { activeNavItem } = defineProps<{
     activeNavItem?: NavItem,
   }>();
 
   const menuOpened = ref(false);
+
+  const isDesktopScreen = useMedia(`(min-width: ${maxWidthMobile})`);
+  watchEffect(() => {
+    if (isDesktopScreen.value) {
+      menuOpened.value = false;
+    }
+  });
 </script>
 
 <template>
@@ -80,6 +90,12 @@
   .menu-button {
     margin-left: auto;
     height: 50%;
+  }
+
+  @media (min-width: $max-width-mobile) {
+    .menu-button {
+      display: none;
+    }
   }
 
   .backdrop {
