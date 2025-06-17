@@ -51,6 +51,10 @@
       background-color 200ms,
       color 200ms,
       transform 100ms;
+
+    @media (min-width: $max-width-mobile) {
+      font-size: 1rem;
+    }
   }
 
   .button:focus {

@@ -1,9 +1,5 @@
 <script setup lang="ts">
-  import { ref, useTemplateRef, nextTick } from 'vue';
-
-  const emit = defineEmits<{
-    close: [];
-  }>();
+  import { ref, useTemplateRef, nextTick, watchEffect } from 'vue';
 
   type Props = {
     title: string;
@@ -11,37 +7,28 @@
   };
   const { title, items } = defineProps<Props>();
 
-  const isOpened = ref(false);
+  const menu = useTemplateRef('menu');
+  const menuOpened = defineModel<boolean>('opened', { required: true });
+  const { activate: menuFocus, deactivate: menuBlur } = useFocusTrap(menu);
 
-  const element = useTemplateRef('sub-menu');
   const tabIndex = ref<0 | -1>(-1);
-  const { activate: activateTrap, deactivate: deactivateTrap } = useFocusTrap(element);
 
-  const open = async () => {
-    if (!isOpened.value) {
-      isOpened.value = true;
+  watchEffect(async () => {
+    if (menuOpened.value) {
       tabIndex.value = 0;
       await nextTick();
-      activateTrap();
-    }
-  };
-
-  const close = () => {
-    if (isOpened.value) {
-      isOpened.value = false;
+      menuFocus();
+    } else {
       tabIndex.value = -1;
-      emit('close');
-      deactivateTrap();
+      menuBlur();
     }
-  };
-
-  defineExpose({ open, close });
+  });
 </script>
 
 <template>
-  <div ref="sub-menu" class="sub-menu" :class="{'opened': isOpened}">
+  <div ref="menu" class="menu" @keydown.stop.esc="menuOpened = false">
     <HeaderMenuButton
-      @click="close()"
+      @click="menuOpened = false"
       variant="close-sub-menu"
       aria-label="Close menu"
       :tabindex="tabIndex"
@@ -57,19 +44,9 @@
 </template>
 
 <style scoped lang="scss">
-  .sub-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .menu {
     padding: 0;
     background-color: white;
-    transform: translateX(100%);
     transition: transform 200ms ease-in-out;
-  }
-
-  .sub-menu.opened {
-    transform: none;
   }
 </style>

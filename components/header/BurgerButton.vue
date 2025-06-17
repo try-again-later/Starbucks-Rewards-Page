@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, watch, useTemplateRef, onMounted } from 'vue';
+  import { watch, useTemplateRef, onMounted } from 'vue';
 
   const pressed = defineModel<boolean>('pressed', { required: true });
 

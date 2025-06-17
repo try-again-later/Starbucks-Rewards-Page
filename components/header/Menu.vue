@@ -1,109 +1,89 @@
 <script setup lang="ts">
   import MapPin from './icons/map-pin.svg?component';
 
-  import { watch, ref, nextTick, useTemplateRef } from 'vue';
-
-  const { isOpened } = defineProps<{
-    isOpened: boolean,
-  }>();
-
-  const emit = defineEmits<{
-    close: [],
-  }>();
+  import { watchEffect, ref, nextTick, useTemplateRef } from 'vue';
 
   const menu = useTemplateRef('menu');
-  const subMenu = useTemplateRef('sub-menu');
-
-  const menuTabIndex = ref(isOpened ? 0 : -1);
+  const menuOpened = defineModel<boolean>('opened', { required: true });
   const { activate: menuFocus, deactivate: menuBlur } = useFocusTrap(menu);
-  watch(
-    () => isOpened,
-    async (newIsOpened) => {
-      if (newIsOpened) {
-        menuTabIndex.value = 0;
-        await nextTick();
-        menuFocus();
-      } else {
-        menuTabIndex.value = -1;
-        subMenu.value?.close();
-        menuBlur();
-      }
-    },
-    { immediate: true }
-  );
+
+  const subMenuOpened = ref(false);
+
+  const tabIndex = ref<0 | -1>(menuOpened.value ? 0 : -1);
+
+  watchEffect(async () => {
+    if (menuOpened.value) {
+      tabIndex.value = 0;
+      // Wait for tab indices to get updated.
+      await nextTick();
+      menuFocus();
+    } else {
+      tabIndex.value = -1;
+      subMenuOpened.value = false;
+      menuBlur();
+    }
+  });
 </script>
 
 <template>
-  <nav class="nav" tabindex="-1">
-    <div class="nav-content">
-      <div ref="menu" class="menu">
-        <ul>
-          <li>
-            <HeaderMenuButton
-              variant="open-sub-menu"
-              aria-label="Open menu"
-              :tabindex="menuTabIndex"
-              @click="subMenu?.open()"
-            >
-              Menu
-            </HeaderMenuButton>
-          </li>
-          <li>
-            <HeaderMenuButton href="#" :tabindex="menuTabIndex">Rewards</HeaderMenuButton>
-          </li>
-          <li>
-            <HeaderMenuButton href="#" :tabindex="menuTabIndex">Gift Cards</HeaderMenuButton>
-          </li>
-        </ul>
+  <div ref="menu" class="menu" @keydown.esc="menuOpened = false">
+    <ul>
+      <li>
+        <HeaderMenuButton
+          variant="open-sub-menu"
+          aria-label="Open menu"
+          :tabindex="tabIndex"
+          @click="subMenuOpened = true"
+        >
+          Menu
+        </HeaderMenuButton>
+      </li>
+      <li>
+        <HeaderMenuButton href="#" :tabindex="tabIndex">Rewards</HeaderMenuButton>
+      </li>
+      <li>
+        <HeaderMenuButton href="#" :tabindex="tabIndex">Gift Cards</HeaderMenuButton>
+      </li>
+    </ul>
 
-        <div class="section">
-          <hr class="separator" />
-        </div>
-
-        <div class="section">
-          <Button is-link variant="light" href="#" :tabindex="menuTabIndex">Sign in</Button>
-          <Button is-link variant="dark" href="#" :tabindex="menuTabIndex">Join now</Button>
-        </div>
-
-        <div class="section">
-          <Button is-link variant="text" href="#" :tabindex="menuTabIndex">
-            <template #prepend><MapPin /></template>
-            Find a store
-          </Button>
-        </div>
-
-        <div class="section">
-          <Button
-            @click="emit('close')"
-            class="close-menu-button"
-            variant="light"
-            :tabindex="menuTabIndex"
-          >
-            Close menu
-          </Button>
-        </div>
-      </div>
-
-      <HeaderSubMenu
-        ref="sub-menu"
-        title="Menu"
-        :items="['All products', 'Featured', 'Previous', 'Favorites']"
-      />
+    <div class="section">
+      <hr class="separator" />
     </div>
-  </nav>
+
+    <div class="section">
+      <Button is-link variant="light" href="#" :tabindex="tabIndex">Sign in</Button>
+      <Button is-link variant="dark" href="#" :tabindex="tabIndex">Join now</Button>
+    </div>
+
+    <div class="section">
+      <Button is-link variant="text" href="#" :tabindex="tabIndex">
+        <template #prepend><MapPin /></template>
+        Find a store
+      </Button>
+    </div>
+
+    <div class="section">
+      <Button
+        @click="menuOpened = false"
+        class="close-menu-button"
+        variant="light"
+        :tabindex="tabIndex"
+      >
+        Close menu
+      </Button>
+    </div>
+
+    <HeaderSubMenu
+      title="Menu"
+      :items="['All products', 'Featured', 'Previous', 'Favorites']"
+      v-model:opened="subMenuOpened"
+      class="sub-menu"
+      :class="{ 'sub-menu-opened': subMenuOpened }"
+    />
+  </div>
 </template>
 
 <style scoped lang="scss">
-  .nav {
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: white;
-  }
-
-  .nav-content {
-    position: relative;
-  }
-
   .menu {
     padding: 0;
   }
@@ -131,5 +111,18 @@
     padding: 0 2rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+  }
+
+  .sub-menu-opened {
+    transform: none;
   }
 </style>

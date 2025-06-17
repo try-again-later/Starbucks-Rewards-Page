@@ -1,5 +1,5 @@
 import * as focusTrap from 'focus-trap';
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import type { Ref } from 'vue';
 
 export function useFocusTrap(element: Ref<HTMLElement | null>) {
@@ -15,6 +15,7 @@ export function useFocusTrap(element: Ref<HTMLElement | null>) {
       trap = focusTrap.createFocusTrap(element.value, {
         allowOutsideClick: true,
         preventScroll: true,
+        escapeDeactivates: false,
       });
     }
   });
