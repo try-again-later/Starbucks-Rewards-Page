@@ -4,5 +4,6 @@
   <CookiesModal />
   <main>
     <Hero />
+    <SectionGettingStarted />
   </main>
 </template>

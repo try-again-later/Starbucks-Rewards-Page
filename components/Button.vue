@@ -11,17 +11,7 @@
 </script>
 
 <template>
-  <component
-    :is="isLink ? 'a' : 'button'"
-    class="button"
-    :class="{
-      text: variant === 'text',
-      dark: variant === 'dark',
-      light: variant === 'light',
-      primary: variant === 'primary',
-      secondary: variant === 'secondary',
-    }"
-  >
+  <component :is="isLink ? 'a' : 'button'" class="button" :class="variant">
     <slot name="prepend"></slot>
     <slot></slot>
   </component>
