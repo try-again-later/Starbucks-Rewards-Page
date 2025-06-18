@@ -4,6 +4,15 @@
   <CookiesModal />
   <main>
     <Hero />
-    <SectionGettingStarted />
+    <div class="sections">
+      <SectionGettingStarted />
+      <SectionFavorites />
+    </div>
   </main>
 </template>
+
+<style scoped style="scss">
+  .sections section:nth-of-type(even) {
+    background-color: #f1f8f5;
+  }
+</style>

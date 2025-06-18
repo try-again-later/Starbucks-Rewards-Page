@@ -14,11 +14,13 @@
     margin: 0 auto;
 
     @media (min-width: $max-width-mobile) {
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+      grid-template-rows: repeat(3, auto);
       justify-content: center;
-      gap: 4rem;
+      gap: 0 3rem;
 
-      max-width: $max-width-desktop;
+      max-width: $max-width-mobile + 10rem;
     }
   }
 </style>

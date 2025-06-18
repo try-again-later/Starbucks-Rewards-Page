@@ -21,18 +21,18 @@
     font-family: $heading-font-family;
   }
 
-  .heading.large {
+  .large {
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 0.75em;
 
     @media (min-width: $max-width-mobile) {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
   }
 
-  .heading.small {
+  .small {
     font-size: 1rem;
 
     @media (min-width: $max-width-mobile) {

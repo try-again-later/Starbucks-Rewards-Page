@@ -26,23 +26,33 @@
     counter-increment: item;
 
     .heading {
-      grid-area: heading
+      grid-column: 2;
+      grid-row: 1;
+
+      @media (min-width: $max-width-mobile) {
+        grid-column: 1;
+        grid-row: 2;
+      }
     }
 
     .content {
-      grid-area: content;
+      grid-column: 2;
+      grid-row: 2;
+
+      @media (min-width: $max-width-mobile) {
+        grid-column: 1;
+        grid-row: 3;
+      }
     }
 
     @media (min-width: $max-width-mobile) {
       text-align: center;
 
-      grid-template-areas:
-        "counter"
-        "heading"
-        "content";
+      grid-template-rows: subgrid;
+      grid-row-end: span 3;
       grid-template-columns: auto;
-      justify-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      align-items: baseline;
 
       max-width: 20rem;
     }
@@ -54,7 +64,8 @@
     color: $list-counter-color;
 
     content: counter(item) " ";
-    grid-area: counter;
+    grid-column: 1;
+    grid-row: 1 / span 2;
     place-self: start center;
     min-width: 2rem;
 
@@ -65,5 +76,10 @@
     aspect-ratio: 1 / 1;
     border: 2px solid $list-counter-color;
     border-radius: 50%;
+
+    @media (min-width: $max-width-mobile) {
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
 </style>
