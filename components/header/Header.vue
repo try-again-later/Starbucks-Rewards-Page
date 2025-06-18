@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <div class="header-wrapper" :class="{ 'header-wrapper-fixed': menuOpened }">
       <div class="header-content">
         <a class="logo-link" href="#"><Logo class="logo" /></a>
@@ -70,16 +70,35 @@
       </nav>
     </div>
   </header>
+
+  <div class="sub-header" :class="{ 'sub-header-under-menu': menuOpened }">
+    <div class="sub-header-content">
+      <p>Starbucks rewards<sup>&reg;</sup></p>
+      <Button variant="secondary">Join in the app</Button>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-  $header-height: 6rem;
+  $header-height-mobile: 5rem;
+  $header-height-desktop: 6rem;
+
+  .header {
+    --header-height: #{$header-height-mobile};
+
+    @media (min-width: $max-width-mobile) {
+      --header-height: #{$header-height-desktop};
+
+      position: sticky;
+      top: 0;
+    }
+  }
 
   .header-wrapper {
     position: relative;
-    z-index: 10;
+    z-index: $z-modal;
     width: 100%;
-    height: $header-height;
+    height: var(--header-height);
 
     background-color: white;
     box-shadow: 0 0 4px rgba(0 0 0 / 25%);
@@ -131,7 +150,7 @@
   .backdrop {
     position: fixed;
     inset: 0;
-    z-index: 5;
+    z-index: $z-backdrop;
 
     background-color: transparent;
     transition: background-color 200ms;
@@ -149,7 +168,7 @@
     width: 80%;
     height: 100%;
     max-width: 30rem;
-    padding-top: $header-height;
+    padding-top: var(--header-height);
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -230,5 +249,39 @@
   .desktop-nav-sign-in-section {
     display: flex;
     gap: 0.75rem;
+  }
+
+  .sub-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: $color-secondary;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
+    z-index: $z-header;
+
+    @media (min-width: $max-width-mobile) {
+      top: $header-height-desktop;
+    }
+  }
+
+  .sub-header-under-menu {
+    top: $header-height-mobile;
+  }
+
+  .sub-header-content {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: $heading-font-family;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0 auto;
+    max-width: $max-width-desktop;
+
+    color: $color-light;
   }
 </style>

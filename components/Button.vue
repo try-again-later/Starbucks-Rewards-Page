@@ -74,10 +74,6 @@
     color: $color-primary;
   }
 
-  .button.text:focus {
-    outline-offset: 1em;
-  }
-
   .button.dark {
     background-color: $color-dark;
     color: $color-light;
