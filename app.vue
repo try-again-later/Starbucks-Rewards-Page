@@ -2,13 +2,7 @@
   <h1 class="visually-hidden">Starbucks Rewards</h1>
   <Header active-nav-item="rewards" />
   <CookiesModal />
-  <div class="content"></div>
+  <main>
+    <Hero />
+  </main>
 </template>
-
-<style scoped lang="scss">
-  .content {
-    width: 100%;
-    height: 150rem;
-    background-color: white;
-  }
-</style>

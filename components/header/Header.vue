@@ -106,6 +106,7 @@
 
   .header-wrapper-fixed {
     position: fixed;
+    top: 0;
   }
 
   .header-content {
@@ -252,6 +253,8 @@
   }
 
   .sub-header {
+    font-size: 0.75rem;
+
     position: sticky;
     top: 0;
     width: 100%;
@@ -260,28 +263,37 @@
     z-index: $z-header;
 
     @media (min-width: $max-width-mobile) {
+      font-size: 0.875rem;
       top: $header-height-desktop;
     }
   }
 
   .sub-header-under-menu {
-    top: $header-height-mobile;
+    margin-top: $header-height-mobile;
   }
 
   .sub-header-content {
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 700;
     font-family: $heading-font-family;
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     padding: 0.5rem 1.5rem;
     margin: 0 auto;
     max-width: $max-width-desktop;
 
     color: $color-light;
+
+    :first-child {
+      flex-grow: 999;
+    }
+
+   :last-child {
+      flex-grow: 1;
+    }
   }
 </style>
