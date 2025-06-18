@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import MapPin from './icons/map-pin.svg?component';
 
-  import { watchEffect, ref, nextTick, useTemplateRef } from 'vue';
+  import { watchEffect, ref, useTemplateRef } from 'vue';
 
   const menu = useTemplateRef('menu');
   const menuOpened = defineModel<boolean>('opened', { required: true });
-  const { activate: menuFocus, deactivate: menuBlur } = useFocusTrap(menu);
+  useFocusTrap(menu, { ref: menuOpened });
 
   const subMenuOpened = ref(false);
 
@@ -14,13 +14,9 @@
   watchEffect(async () => {
     if (menuOpened.value) {
       tabIndex.value = 0;
-      // Wait for tab indices to get updated.
-      await nextTick();
-      menuFocus();
     } else {
       tabIndex.value = -1;
       subMenuOpened.value = false;
-      menuBlur();
     }
   });
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, useTemplateRef, nextTick, watchEffect } from 'vue';
+  import { ref, useTemplateRef, watchEffect } from 'vue';
 
   type Props = {
     title: string;
@@ -9,18 +9,15 @@
 
   const menu = useTemplateRef('menu');
   const menuOpened = defineModel<boolean>('opened', { required: true });
-  const { activate: menuFocus, deactivate: menuBlur } = useFocusTrap(menu);
+  useFocusTrap(menu, { ref: menuOpened });
 
   const tabIndex = ref<0 | -1>(-1);
 
   watchEffect(async () => {
     if (menuOpened.value) {
       tabIndex.value = 0;
-      await nextTick();
-      menuFocus();
     } else {
       tabIndex.value = -1;
-      menuBlur();
     }
   });
 </script>

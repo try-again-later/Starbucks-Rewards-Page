@@ -90,6 +90,7 @@
       --header-height: #{$header-height-desktop};
 
       position: sticky;
+      z-index: $z-header;
       top: 0;
     }
   }

@@ -1,9 +1,10 @@
 import * as focusTrap from 'focus-trap';
-import { onMounted } from 'vue';
+import { onMounted, ref, watchEffect, nextTick } from 'vue';
 import type { Ref } from 'vue';
 
 export type Params = {
-  allowOutsideClick?: boolean;
+  clickOutsideDeactivates?: boolean;
+  ref?: Ref<boolean>;
 };
 
 export function useFocusTrap(element: Ref<HTMLElement | null>, params?: Params) {
@@ -13,18 +14,41 @@ export function useFocusTrap(element: Ref<HTMLElement | null>, params?: Params) 
     deactivate(): void;
   }
 
+  const isActive = params?.ref ?? ref(false);
+
   let trap: Trap | null = null;
   onMounted(() => {
     if (element.value) {
       trap = focusTrap.createFocusTrap(element.value, {
-        allowOutsideClick: params?.allowOutsideClick ?? true,
         preventScroll: true,
+        allowOutsideClick: true,
         escapeDeactivates: false,
+        clickOutsideDeactivates: params?.clickOutsideDeactivates ?? false,
+        onActivate: () => {
+          isActive.value = true;
+        },
+        onDeactivate: () => {
+          isActive.value = false
+        },
       });
+
+      if (isActive.value) {
+        trap.activate();
+      }
     }
   });
 
+  watchEffect(async () => {
+    if (isActive.value) {
+      await nextTick();
+      trap?.activate();
+    } else {
+      trap?.deactivate();
+    }
+  })
+
   return {
+    isActive,
     activate: () => {
       if (trap !== null && !trap.active) {
         trap.activate();

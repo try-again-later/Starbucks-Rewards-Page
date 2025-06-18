@@ -1,21 +1,9 @@
 <script setup lang="ts">
-  import { ref, useTemplateRef, onMounted, watchEffect } from 'vue';
-
-  const opened = ref(true);
+  import { useTemplateRef } from 'vue';
 
   const modal = useTemplateRef('modal');
-  const { activate: modalFocus, deactivate: modalBlur } = useFocusTrap(modal, {
-    allowOutsideClick: false
-  });
-  onMounted(() => {
-    modalFocus();
-  });
-
-  watchEffect(() => {
-    if (!opened.value) {
-      modalBlur();
-    }
-  });
+  const { isActive: opened } = useFocusTrap(modal, { clickOutsideDeactivates: true });
+  opened.value = true;
 </script>
 
 <template>
