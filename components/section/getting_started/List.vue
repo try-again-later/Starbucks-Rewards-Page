@@ -11,7 +11,6 @@
     gap: 1.5rem;
     counter-reset: item 0;
     max-width: 35rem;
-    margin: 0 auto;
 
     @media (min-width: $max-width-mobile) {
       display: grid;
@@ -19,6 +18,7 @@
       grid-template-rows: repeat(3, auto);
       justify-content: center;
       gap: 0 3rem;
+      margin: 0 auto;
 
       max-width: $max-width-mobile + 10rem;
     }

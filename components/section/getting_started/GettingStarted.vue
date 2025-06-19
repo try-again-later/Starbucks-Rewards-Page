@@ -7,7 +7,7 @@
 <template>
   <section class="section">
     <SectionHeading variant="large">Getting started is easy</SectionHeading>
-    <p class="sub-heading">Earn Stars and get rewarded in a few easy steps.</p>
+    <SectionSubHeading>Earn Stars and get rewarded in a few easy steps.</SectionSubHeading>
 
     <List>
       <ListItem>
@@ -40,12 +40,6 @@
 </template>
 
 <style scoped lang="scss">
-  .sub-heading {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-  }
-
   .section {
     padding: 3rem 1.5rem;
   }

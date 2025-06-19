@@ -19,15 +19,16 @@
 <style scoped lang="scss">
   .heading {
     font-family: $heading-font-family;
+    text-align: left;
   }
 
   .large {
     font-size: 1.5rem;
     font-weight: 700;
-    text-align: center;
     margin-bottom: 0.75em;
 
     @media (min-width: $max-width-mobile) {
+      text-align: center;
       font-size: 1.75rem;
     }
   }
@@ -36,6 +37,7 @@
     font-size: 1rem;
 
     @media (min-width: $max-width-mobile) {
+      text-align: center;
       font-size: 1.125rem;
     }
   }

@@ -7,6 +7,7 @@
     <div class="sections">
       <SectionGettingStarted />
       <SectionFavorites />
+      <SectionExtras />
     </div>
   </main>
 </template>
