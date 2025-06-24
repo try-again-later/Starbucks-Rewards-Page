@@ -29,7 +29,7 @@
     padding: 1.5rem 1.25rem;
     border-radius: 0.5rem;
     width: 80vw;
-    max-width: 25rem;
+    max-width: $max-width-mobile * 0.5;
 
     transform: translateX(-50%);
     background-color: $color-light;
@@ -41,7 +41,6 @@
     @media (min-width: $max-width-mobile) {
       top: 8rem;
       padding: 3rem 2.0rem;
-      max-width: 27.5rem;
     }
   }
 

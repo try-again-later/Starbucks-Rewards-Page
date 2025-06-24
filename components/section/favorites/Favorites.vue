@@ -53,8 +53,6 @@
 </template>
 
 <style scoped lang="scss">
-  $max-width: $max-width-mobile + 10rem;
-
   .section {
     --item-count: 5;
     --selected-item-index: 0;
@@ -75,7 +73,7 @@
   }
 
   .tab-list-wrapper {
-    max-width: $max-width;
+    max-width: $max-width-mobile * 1.25;
     margin: 0 auto;
   }
 
@@ -164,7 +162,7 @@
     gap: 1rem;
 
     width: 100%;
-    max-width: $max-width;
+    max-width: $max-width-mobile * 1.25;
     padding: 2rem 1rem;
 
     opacity: 0;

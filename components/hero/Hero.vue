@@ -53,7 +53,7 @@
       text-align: left;
       max-width: $max-width-desktop;
       height: 100%;
-      padding: 2rem 1.5rem;
+      padding: 2rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;

@@ -58,7 +58,7 @@
       bottomBarAnimation.playbackRate = -1;
     }
 
-    watch(pressed, (newPressed) => {
+    watch(pressed, () => {
       // ...so that we could reverse them on each button press and get the correct direction.
       topBarAnimation.reverse();
       middleBarAnimation.reverse();

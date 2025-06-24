@@ -10,17 +10,17 @@
     flex-direction: column;
     gap: 1.5rem;
     counter-reset: item 0;
-    max-width: 35rem;
+    max-width: $max-width-mobile * 0.75;
 
     @media (min-width: $max-width-mobile) {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax($max-width-mobile * 0.25, 1fr));
       grid-template-rows: repeat(3, auto);
       justify-content: center;
       gap: 0 3rem;
       margin: 0 auto;
 
-      max-width: $max-width-mobile + 10rem;
+      max-width: $max-width-mobile * 1.25;
     }
   }
 </style>

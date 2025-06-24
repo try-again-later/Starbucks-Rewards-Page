@@ -1,31 +1,8 @@
 <script setup lang="ts">
-  import ExtrasFreeImage from './images/extras-free.jpg';
-  import ExtrasOrderImage from './images/extras-order.jpg';
-  import ExtrasBonusImage from './images/extras-bonus.jpg';
+  import { ref } from 'vue';
+  import extrasItems from './items';
 
-  type ExtrasItem = {
-    title: string;
-    description: string;
-    image: string;
-  };
-
-  const extrasItems: ExtrasItem[] = [
-    {
-      title: 'Endless extras',
-      description: 'Joining Starbucks<sup>&reg;</sup> Rewards means unlocking access to exclusive benefits. Say hello to easy ordering, tasty Rewards and&mdash;yes, free coffee.',
-      image: ExtrasFreeImage,
-    },
-    {
-      title: 'Fun freebies',
-      description: 'Not only can you earn free coffee, look forward to a birthday treat plus coffee and tea refills.',
-      image: ExtrasOrderImage,
-    },
-    {
-      title: 'Order & pay ahead',
-      description: 'Earn Stars even quicker with Bonus Star challenges, Double Star Days and exciting games.',
-      image: ExtrasBonusImage,
-    },
-  ];
+  const modalsOpened = ref<boolean[]>(new Array(extrasItems.length).fill(false));
 </script>
 
 <template>
@@ -37,12 +14,32 @@
     </SectionSubHeading>
 
     <ul class="extras-list">
-      <li class="extras-item" v-for="item in extrasItems">
+      <li class="extras-item" v-for="(item, itemIndex) in extrasItems" :key="itemIndex">
         <SectionHeading variant="small" class="heading">{{ item.title }}</SectionHeading>
         <p v-html="item.description" class="description"></p>
-        <Button variant="primary" class="learn-more-button begging-for-attention">Learn more</Button>
-        <button aria-hidden="true" tabindex="-1" class="image-button">
-          <img :src="item.image" class="image" />
+
+        <SectionExtrasModal v-model:opened="modalsOpened[itemIndex]">
+          <template #button="{ open }">
+            <Button @click="open" variant="primary" class="begging-for-attention">
+              Learn more
+            </Button>
+          </template>
+
+          <template #modal="{ close }">
+            <Carousel @close="close">
+              <CarouselItem v-for="detail in item.details" class="carousel-item">
+                <SectionHeading variant="small" class="carousel-item-heading">
+                  {{ detail.title }}
+                </SectionHeading>
+                <p class="carousel-item-description">{{ detail.description }}</p>
+                <img :src="detail.image" class="carousel-item-image" />
+              </CarouselItem>
+            </Carousel>
+          </template>
+        </SectionExtrasModal>
+
+        <button class="image-button" @click="modalsOpened[itemIndex] = true" tabindex="-1">
+          <img :src="item.thumbnail" class="image" />
         </button>
       </li>
     </ul>
@@ -67,43 +64,43 @@
     grid-template-rows: repeat(3, auto);
     gap: 0.5rem 1.5rem;
     justify-items: center;
+  }
 
-    .heading {
-      grid-column: 2;
-      grid-row: 1;
-      place-self: end start;
-    }
+  .heading {
+    grid-column: 2;
+    grid-row: 1;
+    place-self: end start;
+  }
 
-    .description {
-      grid-column: 2;
-      grid-row: 2;
-      justify-self: start;
-      max-width: $max-width-mobile * 0.5;
-    }
+  .description {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    max-width: $max-width-mobile * 0.5;
+  }
 
-    .button {
-      grid-column: 2;
-      grid-row: 3;
-      place-self: start start;
+  .button {
+    grid-column: 2;
+    grid-row: 3;
+    place-self: start start;
 
-      border-radius: 0.75rem;
-      margin-top: 0.75rem;
-    }
+    border-radius: 0.75rem;
+    margin-top: 0.75rem;
+  }
 
-    .image-button {
-      grid-column: 1;
-      grid-row: 1 / span 3;
+  .image-button {
+    grid-column: 1;
+    grid-row: 1 / span 3;
 
-      max-width: 10rem;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-    }
+    max-width: 10rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
-    .image {
-      width: 100%;
-      height: auto;
-    }
+  .image {
+    width: 100%;
+    height: auto;
   }
 
   @media (min-width: $max-width-mobile) {
@@ -119,38 +116,44 @@
       grid-row-end: span 4;
       grid-template-columns: auto;
       grid-template-rows: subgrid;
+    }
 
-      .heading {
-        grid-column: 1;
-        grid-row: 2;
-        place-self: auto;
-      }
+    .heading {
+      grid-column: 1;
+      grid-row: 2;
+      place-self: auto;
+    }
 
-      .description {
-        grid-column: 1;
-        grid-row: 3;
-        place-self: auto;
-        text-align: center;
-      }
+    .description {
+      grid-column: 1;
+      grid-row: 3;
+      place-self: auto;
+      text-align: center;
+    }
 
-      .button {
-        grid-column: 1;
-        grid-row: 4;
-        place-self: auto;
-        margin-top: 0.75rem;
-      }
+    .button {
+      grid-column: 1;
+      grid-row: 4;
+      place-self: auto;
+      margin-top: 0.75rem;
+    }
 
-      .image-button {
-        grid-column: 1;
-        grid-row: 1;
-      }
+    .image-button {
+      grid-column: 1;
+      grid-row: 1;
     }
   }
 
   .begging-for-attention {
     transform: none;
-    transition: background-color 0.15s ease-out;
+    transition:
+      background-color 150ms ease-out,
+      transform 200ms;
     animation: beg-for-attention 6s ease-in-out infinite;
+  }
+
+  .begging-for-attention:active {
+    transform: none;
   }
 
   @keyframes beg-for-attention {
@@ -183,9 +186,31 @@
     }
   }
 
-  @for $i from 1 through 10 {
-    .extras-item:nth-of-type(#{$i}) .begging-for-attention {
+  $N: 10;
+  @for $i from 1 through $N {
+    .extras-item:nth-of-type(#{$N}n + #{$i}) .begging-for-attention {
       animation-delay: #{$i * 200}ms;
     }
+  }
+
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .carousel-item-image {
+    width: 100%;
+    height: auto;
+    order: -1;
+  }
+
+  .carousel-item-heading {
+    text-align: center;
+    align-self: stretch;
+  }
+
+  .carousel-item-description {
+    text-align: center;
   }
 </style>

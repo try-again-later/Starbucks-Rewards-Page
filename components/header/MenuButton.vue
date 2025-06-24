@@ -3,8 +3,8 @@
 </script>
 
 <script setup lang="ts">
-  import ArrowLeft from './icons/arrow-left.svg?component';
-  import ArrowRight from './icons/arrow-right.svg?component';
+  import ArrowLeft from '~/assets/icons/arrow-left.svg?component';
+  import ArrowRight from '~/assets/icons/arrow-right.svg?component';
 
   type Props = {
     variant?: Variant;
