@@ -13,6 +13,7 @@
       <SectionTermsOfService />
     </div>
   </main>
+  <Footer />
 </template>
 
 <style style="scss">

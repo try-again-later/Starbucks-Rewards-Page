@@ -119,7 +119,7 @@
   .terms-of-service-section__sub-heading {
     font-weight: 400;
     font-size: 0.875rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .terms-of-service-section__sub-section {
