@@ -1,11 +1,11 @@
 <template>
-  <p class="sub-heading">
+  <p class="section-sub-heading">
     <slot></slot>
   </p>
 </template>
 
-<style scoped lang="scss">
-  .sub-heading {
+<style lang="scss">
+  .section-sub-heading {
     text-align: left;
     margin: 0 0 2rem 0;
     font-size: 1rem;

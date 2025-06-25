@@ -7,31 +7,37 @@
 </script>
 
 <template>
-  <a class="link" :class="variant">
+  <a class="link" :class="`${variant}-link`">
     <slot></slot>
   </a>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   .link {
     text-decoration: underline;
 
     &:hover {
       text-decoration: none;
     }
+  }
 
-    &.dark {
+  .dark-link {
+    @extend .link;
+
+    color: $color-dark;
+
+    &:active {
       color: $color-dark;
-      &:active {
-        color: $color-dark;
-      }
     }
+  }
 
-    &.primary {
+  .primary-link {
+    @extend .link;
+
+    color: $color-primary;
+
+    &:active {
       color: $color-primary;
-      &:active {
-        color: $color-primary;
-      }
     }
   }
 </style>

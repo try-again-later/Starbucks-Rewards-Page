@@ -7,21 +7,41 @@
 </script>
 
 <template>
-  <div ref="modal" class="modal" :class="{ 'hidden': !opened }" @keydown.stop.esc="opened = false">
-    <p class="heading">This site uses cookies, but not the kind you eat</p>
-    <p class="description">
+  <div
+    ref="modal"
+    class="cookies-modal"
+    :class="{ 'cookies-modal--hidden': !opened }"
+    @keydown.stop.esc="opened = false"
+  >
+    <p class="cookies-modal__heading">This site uses cookies, but not the kind you eat</p>
+
+    <p class="cookies-modal__description">
       We use cookies to remember log in details, provide secure log in, improve site functionality,
       and deliver personalized content. By continuing to browse the site, you accept cookies.
     </p>
-    <div class="buttons-section">
-      <Button tabindex="2" class="settings-button" variant="text">Change cookie settings</Button>
-      <Button tabindex="1" @click="opened = false" class="agree-button" variant="primary">Agree</Button>
+
+    <div class="cookies-modal__actions-section">
+      <Button
+        tabindex="2"
+        class="cookies-modal__settings-button"
+        variant="text"
+      >
+        Change cookie settings
+      </Button>
+
+      <Button
+        tabindex="1"
+        @click="opened = false"
+        variant="primary"
+      >
+        Agree
+      </Button>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-  .modal {
+<style lang="scss">
+  .cookies-modal {
     position: fixed;
     left: 50%;
     top: 2rem;
@@ -44,12 +64,12 @@
     }
   }
 
-  .hidden {
+  .cookies-modal--hidden {
     opacity: 0;
     visibility: hidden;
   }
 
-  .heading {
+  .cookies-modal__heading {
     font-size: 1.125rem;
     font-family: $heading-font-family;
     text-align: center;
@@ -60,24 +80,24 @@
     }
   }
 
-  .description {
+  .cookies-modal__description {
     text-align: center;
     margin-bottom: 1.5rem;
   }
 
-  .buttons-section {
+  .cookies-modal__actions-section {
     display: flex;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
   }
 
-  .settings-button {
+  .cookies-modal__settings-button {
     color: $color-primary;
     font-weight: 400;
-  }
 
-  .settings-button:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 </style>

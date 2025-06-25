@@ -11,18 +11,18 @@
 </script>
 
 <template>
-  <component :is="element[variant]" class="heading" :class="variant">
+  <component :is="element[variant]" class="section-heading" :class="`section-heading--${variant}`">
     <slot></slot>
   </component>
 </template>
 
-<style scoped lang="scss">
-  .heading {
+<style lang="scss">
+  .section-heading {
     font-family: $heading-font-family;
     text-align: left;
   }
 
-  .large {
+  .section-heading--large {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.75em;
@@ -33,7 +33,7 @@
     }
   }
 
-  .small {
+  .section-heading--small {
     font-size: 1rem;
 
     @media (min-width: $max-width-mobile) {

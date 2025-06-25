@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <div ref="menu" class="menu" @keydown.esc="menuOpened = false">
+  <div ref="menu" class="header-menu" @keydown.esc="menuOpened = false">
     <ul>
       <li>
         <HeaderMenuButton
@@ -42,26 +42,26 @@
       </li>
     </ul>
 
-    <div class="section">
-      <hr class="separator" />
+    <div class="header-menu__section">
+      <hr class="header-menu__separator" />
     </div>
 
-    <div class="section">
+    <div class="header-menu__section">
       <Button is-link variant="light" href="#" :tabindex="tabIndex">Sign in</Button>
       <Button is-link variant="dark" href="#" :tabindex="tabIndex">Join now</Button>
     </div>
 
-    <div class="section">
+    <div class="header-menu__section">
       <Button is-link variant="text" href="#" :tabindex="tabIndex">
         <template #prepend><MapPin /></template>
         Find a store
       </Button>
     </div>
 
-    <div class="section">
+    <div class="header-menu__section">
       <Button
         @click="menuOpened = false"
-        class="close-menu-button"
+        class="header-menu__close-button"
         variant="light"
         :tabindex="tabIndex"
       >
@@ -73,34 +73,34 @@
       title="Menu"
       :items="['All products', 'Featured', 'Previous', 'Favorites']"
       v-model:opened="subMenuOpened"
-      class="sub-menu"
-      :class="{ 'sub-menu-opened': subMenuOpened }"
+      class="header-menu__sub-menu"
+      :class="{ 'header-menu__sub-menu--opened': subMenuOpened }"
     />
   </div>
 </template>
 
-<style scoped lang="scss">
-  .menu {
+<style lang="scss">
+  .header-menu {
     padding: 0;
   }
 
-  .close-menu-button {
+  .header-menu__close-button {
     opacity: 0;
     pointer-events: none;
+
+    &:focus {
+      opacity: 1;
+    }
   }
 
-  .close-menu-button:focus {
-    opacity: 1;
-  }
-
-  .separator {
+  .header-menu__separator {
     border: none;
     width: 100%;
     height: 2px;
     background-color: $color-disabled;
   }
 
-  .section {
+  .header-menu__section {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -109,7 +109,7 @@
     margin-bottom: 2rem;
   }
 
-  .sub-menu {
+  .header-menu__sub-menu {
     position: absolute;
     top: 0;
     left: 0;
@@ -118,7 +118,7 @@
     transform: translateX(100%);
   }
 
-  .sub-menu-opened {
+  .header-menu__sub-menu--opened {
     transform: none;
   }
 </style>

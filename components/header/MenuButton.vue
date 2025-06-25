@@ -15,19 +15,22 @@
 <template>
   <component
     :is="variant === 'link' ? 'a' : 'button'"
-    class="button"
-    :class="{'darker': variant === 'close-sub-menu'}"
+    class="header-menu-button"
+    :class="{ 'header-menu-button--darker': variant === 'close-sub-menu' }"
   >
-    <ArrowLeft v-if="variant === 'close-sub-menu'" class="icon" />
-    <span class="title" :class="{'centered': variant === 'close-sub-menu'}">
+    <ArrowLeft v-if="variant === 'close-sub-menu'" class="header-menu-button__icon" />
+    <span
+      class="header-menu-button__title"
+      :class="{'header-menu-button__title--centered': variant === 'close-sub-menu'}"
+    >
       <slot></slot>
     </span>
-    <ArrowRight v-if="variant === 'open-sub-menu'" class="icon" />
+    <ArrowRight v-if="variant === 'open-sub-menu'" class="header-menu-button__icon" />
   </component>
 </template>
 
-<style scoped lang="scss">
-  .button {
+<style lang="scss">
+  .header-menu-button {
     font-family: $heading-font-family;
     font-size: 1.125rem;
     text-decoration: none;
@@ -43,21 +46,26 @@
     border: none;
     cursor: pointer;
     text-align: left;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
-  .button:hover {
-    text-decoration: underline;
-  }
-
-  .button.darker {
+  .header-menu-button--darker {
     background-color: $color-light-darken;
   }
 
-  .title {
+  .header-menu-button__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .header-menu-button__title {
     flex: 1;
   }
 
-  .title.centered {
+  .header-menu-button__title--centered {
     text-align: center;
   }
 </style>

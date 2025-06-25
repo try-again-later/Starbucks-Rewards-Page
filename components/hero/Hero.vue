@@ -4,23 +4,23 @@
 
 <template>
   <section class="hero">
-    <div class="content">
+    <div class="hero__content">
       <h2 class="visually-hidden">Join Starbucks Rewards</h2>
-      <p class="heading">
+      <p class="hero__heading">
         Free coffee
         <br />
         is a tap away
       </p>
-      <p class="sub-heading">Join now to start earning Rewards.</p>
+      <p class="hero__sub-heading">Join now to start earning Rewards.</p>
       <div>
-        <Button class="join-button" variant="primary">Join in the app</Button>
-        <Link class="join-link" href="#" variant="dark">Or join online</Link>
+        <Button class="hero__join-button" variant="primary">Join in the app</Button>
+        <Link class="hero__join-link" href="#" variant="dark">Or join online</Link>
       </div>
     </div>
   </section>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   .hero {
     min-height: 37.5rem;
 
@@ -42,7 +42,7 @@
     }
   }
 
-  .content {
+  .hero__content {
     text-align: center;
 
     max-width: 20rem;
@@ -62,7 +62,7 @@
     }
   }
 
-  .heading {
+  .hero__heading {
     font-family: $heading-font-family;
     font-size: 1.75rem;
     font-weight: 700;
@@ -75,13 +75,13 @@
     }
   }
 
-  .sub-heading {
+  .hero__sub-heading {
     @media (min-width: $max-width-mobile) {
       font-size: 1.25rem;
     }
   }
 
-  .join-button {
+  .hero__join-button {
     margin: 1.25rem auto 0.5rem auto;
 
     @media (min-width: $max-width-mobile) {
@@ -91,7 +91,7 @@
     }
   }
 
-  .join-link {
+  .hero__join-link {
     @media (min-width: $max-width-mobile) {
       margin-left: 1rem;
     }

@@ -6,54 +6,60 @@
 </script>
 
 <template>
-  <section class="section">
+  <section class="extras-section">
     <SectionHeading variant="large">Endless extras</SectionHeading>
     <SectionSubHeading>
       Joining Starbucks<sup>&reg;</sup> Rewards means unlocking access to exclusive benefits.
       Say hello to easy ordering, tasty Rewards and&mdash;yes, free coffee.
     </SectionSubHeading>
 
-    <ul class="extras-list">
+    <ul class="extras-section__list">
       <li class="extras-item" v-for="(item, itemIndex) in extrasItems" :key="itemIndex">
-        <SectionHeading variant="small" class="heading">{{ item.title }}</SectionHeading>
-        <p v-html="item.description" class="description"></p>
+        <SectionHeading variant="small" class="extras-item__heading">
+          {{ item.title }}
+        </SectionHeading>
+        <p v-html="item.description" class="extras-item__description"></p>
 
         <SectionExtrasModal v-model:opened="modalsOpened[itemIndex]">
           <template #button="{ open }">
-            <Button @click="open" variant="primary" class="begging-for-attention">
+            <Button @click="open" variant="primary" class="extras-item__learn-more-button">
               Learn more
             </Button>
           </template>
 
           <template #modal="{ close }">
-            <Carousel @close="close">
-              <CarouselItem v-for="detail in item.details" class="carousel-item">
-                <SectionHeading variant="small" class="carousel-item-heading">
+            <Carousel @close="close" tabindex="-1">
+              <CarouselSlide v-for="detail in item.details" class="extras-section-carousel__item">
+                <SectionHeading variant="small" class="extras-section-carousel__item-heading">
                   {{ detail.title }}
                 </SectionHeading>
-                <p class="carousel-item-description">{{ detail.description }}</p>
-                <img :src="detail.image" class="carousel-item-image" />
-              </CarouselItem>
+                <p class="extras-section-carousel__item-description">{{ detail.description }}</p>
+                <img :src="detail.image" class="extras-section-carousel__item-image" />
+              </CarouselSlide>
             </Carousel>
           </template>
         </SectionExtrasModal>
 
-        <button class="image-button" @click="modalsOpened[itemIndex] = true" tabindex="-1">
-          <img :src="item.thumbnail" class="image" />
+        <button
+          class="extras-item__image-button"
+          @click="modalsOpened[itemIndex] = true"
+          tabindex="-1"
+        >
+          <img :src="item.thumbnail" class="extras-item__image" />
         </button>
       </li>
     </ul>
   </section>
 </template>
 
-<style scoped lang="scss">
-  .section {
+<style lang="scss">
+  .extras-section {
     padding: 3rem 1.5rem;
     max-width: $max-width-desktop;
     margin: 0 auto;
   }
 
-  .extras-list {
+  .extras-section__list {
     display: grid;
     gap: 2rem 0;
   }
@@ -66,29 +72,45 @@
     justify-items: center;
   }
 
-  .heading {
+  .extras-item__heading {
     grid-column: 2;
     grid-row: 1;
     place-self: end start;
   }
 
-  .description {
+  .extras-item__description {
     grid-column: 2;
     grid-row: 2;
     justify-self: start;
     max-width: $max-width-mobile * 0.5;
   }
 
-  .button {
+  .extras-item__learn-more-button {
     grid-column: 2;
     grid-row: 3;
     place-self: start start;
 
     border-radius: 0.75rem;
     margin-top: 0.75rem;
+
+    transition:
+      background-color 150ms ease-out,
+      transform 200ms;
+    animation: beg-for-attention 6s ease-in-out infinite;
+
+    &:active {
+      transform: none;
+    }
   }
 
-  .image-button {
+  $N: 10;
+  @for $i from 1 through $N {
+    .extras-item:nth-of-type(#{$N}n + #{$i}) .extras-item__learn-more-button {
+      animation-delay: #{$i * 200}ms;
+    }
+  }
+
+  .extras-item__image-button {
     grid-column: 1;
     grid-row: 1 / span 3;
 
@@ -98,13 +120,13 @@
     cursor: pointer;
   }
 
-  .image {
+  .extras-item__image {
     width: 100%;
     height: auto;
   }
 
   @media (min-width: $max-width-mobile) {
-    .extras-list {
+    .extras-section__list {
       max-width: $max-width-mobile * 1.25;
       margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
@@ -118,42 +140,30 @@
       grid-template-rows: subgrid;
     }
 
-    .heading {
+    .extras-item__heading {
       grid-column: 1;
       grid-row: 2;
       place-self: auto;
     }
 
-    .description {
+    .extras-item__description {
       grid-column: 1;
       grid-row: 3;
       place-self: auto;
       text-align: center;
     }
 
-    .button {
+    .extras-item__learn-more-button {
       grid-column: 1;
       grid-row: 4;
       place-self: auto;
       margin-top: 0.75rem;
     }
 
-    .image-button {
+    .extras-item__image-button {
       grid-column: 1;
       grid-row: 1;
     }
-  }
-
-  .begging-for-attention {
-    transform: none;
-    transition:
-      background-color 150ms ease-out,
-      transform 200ms;
-    animation: beg-for-attention 6s ease-in-out infinite;
-  }
-
-  .begging-for-attention:active {
-    transform: none;
   }
 
   @keyframes beg-for-attention {
@@ -186,31 +196,23 @@
     }
   }
 
-  $N: 10;
-  @for $i from 1 through $N {
-    .extras-item:nth-of-type(#{$N}n + #{$i}) .begging-for-attention {
-      animation-delay: #{$i * 200}ms;
-    }
-  }
-
-  .carousel-item {
+  .extras-section-carousel__item {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
 
-  .carousel-item-image {
+  .extras-section-carousel__item-image {
     width: 100%;
     height: auto;
     order: -1;
   }
 
-  .carousel-item-heading {
+  .extras-section-carousel__item-heading {
     text-align: center;
-    align-self: stretch;
   }
 
-  .carousel-item-description {
+  .extras-section-carousel__item-description {
     text-align: center;
   }
 </style>

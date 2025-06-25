@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <div ref="menu" class="menu" @keydown.stop.esc="menuOpened = false">
+  <div ref="menu" class="header-sub-menu" @keydown.stop.esc="menuOpened = false">
     <HeaderMenuButton
       @click="menuOpened = false"
       variant="close-sub-menu"
@@ -40,8 +40,8 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  .menu {
+<style lang="scss">
+  .header-sub-menu {
     padding: 0;
     background-color: white;
     transition: transform 200ms ease-in-out;

@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <section class="section">
+  <section class="getting-started-section">
     <SectionHeading variant="large">Getting started is easy</SectionHeading>
     <SectionSubHeading>Earn Stars and get rewarded in a few easy steps.</SectionSubHeading>
 
@@ -39,8 +39,8 @@
   </section>
 </template>
 
-<style scoped lang="scss">
-  .section {
+<style lang="scss">
+  .getting-started-section {
     padding: 3rem 1.5rem;
   }
 </style>

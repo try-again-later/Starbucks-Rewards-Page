@@ -1,11 +1,11 @@
 <template>
-  <div class="carousel-item">
+  <div class="carousel__slide">
     <slot></slot>
   </div>
 </template>
 
-<style scoped lang="scss">
-  .carousel-item {
+<style lang="scss">
+  .carousel__slide {
     width: 100%;
     flex-shrink: 0;
   }

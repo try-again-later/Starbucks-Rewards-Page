@@ -68,22 +68,40 @@
 </script>
 
 <template>
-  <button @click="pressed = !pressed" aria-label="Open menu" class="button">
+  <button @click="pressed = !pressed" aria-label="Open menu" class="burger-button">
     <svg
-      class="burger-icon"
+      class="burger-button__icon burger-button-icon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
     >
-      <circle class="circle" cx="50" cy="50" r="50" />
-      <rect ref="top-bar" class="top-bar" y="15" width="100" height="10" rx="5" />
-      <rect ref="middle-bar" class="middle-bar" y="45" width="100" height="10" rx="5" />
-      <rect ref="bottom-bar" class="bottom-bar" y="75" width="100" height="10" rx="5" />
+      <circle class="burger-button-icon__circle" cx="50" cy="50" r="50" />
+      <rect
+        ref="top-bar"
+        class="burger-button-icon__top-bar"
+        y="15"
+        width="100" height="10"
+        rx="5"
+      />
+      <rect
+        ref="middle-bar"
+        class="burger-button-icon__middle-bar"
+        y="45"
+        width="100" height="10"
+        rx="5"
+      />
+      <rect
+        ref="bottom-bar"
+        class="burger-button-icon__bottom-bar"
+        y="75"
+        width="100" height="10"
+        rx="5"
+      />
     </svg>
   </button>
 </template>
 
-<style scoped lang="scss">
-  .button {
+<style lang="scss">
+  .burger-button {
     box-sizing: content-box;
     padding: 1rem;
     border: none;
@@ -91,25 +109,28 @@
     cursor: pointer;
   }
 
-  .burger-icon {
+  .burger-button__icon {
     height: 100%;
-    fill: $color-muted;
     overflow: visible;
   }
 
-  .top-bar {
+  .burger-button-icon {
+    fill: $color-muted;
+  }
+
+  .burger-button-icon__top-bar {
     transform-origin: 50px 20px;
   }
 
-  .middle-bar {
+  .burger-button-icon__middle-bar {
     transform-origin: 50px 50px;
   }
 
-  .bottom-bar {
+  .burger-button-icon__bottom-bar {
     transform-origin: 50px 80px;
   }
 
-  .circle {
+  .burger-button-icon__circle {
     transform: scale(0.75);
     fill: $color-disabled;
     fill-opacity: 0;
@@ -119,7 +140,7 @@
     transition-timing-function: ease-in;
   }
 
-  .button:hover .circle {
+  .burger-button:hover .burger-button-icon__circle {
     transform: scale(1.75);
     fill-opacity: 1;
   }

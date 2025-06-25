@@ -1,11 +1,11 @@
 <template>
-  <ul class="list">
+  <ul class="getting-started-section__list">
     <slot></slot>
   </ul>
 </template>
 
-<style scoped lang="scss">
-  .list {
+<style lang="scss">
+  .getting-started-section__list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

@@ -62,9 +62,15 @@
 <template>
   <slot name="button" :open="open"></slot>
 
-  <div @click="close" class="backdrop" :class="{ 'backdrop-opened': opened }"></div>
   <div
-    class="modal"
+    @click="close"
+    class="extras-modal__backdrop"
+    :class="{ 'extras-modal__backdrop--toggled': opened }"
+  >
+  </div>
+
+  <div
+    class="extras-modal"
     tabindex="-1"
     @keydown.esc="close"
     ref="modal"
@@ -74,8 +80,8 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  .backdrop {
+<style lang="scss">
+  .extras-modal__backdrop {
     position: fixed;
     inset: 0;
     z-index: $z-backdrop;
@@ -86,12 +92,12 @@
     transition: opacity 200ms;
   }
 
-  .backdrop-opened {
+  .extras-modal__backdrop--toggled {
     pointer-events: auto;
     opacity: 1;
   }
 
-  .modal {
+  .extras-modal {
     position: fixed;
     top: 50%;
     left: 50%;

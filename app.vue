@@ -12,7 +12,7 @@
   </main>
 </template>
 
-<style scoped style="scss">
+<style style="scss">
   .sections section:nth-of-type(even) {
     background-color: #f1f8f5;
   }

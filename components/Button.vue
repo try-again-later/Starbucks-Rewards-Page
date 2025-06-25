@@ -11,13 +11,13 @@
 </script>
 
 <template>
-  <component :is="isLink ? 'a' : 'button'" class="button" :class="variant">
+  <component :is="isLink ? 'a' : 'button'" :class="`${variant}-button`">
     <slot name="prepend"></slot>
     <slot></slot>
   </component>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   .button {
     font-family: $body-font-family;
     font-size: 0.875rem;
@@ -46,60 +46,70 @@
     @media (min-width: $max-width-mobile) {
       font-size: 1rem;
     }
+
+    &:focus {
+      outline-offset: 0.5em;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
-  .button:focus {
-    outline-offset: 0.5em;
-  }
+  .text-button {
+    @extend .button;
 
-  .button:active {
-    transform: scale(0.9);
-  }
-
-  .button.text {
     font-size: 1rem;
     padding: 0;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 
-  .button.text:hover {
-    color: $color-primary;
-  }
+  .dark-button {
+    @extend .button;
 
-  .button.dark {
     background-color: $color-dark;
     color: $color-light;
+
+    &:hover {
+      background-color: $color-dark-lighten;
+    }
   }
 
-  .button.dark:hover {
-    background-color: $color-dark-lighten;
-  }
+  .light-button {
+    @extend .button;
 
-  .button.light {
     border-color: $color-neutral;
     color: $color-neutral;
     background-color: $color-light;
+
+    &:hover {
+      background-color: $color-light-darken;
+    }
   }
 
-  .button.light:hover {
-    background-color: $color-light-darken;
-  }
+  .primary-button {
+    @extend .button;
 
-  .button.primary {
     background-color: $color-primary;
     color: $color-light;
+
+    &:hover {
+      background-color: $color-primary-lighten;
+    }
   }
 
-  .button.primary:hover {
-    background-color: $color-primary-lighten;
-  }
+  .secondary-button {
+    @extend .button;
 
-  .button.secondary {
     background-color: $color-secondary;
     border-color: $color-light;
     color: $color-light;
-  }
 
-  .button.secondary:hover {
-    background-color: $color-secondary-lighten;
+    &:hover {
+      background-color: $color-secondary-lighten;
+    }
   }
 </style>

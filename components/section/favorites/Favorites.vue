@@ -15,13 +15,15 @@
 </script>
 
 <template>
-  <section class="section" ref="section">
-    <SectionHeading variant="large" class="heading">Get your favorites for free</SectionHeading>
+  <section class="favorites-section" ref="section">
+    <SectionHeading variant="large" class="favorites-section__heading">
+      Get your favorites for free
+    </SectionHeading>
 
-    <div class="tab-list-container">
-      <div class="tab-list-wrapper">
-        <div class="tab-list">
-          <label v-for="(item, itemIndex) in items" class="tab-selector">
+    <div class="favorites-section__tabs-container">
+      <div class="favorites-section__tabs-wrapper">
+        <div class="favorites-section__tabs">
+          <label v-for="(item, itemIndex) in items" class="favorites-section__tab-selector">
             <input
               type="radio"
               name="items-for-stars"
@@ -32,57 +34,59 @@
             {{ item.starCount }}
           </label>
         </div>
-        <div class="slider-container">
-          <div class="slider"></div>
+        <div class="favorites-section__tab-slider-container">
+          <div class="favorites-section__tab-slider"></div>
         </div>
       </div>
     </div>
 
-    <div class="tab-items-wrapper">
+    <div class="favorites-section__items-wrapper">
       <div
-        class="tab-item"
+        class="favorites-section__item"
         v-for="(item, itemIndex) in items"
-        :class="{ 'tab-item-selected': itemIndex === selectedItemIndex }"
+        :class="{ 'favorites-section__item--selected': itemIndex === selectedItemIndex }"
       >
-        <SectionHeading variant="small" class="tab-item-heading">{{ item.title }}</SectionHeading>
-        <img :src="item.image" class="tab-item-image" />
-        <p class="tab-item-description">{{ item.description }}</p>
+        <SectionHeading variant="small" class="favorites-section__item-heading">
+          {{ item.title }}
+        </SectionHeading>
+        <img :src="item.image" class="favorites-section__item-image" />
+        <p class="favorites-section__item-description">{{ item.description }}</p>
       </div>
     </div>
   </section>
 </template>
 
-<style scoped lang="scss">
-  .section {
+<style lang="scss">
+  .favorites-section {
     --item-count: 5;
     --selected-item-index: 0;
 
     padding-top: 3rem;
   }
 
-  .heading {
+  .favorites-section__heading {
     margin-bottom: 2rem;
     padding: 0 1.5rem;
   }
 
-  .tab-list-container {
+  .favorites-section__tabs-container {
     position: relative;
     width: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.075);
     z-index: 1;
   }
 
-  .tab-list-wrapper {
+  .favorites-section__tabs-wrapper {
     max-width: $max-width-mobile * 1.25;
     margin: 0 auto;
   }
 
-  .tab-list {
+  .favorites-section__tabs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
   }
 
-  .tab-selector {
+  .favorites-section__tab-selector {
     text-align: center;
     font-family: $heading-font-family;
     font-size: 1.125rem;
@@ -94,45 +98,45 @@
     @media (min-width: $max-width-mobile) {
       font-size: 1.25rem;
     }
+
+    &:has(input:focus-visible) {
+      outline: 2px solid $color-secondary;
+      outline-offset: 4px;
+    }
+
+    &::after {
+      content: "★";
+      color: #cba258;
+      font-size: 0.875em;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px;
+      background-color: #8aeac7;
+      opacity: 0;
+      transform: scaleX(0.5) translateY(100%);
+      transition:
+        transform 200ms,
+        opacity 200ms;
+    }
+
+    &:hover::before {
+      transform: scaleX(1) translateY(100%);
+      opacity: 1;
+    }
   }
 
-  .tab-selector:has(input:focus-visible) {
-    outline: 2px solid $color-secondary;
-    outline-offset: 4px;
-  }
-
-  .tab-selector::after {
-    content: "★";
-    color: #cba258;
-    font-size: 0.875em;
-  }
-
-  .tab-selector::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  .favorites-section__tab-slider-container {
     height: 5px;
-    background-color: #8aeac7;
-    opacity: 0;
-    transform: scaleX(0.5) translateY(100%);
-    transition:
-      transform 200ms,
-      opacity 200ms;
-  }
-
-  .tab-selector:hover::before {
-    transform: scaleX(1) translateY(100%);
-    opacity: 1;
-  }
-
-  .slider-container {
-    height: 5px;
     width: 100%;
   }
 
-  .slider {
+  .favorites-section__tab-slider {
     position: relative;
     z-index: 1;
     width: calc(100% / var(--item-count));
@@ -142,7 +146,7 @@
     transition: transform 200ms ease-in-out;
   }
 
-  .tab-items-wrapper {
+  .favorites-section__items-wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -150,7 +154,7 @@
     background-color: rgb(222, 222, 222);
   }
 
-  .tab-item {
+  .favorites-section__item {
     grid-column: 1;
     grid-row: 1;
 
@@ -181,19 +185,19 @@
     }
   }
 
-  .tab-item-selected {
+  .favorites-section__item--selected {
     opacity: 1;
     visibility: visible;
   }
 
-  .tab-item-image {
+  .favorites-section__item-image {
     grid-area: image;
     width: 100%;
     max-width: 37.5rem;
     margin: 0 auto;
   }
 
-  .tab-item-heading {
+  .favorites-section__item-heading {
     grid-area: heading;
     text-align: center;
     margin-bottom: 0;
@@ -207,7 +211,7 @@
     }
   }
 
-  .tab-item-description {
+  .favorites-section__item-description {
     grid-area: description;
     text-align: center;
     max-width: 30em;

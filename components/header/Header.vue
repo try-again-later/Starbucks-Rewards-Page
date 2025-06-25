@@ -28,18 +28,18 @@
 
 <template>
   <header class="header">
-    <div class="header-wrapper" :class="{ 'header-wrapper-fixed': menuOpened }">
-      <div class="header-content">
-        <a class="logo-link" href="#"><Logo class="logo" /></a>
+    <div class="header__content-wrapper" :class="{ 'header__content-wrapper--fixed': menuOpened }">
+      <div class="header__content">
+        <a class="header__logo-link" href="#"><Logo class="header__logo" /></a>
 
-        <nav class="desktop-nav">
-          <ul class="desktop-nav-list">
+        <nav class="header__desktop-nav">
+          <ul class="header__desktop-nav-list">
             <li
               v-for="item in navItems"
-              class="desktop-nav-list-item"
-              :class="{'active': item === activeNavItem}"
+              class="header__desktop-nav-item"
+              :class="{'header__desktop-nav-item--active': item === activeNavItem}"
             >
-              <a href="#">{{ item }}</a>
+              <a href="#" class="header__desktop-nav-link">{{ item }}</a>
             </li>
           </ul>
 
@@ -48,38 +48,42 @@
             Find a store
           </Button>
 
-          <div class="desktop-nav-sign-in-section">
+          <div class="header__desktop-sign-in-section">
             <Button is-link variant="light" href="#">Sign in</Button>
             <Button is-link variant="dark" href="#">Join now</Button>
           </div>
         </nav>
 
-        <HeaderBurgerButton v-model:pressed="menuOpened" class="menu-button" />
+        <HeaderBurgerButton v-model:pressed="menuOpened" class="header__burger-button" />
       </div>
     </div>
 
     <div
       @click.self="menuOpened = false"
-      class="backdrop"
-      :class="{ 'backdrop-toggled': menuOpened }"
+      class="header__backdrop"
+      :class="{ 'header__backdrop--toggled': menuOpened }"
     >
-      <nav class="mobile-nav" tabindex="-1" :class="{ 'mobile-nav-opened': menuOpened }">
-        <div class="mobile-nav-content">
+      <nav
+        tabindex="-1"
+        class="header__mobile-nav"
+        :class="{ 'header__mobile-nav--opened': menuOpened }"
+      >
+        <div class="header__mobile-nav-content">
           <HeaderMenu v-model:opened="menuOpened" />
         </div>
       </nav>
     </div>
   </header>
 
-  <div class="sub-header" :class="{ 'sub-header-under-menu': menuOpened }">
-    <div class="sub-header-content">
+  <div class="sub-header" :class="{ 'sub-header--under-menu': menuOpened }">
+    <div class="sub-header__content">
       <p>Starbucks rewards<sup>&reg;</sup></p>
       <Button variant="secondary">Join in the app</Button>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   $header-height-mobile: 5rem;
   $header-height-desktop: 6rem;
 
@@ -95,7 +99,7 @@
     }
   }
 
-  .header-wrapper {
+  .header__content-wrapper {
     position: relative;
     z-index: $z-modal;
     width: 100%;
@@ -105,12 +109,12 @@
     box-shadow: 0 0 4px rgba(0 0 0 / 25%);
   }
 
-  .header-wrapper-fixed {
+  .header__content-wrapper--fixed {
     position: fixed;
     top: 0;
   }
 
-  .header-content {
+  .header__content {
     display: flex;
     align-items: center;
 
@@ -129,27 +133,25 @@
     }
   }
 
-  .logo-link {
+  .header__logo-link {
     height: 60%;
     margin-right: 1rem;
   }
 
-  .logo {
+  .header__logo {
     height: 100%;
   }
 
-  .menu-button {
+  .header__burger-button {
     margin-left: auto;
     height: 30%;
-  }
 
-  @media (min-width: $max-width-mobile) {
-    .menu-button {
+    @media (min-width: $max-width-mobile) {
       display: none;
     }
   }
 
-  .backdrop {
+  .header__backdrop {
     position: fixed;
     inset: 0;
     z-index: $z-backdrop;
@@ -159,12 +161,12 @@
     pointer-events: none;
   }
 
-  .backdrop-toggled {
+  .header__backdrop--toggled {
     background-color: rgba(0 0 0 / 55%);
     pointer-events: auto;
   }
 
-  .mobile-nav {
+  .header__mobile-nav {
     position: absolute;
     right: 0;
     width: 80%;
@@ -183,15 +185,15 @@
     }
   }
 
-  .mobile-nav-opened {
+  .header__mobile-nav--opened {
     transform: none;
   }
 
-  .mobile-nav-content {
+  .header__mobile-nav-content {
     position: relative;
   }
 
-  .desktop-nav {
+  .header__desktop-nav {
     flex: 1;
 
     display: none;
@@ -204,7 +206,7 @@
     }
   }
 
-  .desktop-nav-list {
+  .header__desktop-nav-list {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -213,7 +215,7 @@
     margin-right: auto;
   }
 
-  .desktop-nav-list-item {
+  .header__desktop-nav-item {
     display: flex;
     align-items: center;
 
@@ -223,7 +225,7 @@
     padding-right: 0.75rem;
   }
 
-  .desktop-nav-list-item.active::before {
+  .header__desktop-nav-item--active::before {
     content: "";
     position: absolute;
     left: 0;
@@ -233,7 +235,7 @@
     background-color: $color-primary;
   }
 
-  .desktop-nav-list-item > a {
+  .header__desktop-nav-link {
     font-size: 1rem;
     font-weight: 900;
     color: $color-secondary;
@@ -241,14 +243,14 @@
     text-transform: uppercase;
 
     transition: color 200ms;
+
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
   }
 
-  .desktop-nav-list-item > a:hover {
-    color: $color-primary;
-    text-decoration: underline;
-  }
-
-  .desktop-nav-sign-in-section {
+  .header__desktop-sign-in-section {
     display: flex;
     gap: 0.75rem;
   }
@@ -269,11 +271,11 @@
     }
   }
 
-  .sub-header-under-menu {
+  .sub-header--under-menu {
     margin-top: $header-height-mobile;
   }
 
-  .sub-header-content {
+  .sub-header__content {
     text-transform: uppercase;
     font-weight: 700;
     font-family: $heading-font-family;

@@ -1,19 +1,19 @@
 <template>
-  <li class="list-item">
-    <SectionHeading variant="small" class="heading">
+  <li class="getting-started-section__list-item">
+    <SectionHeading variant="small" class="getting-started-section__list-item-heading">
       <slot name="heading"></slot>
     </SectionHeading>
 
-    <p class="content">
+    <p class="getting-started-section__list-item-content">
       <slot name="content"></slot>
     </p>
   </li>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   $list-counter-color: #00a862;
 
-  .list-item {
+  .getting-started-section__list-item {
     display: grid;
     grid-template-areas:
       "counter heading"
@@ -24,26 +24,6 @@
     flex: 1;
 
     counter-increment: item;
-
-    .heading {
-      grid-column: 2;
-      grid-row: 1;
-
-      @media (min-width: $max-width-mobile) {
-        grid-column: 1;
-        grid-row: 2;
-      }
-    }
-
-    .content {
-      grid-column: 2;
-      grid-row: 2;
-
-      @media (min-width: $max-width-mobile) {
-        grid-column: 1;
-        grid-row: 3;
-      }
-    }
 
     @media (min-width: $max-width-mobile) {
       text-align: center;
@@ -56,30 +36,50 @@
 
       max-width: 20rem;
     }
+
+    &::before {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $list-counter-color;
+
+      content: counter(item) " ";
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      place-self: start center;
+      min-width: 2rem;
+
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      margin-top: 0.25rem;
+      aspect-ratio: 1 / 1;
+      border: 2px solid $list-counter-color;
+      border-radius: 50%;
+
+      @media (min-width: $max-width-mobile) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
   }
 
-  .list-item::before {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: $list-counter-color;
-
-    content: counter(item) " ";
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    place-self: start center;
-    min-width: 2rem;
-
-    display: grid;
-    place-items: center;
-    width: 2.5rem;
-    margin-top: 0.25rem;
-    aspect-ratio: 1 / 1;
-    border: 2px solid $list-counter-color;
-    border-radius: 50%;
+  .getting-started-section__list-item-heading {
+    grid-column: 2;
+    grid-row: 1;
 
     @media (min-width: $max-width-mobile) {
       grid-column: 1;
-      grid-row: 1;
+      grid-row: 2;
+    }
+  }
+
+  .getting-started-section__list-item-content {
+    grid-column: 2;
+    grid-row: 2;
+
+    @media (min-width: $max-width-mobile) {
+      grid-column: 1;
+      grid-row: 3;
     }
   }
 </style>
