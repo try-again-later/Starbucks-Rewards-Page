@@ -19,6 +19,14 @@
     &:hover {
       text-decoration: none;
     }
+
+    &[href^="https://"]::after {
+      content: url("~/assets/icons/external-link.svg");
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+    }
   }
 
   .dark-link {

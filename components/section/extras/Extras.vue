@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import extrasItems from './items';
+  import Cross from '~/assets/icons/cross.svg?component';
 
   const modalsOpened = ref<boolean[]>(new Array(extrasItems.length).fill(false));
 </script>
@@ -28,15 +29,25 @@
           </template>
 
           <template #modal="{ close }">
-            <Carousel @close="close" tabindex="-1">
-              <CarouselSlide v-for="detail in item.details" class="extras-section-carousel__item">
-                <SectionHeading variant="small" class="extras-section-carousel__item-heading">
-                  {{ detail.title }}
-                </SectionHeading>
-                <p class="extras-section-carousel__item-description">{{ detail.description }}</p>
-                <img :src="detail.image" class="extras-section-carousel__item-image" />
-              </CarouselSlide>
-            </Carousel>
+            <div class="extras-section-modal">
+              <button
+                class="extras-section-modal__close-button"
+                title="Close"
+                @click="close"
+              >
+                <Cross />
+              </button>
+
+              <Carousel @close="close" tabindex="-1">
+                <CarouselSlide v-for="detail in item.details" class="extras-section-carousel__item">
+                  <SectionHeading variant="small" class="extras-section-carousel__item-heading">
+                    {{ detail.title }}
+                  </SectionHeading>
+                  <p class="extras-section-carousel__item-description">{{ detail.description }}</p>
+                  <img :src="detail.image" class="extras-section-carousel__item-image" />
+                </CarouselSlide>
+              </Carousel>
+            </div>
           </template>
         </SectionExtrasModal>
 
@@ -214,5 +225,41 @@
 
   .extras-section-carousel__item-description {
     text-align: center;
+  }
+
+  .extras-section-modal {
+    position: relative;
+  }
+
+  .extras-section-modal__close-button {
+    box-sizing: content-box;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    z-index: 1;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    background-color: transparent;
+    color: $color-muted;
+    transition:
+      background-color 100ms,
+      transform 100ms;
+
+    @media (min-width: $max-width-mobile) {
+      top: 2rem;
+    }
+
+    &:hover {
+      transform: scale(1.15);
+      color: $color-dark-lighten;
+    }
   }
 </style>

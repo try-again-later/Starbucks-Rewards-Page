@@ -8,6 +8,7 @@
       <SectionGettingStarted />
       <SectionFavorites />
       <SectionExtras />
+      <SectionEarnStars />
     </div>
   </main>
 </template>
