@@ -1,4 +1,7 @@
-import type { Link } from './LinksBlockMobile.vue';
+type Link = {
+  title: string;
+  href: string;
+};
 
 type LinkBlock = {
   title: string;
