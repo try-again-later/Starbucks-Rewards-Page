@@ -10,6 +10,7 @@
       <SectionExtras />
       <SectionEarnStars />
       <SectionRedeemCode />
+      <SectionTermsOfService />
     </div>
   </main>
 </template>

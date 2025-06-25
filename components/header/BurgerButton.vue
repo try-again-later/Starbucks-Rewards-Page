@@ -68,7 +68,7 @@
 </script>
 
 <template>
-  <button @click="pressed = !pressed" aria-label="Open menu" class="burger-button">
+  <button @click="pressed = !pressed" title="Open menu" class="burger-button">
     <svg
       class="burger-button__icon burger-button-icon"
       xmlns="http://www.w3.org/2000/svg"

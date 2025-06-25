@@ -27,7 +27,7 @@
     <HeaderMenuButton
       @click="menuOpened = false"
       variant="close-sub-menu"
-      aria-label="Close menu"
+      title="Close menu"
       :tabindex="tabIndex"
     >
       {{title}}

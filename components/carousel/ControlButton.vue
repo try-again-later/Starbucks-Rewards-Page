@@ -14,7 +14,7 @@
 
 <template>
   <button
-    title="Previous item"
+    :title="`${direction == 'previous' ? 'Previous' : 'Next'} item`"
     class="carousel-control-button"
     :class="{ 'carousel-control-button--hidden': hidden }"
   >

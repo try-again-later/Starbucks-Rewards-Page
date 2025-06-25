@@ -27,7 +27,7 @@
       <li>
         <HeaderMenuButton
           variant="open-sub-menu"
-          aria-label="Open menu"
+          title="Open menu"
           :tabindex="tabIndex"
           @click="subMenuOpened = true"
         >
