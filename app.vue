@@ -9,6 +9,7 @@
       <SectionFavorites />
       <SectionExtras />
       <SectionEarnStars />
+      <SectionRedeemCode />
     </div>
   </main>
 </template>
