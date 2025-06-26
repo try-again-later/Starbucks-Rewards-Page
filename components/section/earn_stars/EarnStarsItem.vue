@@ -6,7 +6,14 @@
 
 <template>
   <li class="earn-stars-section__item">
-    <img :src="image" class="earn-stars-section__item-image" alt="" loading="lazy">
+    <img
+      :src="image"
+      class="earn-stars-section__item-image"
+      alt=""
+      loading="lazy"
+      width="224"
+      height="316"
+    >
     <p class="earn-stars-section__item-heading">
       <slot name="heading" />
     </p>

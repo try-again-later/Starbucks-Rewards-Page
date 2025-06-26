@@ -53,6 +53,8 @@
                     class="extras-section-carousel__item-image"
                     alt=""
                     loading="lazy"
+                    width="840"
+                    height="472"
                   >
                 </CarouselSlide>
               </Carousel>
@@ -66,7 +68,14 @@
           title="Learn more"
           @click="modalsOpened[itemIndex] = true"
         >
-          <img :src="item.thumbnail" class="extras-item__image" alt="" loading="lazy">
+          <img
+            :src="item.thumbnail"
+            class="extras-item__image"
+            alt=""
+            loading="lazy"
+            width="224"
+            height="224"
+          >
         </button>
       </li>
     </ul>

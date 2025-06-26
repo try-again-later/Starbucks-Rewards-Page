@@ -54,7 +54,14 @@
         <SectionHeading variant="small" class="favorites-section__item-heading">
           {{ item.title }}
         </SectionHeading>
-        <img :src="item.image" class="favorites-section__item-image" alt="" loading="lazy">
+        <img
+          :src="item.image"
+          class="favorites-section__item-image"
+          alt=""
+          loading="lazy"
+          width="750"
+          height="442"
+        >
         <p class="favorites-section__item-description">{{ item.description }}</p>
       </div>
     </div>
@@ -196,6 +203,7 @@
   .favorites-section__item-image {
     grid-area: image;
     width: 100%;
+    height: auto;
     max-width: 37.5rem;
     margin: 0 auto;
   }
