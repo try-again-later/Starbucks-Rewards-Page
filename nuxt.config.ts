@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2025-05-15',
   devtools: { enabled: false },
-  modules: ['@nuxt/eslint', 'nuxt-svgo'],
+  modules: ['@nuxt/eslint', 'nuxt-svgo', '@nuxtjs/stylelint-module'],
   css: ['~/assets/scss/main.scss'],
   app: {
     head: {
@@ -40,6 +40,25 @@ export default defineNuxtConfig({
           name: 'preset-default',
         },
       ],
+    },
+  },
+  stylelint: {
+    config: {
+      ignoreFiles: ['**/*.module.scss'],
+      extends: [
+        'stylelint-config-recommended-scss',
+        'stylelint-config-recommended-vue/scss',
+      ],
+      rules: {
+        'selector-class-pattern': null,
+        'media-feature-range-notation': null,
+        'color-function-alias-notation': null,
+        'declaration-empty-line-before': null,
+
+        // https://github.com/ota-meshi/stylelint-config-recommended-vue/issues/86
+        'declaration-property-value-no-unknown': null,
+        'scss/declaration-property-value-no-unknown': true,
+      },
     },
   },
 });

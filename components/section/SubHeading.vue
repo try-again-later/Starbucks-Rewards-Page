@@ -7,7 +7,7 @@
 <style lang="scss">
   .section-sub-heading {
     text-align: left;
-    margin: 0 0 2rem 0;
+    margin: 0 0 2rem;
     font-size: 1rem;
 
     @media (min-width: $max-width-mobile) {

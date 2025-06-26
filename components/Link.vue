@@ -13,7 +13,7 @@
 </template>
 
 <style lang="scss">
-  .link {
+  %link {
     text-decoration: underline;
 
     &:hover {
@@ -30,7 +30,7 @@
   }
 
   .dark-link {
-    @extend .link;
+    @extend %link;
 
     color: $color-dark;
 
@@ -40,7 +40,7 @@
   }
 
   .primary-link {
-    @extend .link;
+    @extend %link;
 
     color: $color-primary;
 

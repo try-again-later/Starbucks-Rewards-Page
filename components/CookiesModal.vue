@@ -53,7 +53,7 @@
 
     transform: translateX(-50%);
     background-color: $color-light;
-    box-shadow: 0 0.25rem 2.5rem rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0.25rem 2.5rem rgba(0 0 0 / 45%);
     transition:
       opacity 200ms,
       visibility 200ms;

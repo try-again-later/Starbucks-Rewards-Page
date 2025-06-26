@@ -82,7 +82,7 @@
   }
 
   .hero__join-button {
-    margin: 1.25rem auto 0.5rem auto;
+    margin: 1.25rem auto 0.5rem;
 
     @media (min-width: $max-width-mobile) {
       margin-left: 0;

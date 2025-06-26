@@ -77,7 +77,7 @@
   .favorites-section__tabs-container {
     position: relative;
     width: 100%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 4px 4px rgba(0 0 0 / 7.5%);
     z-index: 1;
   }
 
@@ -156,7 +156,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(222 222 222);
   }
 
   .favorites-section__item {
@@ -181,12 +181,10 @@
       visibility 200ms;
 
     @media (min-width: $max-width-mobile) {
-      grid-template-areas:
-        "image heading"
-        "image description";
+      grid-template:
+        "image heading" 1fr
+        "image description" 1fr / 60% 1fr;
       row-gap: 1.75rem;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 60% 1fr;
     }
   }
 
@@ -226,7 +224,7 @@
       text-align: left;
       font-size: 1rem;
       padding: 0;
-      max-width: auto;
+      max-width: none;
       place-self: start start;
     }
   }

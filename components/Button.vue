@@ -18,7 +18,7 @@
 </template>
 
 <style lang="scss">
-  .button {
+  %button {
     font-family: $body-font-family;
     font-size: 0.875rem;
     font-weight: 700;
@@ -57,7 +57,7 @@
   }
 
   .text-button {
-    @extend .button;
+    @extend %button;
 
     font-size: 1rem;
     padding: 0;
@@ -68,7 +68,7 @@
   }
 
   .dark-button {
-    @extend .button;
+    @extend %button;
 
     background-color: $color-dark;
     color: $color-light;
@@ -79,7 +79,7 @@
   }
 
   .light-button {
-    @extend .button;
+    @extend %button;
 
     border-color: $color-neutral;
     color: $color-neutral;
@@ -91,7 +91,7 @@
   }
 
   .primary-button {
-    @extend .button;
+    @extend %button;
 
     background-color: $color-primary;
     color: $color-light;
@@ -102,7 +102,7 @@
   }
 
   .secondary-button {
-    @extend .button;
+    @extend %button;
 
     background-color: $color-secondary;
     border-color: $color-light;

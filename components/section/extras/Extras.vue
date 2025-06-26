@@ -118,9 +118,10 @@
     }
   }
 
-  $N: 10;
-  @for $i from 1 through $N {
-    .extras-item:nth-of-type(#{$N}n + #{$i}) .extras-item__learn-more-button {
+  $n: 10;
+
+  @for $i from 1 through $n {
+    .extras-item:nth-of-type(#{$n}n + #{$i}) .extras-item__learn-more-button {
       animation-delay: #{$i * 200}ms;
     }
   }

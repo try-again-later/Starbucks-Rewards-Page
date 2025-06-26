@@ -94,8 +94,7 @@
     display: grid;
     grid-template-columns: 2fr auto 3fr auto 2fr;
     grid-template-areas: "_ previous radios next ok";
-    align-items: center;
-    justify-items: center;
+    place-items: center;
   }
 
   .carousel__control-button-previous {
@@ -146,18 +145,21 @@
     outline: 2px solid $color-secondary;
   }
 
+  .carousel__control-radio-label:hover {
+    transform: scale(1.15);
+  }
+
   .carousel__control-radio-label:has(input:checked) {
     background-color: $color-secondary;
     transform: scale(1);
   }
 
-  .carousel__control-radio-label:hover,
-  .carousel__control-radio-label:hover:has(input:checked) {
-    transform: scale(1.15);
-  }
-
   .carousel__control-radio-label:has(input:focus-visible) {
     outline: 2px solid $color-secondary;
     outline-offset: 2px;
+  }
+
+  .carousel__control-radio-label:hover:has(input:checked) {
+    transform: scale(1.15);
   }
 </style>

@@ -134,9 +134,8 @@
 
   .earn-stars-section__items-list {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     gap: 1rem;
-    flex-wrap: wrap;
   }
 
   .earn-stars-section__separator {

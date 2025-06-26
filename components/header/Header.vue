@@ -175,8 +175,7 @@
     height: 100%;
     max-width: 30rem;
     padding-top: var(--header-height);
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden auto;
 
     transition: transform 200ms ease-in-out;
     transform: translateX(100%);
@@ -264,7 +263,7 @@
     top: 0;
     width: 100%;
     background-color: $color-secondary;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
+    box-shadow: rgba(0 0 0 / 25%) 0 4px 4px;
     z-index: $z-header;
 
     @media (min-width: $max-width-mobile) {
