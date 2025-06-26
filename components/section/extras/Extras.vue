@@ -15,15 +15,15 @@
     </SectionSubHeading>
 
     <ul class="extras-section__list">
-      <li class="extras-item" v-for="(item, itemIndex) in extrasItems" :key="itemIndex">
+      <li v-for="(item, itemIndex) in extrasItems" :key="itemIndex" class="extras-item">
         <SectionHeading variant="small" class="extras-item__heading">
           {{ item.title }}
         </SectionHeading>
-        <p v-html="item.description" class="extras-item__description"></p>
+        <p class="extras-item__description">{{ item.description }}</p>
 
         <SectionExtrasModal v-model:opened="modalsOpened[itemIndex]">
           <template #button="{ open }">
-            <Button @click="open" variant="primary" class="extras-item__learn-more-button">
+            <Button variant="primary" class="extras-item__learn-more-button" @click="open">
               Learn more
             </Button>
           </template>
@@ -38,13 +38,17 @@
                 <Cross />
               </button>
 
-              <Carousel @close="close" tabindex="-1">
-                <CarouselSlide v-for="detail in item.details" class="extras-section-carousel__item">
+              <Carousel tabindex="-1" @close="close">
+                <CarouselSlide
+                  v-for="(detail, detailIndex) in item.details"
+                  :key="detailIndex"
+                  class="extras-section-carousel__item"
+                >
                   <SectionHeading variant="small" class="extras-section-carousel__item-heading">
                     {{ detail.title }}
                   </SectionHeading>
                   <p class="extras-section-carousel__item-description">{{ detail.description }}</p>
-                  <img :src="detail.image" class="extras-section-carousel__item-image" />
+                  <img :src="detail.image" class="extras-section-carousel__item-image">
                 </CarouselSlide>
               </Carousel>
             </div>
@@ -53,10 +57,10 @@
 
         <button
           class="extras-item__image-button"
-          @click="modalsOpened[itemIndex] = true"
           tabindex="-1"
+          @click="modalsOpened[itemIndex] = true"
         >
-          <img :src="item.thumbnail" class="extras-item__image" />
+          <img :src="item.thumbnail" class="extras-item__image">
         </button>
       </li>
     </ul>

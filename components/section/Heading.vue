@@ -12,7 +12,7 @@
 
 <template>
   <component :is="element[variant]" class="section-heading" :class="`section-heading--${variant}`">
-    <slot></slot>
+    <slot />
   </component>
 </template>
 

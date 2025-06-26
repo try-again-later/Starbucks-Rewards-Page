@@ -1,5 +1,5 @@
 <template>
-  <input type="text" placeholder="Enter your Star Code" class="redeem-code-input" />
+  <input type="text" placeholder="Enter your Star Code" class="redeem-code-input">
 </template>
 
 <style lang="scss">

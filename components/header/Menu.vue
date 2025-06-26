@@ -43,7 +43,7 @@
     </ul>
 
     <div class="header-menu__section">
-      <hr class="header-menu__separator" />
+      <hr class="header-menu__separator">
     </div>
 
     <div class="header-menu__section">
@@ -60,19 +60,19 @@
 
     <div class="header-menu__section">
       <Button
-        @click="menuOpened = false"
         class="header-menu__close-button"
         variant="light"
         :tabindex="tabIndex"
+        @click="menuOpened = false"
       >
         Close menu
       </Button>
     </div>
 
     <HeaderSubMenu
+      v-model:opened="subMenuOpened"
       title="Menu"
       :items="['All products', 'Featured', 'Previous', 'Favorites']"
-      v-model:opened="subMenuOpened"
       class="header-menu__sub-menu"
       :class="{ 'header-menu__sub-menu--opened': subMenuOpened }"
     />

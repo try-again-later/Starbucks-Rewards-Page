@@ -28,8 +28,8 @@
 
 <template>
   <div class="carousel">
-    <div class="carousel__slides-wrapper" ref="carousel-slides" :style="carouselSlidesStyle">
-      <slot></slot>
+    <div ref="carousel-slides" class="carousel__slides-wrapper" :style="carouselSlidesStyle">
+      <slot />
     </div>
 
     <div class="carousel__controls-wrapper">
@@ -41,14 +41,18 @@
       />
 
       <div class="carousel__control-radios-wrapper">
-        <label v-for="slideIndex in slideCount" class="carousel__control-radio-label">
+        <label
+          v-for="slideIndex in slideCount"
+          :key="slideIndex"
+          class="carousel__control-radio-label"
+        >
           <input
+            v-model="currentSlideIndex"
             type="radio"
             :name="radioControlsName"
             :value="slideIndex"
             class="visually-hidden"
-            v-model="currentSlideIndex"
-          />
+          >
         </label>
       </div>
 
@@ -60,10 +64,10 @@
       />
 
       <Button
-        @click="emit('close')"
         variant="light"
         class="carousel__ok-button"
         :class="{ 'carousel__ok-button--hidden': currentSlideIndex != slideCount }"
+        @click="emit('close')"
       >
         Ok
       </Button>

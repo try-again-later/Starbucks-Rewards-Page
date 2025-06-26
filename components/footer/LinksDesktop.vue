@@ -4,10 +4,10 @@
 
 <template>
   <div class="footer-links-desktop">
-    <div v-for="linkBlock in linkBlocks" class="footer-links-desktop__block">
+    <div v-for="linkBlock in linkBlocks" :key="linkBlock.title" class="footer-links-desktop__block">
       <p class="footer-links-desktop__block-heading">{{ linkBlock.title }}</p>
       <ul class="footer-links-desktop__block-list">
-        <li v-for="link in linkBlock.links">
+        <li v-for="link in linkBlock.links" :key="link.title">
           <a :href="link.href" class="footer-links-desktop__link">{{ link.title }}</a>
         </li>
       </ul>

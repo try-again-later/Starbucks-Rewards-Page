@@ -21,18 +21,19 @@
 <template>
   <div class="footer-links-mobile">
     <div
-      class="footer-links-mobile__block"
       v-for="(linkBlock, linkBlockIndex) in linkBlocks"
+      :key="linkBlock.title"
+      class="footer-links-mobile__block"
     >
       <label class="footer-links-mobile__block-label">
         <span class="footer-links-mobile__block-title">{{ linkBlock.title }}</span>
         <input
+          v-model="linkBlocksOpened[linkBlockIndex]"
           type="checkbox"
           name="footer-links-block"
           class="visually-hidden"
-          v-model="linkBlocksOpened[linkBlockIndex]"
           @change="onInputChange(linkBlockIndex)"
-        />
+        >
         <span class="footer-links-mobile__block-icon-wrapper">
           <ArrowDown class="footer-links-mobile__block-icon" />
         </span>
@@ -40,7 +41,7 @@
 
       <div class="footer-links-mobile__block-list-wrapper">
         <ul class="footer-links-mobile__block-list">
-          <li v-for="link in linkBlock.links">
+          <li v-for="link in linkBlock.links" :key="link.title">
             <a
               :tabindex="linkBlocksOpened[linkBlockIndex] ? 0 : -1"
               :href="link.href"

@@ -68,7 +68,7 @@
 </script>
 
 <template>
-  <button @click="pressed = !pressed" title="Open menu" class="burger-button">
+  <button title="Open menu" class="burger-button" @click="pressed = !pressed">
     <svg
       class="burger-button__icon burger-button-icon"
       xmlns="http://www.w3.org/2000/svg"

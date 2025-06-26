@@ -31,8 +31,8 @@
 
       <Button
         tabindex="1"
-        @click="opened = false"
         variant="primary"
+        @click="opened = false"
       >
         Agree
       </Button>

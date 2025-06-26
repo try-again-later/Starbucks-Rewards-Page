@@ -1,15 +1,15 @@
+import ItemFor25Stars from './images/item-25.png';
+import ItemFor50Stars from './images/item-50.png';
+import ItemFor150Stars from './images/item-150.png';
+import ItemFor200Stars from './images/item-200.png';
+import ItemFor400Stars from './images/item-400.png';
+
 export type Item = {
   title: string;
   description: string;
   starCount: number;
   image: string;
 };
-
-import ItemFor25Stars from './images/item-25.png';
-import ItemFor50Stars from './images/item-50.png';
-import ItemFor150Stars from './images/item-150.png';
-import ItemFor200Stars from './images/item-200.png';
-import ItemFor400Stars from './images/item-400.png';
 
 export const items: Item[] = [
   {

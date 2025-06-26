@@ -1,6 +1,6 @@
 <template>
   <p class="terms-of-service-section__sub-section-paragraph">
-    <slot></slot>
+    <slot />
   </p>
 </template>
 

@@ -25,16 +25,16 @@
 <template>
   <div ref="menu" class="header-sub-menu" @keydown.stop.esc="menuOpened = false">
     <HeaderMenuButton
-      @click="menuOpened = false"
       variant="close-sub-menu"
       title="Close menu"
       :tabindex="tabIndex"
+      @click="menuOpened = false"
     >
       {{title}}
     </HeaderMenuButton>
     <ul>
-      <li v-for="item in items">
-        <HeaderMenuButton href="#" :tabindex="tabIndex">{{item}}</HeaderMenuButton>
+      <li v-for="item in items" :key="item">
+        <HeaderMenuButton href="#" :tabindex="tabIndex">{{ item }}</HeaderMenuButton>
       </li>
     </ul>
   </div>

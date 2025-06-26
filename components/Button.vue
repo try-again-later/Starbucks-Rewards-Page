@@ -12,8 +12,8 @@
 
 <template>
   <component :is="isLink ? 'a' : 'button'" :class="`${variant}-button`">
-    <slot name="prepend"></slot>
-    <slot></slot>
+    <slot name="prepend" />
+    <slot />
   </component>
 </template>
 

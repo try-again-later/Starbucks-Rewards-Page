@@ -1,6 +1,6 @@
 <template>
   <div class="carousel__slide">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

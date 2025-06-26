@@ -43,7 +43,7 @@
         </ul>
       </div>
 
-      <hr class="earn-stars-section__separator" />
+      <hr class="earn-stars-section__separator">
 
       <div class="earn-stars-sub-section">
         <div>
@@ -74,7 +74,7 @@
         </ul>
       </div>
 
-      <hr class="earn-stars-section__separator" />
+      <hr class="earn-stars-section__separator">
 
       <div class="earn-stars-sub-section">
         <div>

@@ -18,7 +18,7 @@
 
 <template>
   <ul class="footer-socials-list">
-    <li class="footer-socials-list__item" v-for="(icon, title) in socialIcons">
+    <li v-for="(icon, title) in socialIcons" :key="title" class="footer-socials-list__item">
       <a href="#" class="footer-socials-list__link" :title="title">
         <component :is="icon" />
       </a>

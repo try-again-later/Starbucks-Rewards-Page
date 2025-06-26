@@ -60,23 +60,22 @@
 </script>
 
 <template>
-  <slot name="button" :open="open"></slot>
+  <slot name="button" :open="open" />
 
   <div
-    @click="close"
     class="extras-modal__backdrop"
     :class="{ 'extras-modal__backdrop--toggled': opened }"
-  >
-  </div>
+    @click="close"
+  />
 
   <div
+    ref="modal"
     class="extras-modal"
     tabindex="-1"
     @keydown.esc="close"
-    ref="modal"
     @focusout="onFocusOut"
   >
-    <slot name="modal" :close="close"></slot>
+    <slot name="modal" :close="close" />
   </div>
 </template>
 

@@ -1,11 +1,11 @@
 <template>
   <li class="getting-started-section__list-item">
     <SectionHeading variant="small" class="getting-started-section__list-item-heading">
-      <slot name="heading"></slot>
+      <slot name="heading" />
     </SectionHeading>
 
     <p class="getting-started-section__list-item-content">
-      <slot name="content"></slot>
+      <slot name="content" />
     </p>
   </li>
 </template>

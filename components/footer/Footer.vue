@@ -4,7 +4,7 @@
       <FooterLinksMobile class="footer__links--mobile" />
       <FooterLinksDesktop class="footer__links--desktop" />
 
-      <hr class="footer__separator" />
+      <hr class="footer__separator">
 
       <FooterSocialsList />
 

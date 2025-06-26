@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { ref, watchEffect } from 'vue';
+  import Logo from '~/assets/logo.svg?component';
+  import MapPin from './icons/map-pin.svg?component';
+
+  import exportedCSS from '~/assets/scss/exported.module.scss';
+
   const navItems = ['menu', 'rewards', 'gift-cards'] as const;
 
   export type NavItem = typeof navItems[number];
 </script>
 
 <script setup lang="ts">
-  import { ref, watchEffect } from 'vue';
-  import Logo from '~/assets/logo.svg?component';
-  import MapPin from './icons/map-pin.svg?component';
-
-  import exportedCSS from '~/assets/scss/exported.module.scss';
   const { maxWidthMobile } = exportedCSS;
 
   defineProps<{
@@ -36,6 +37,7 @@
           <ul class="header__desktop-nav-list">
             <li
               v-for="item in navItems"
+              :key="item"
               class="header__desktop-nav-item"
               :class="{'header__desktop-nav-item--active': item === activeNavItem}"
             >
@@ -59,9 +61,9 @@
     </div>
 
     <div
-      @click.self="menuOpened = false"
       class="header__backdrop"
       :class="{ 'header__backdrop--toggled': menuOpened }"
+      @click.self="menuOpened = false"
     >
       <nav
         tabindex="-1"

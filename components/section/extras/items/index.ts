@@ -1,3 +1,7 @@
+import freebies from './freebies';
+import order from './order';
+import bonus from './bonus';
+
 export type ExtrasItemDetails = {
   title: string;
   description: string;
@@ -10,10 +14,6 @@ export type ExtrasItem = {
   thumbnail: string;
   details: ExtrasItemDetails[];
 };
-
-import freebies from './freebies';
-import order from './order';
-import bonus from './bonus';
 
 const items: ExtrasItem[] = [freebies, order, bonus];
 

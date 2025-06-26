@@ -25,7 +25,7 @@
 
       <p class="redeem-code-section__subscript">
         Have a receipt but don't have a code?
-        <br />
+        <br>
         Go to
         <Link variant="primary" href="https://try-again-later.github.io">starbucks-stars.com</Link>
         to upload your receipt and collect your Stars.

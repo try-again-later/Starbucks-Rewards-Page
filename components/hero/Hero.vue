@@ -8,7 +8,7 @@
       <h2 class="visually-hidden">Join Starbucks Rewards</h2>
       <p class="hero__heading">
         Free coffee
-        <br />
+        <br>
         is a tap away
       </p>
       <p class="hero__sub-heading">Join now to start earning Rewards.</p>

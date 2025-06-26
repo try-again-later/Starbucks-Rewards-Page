@@ -1,11 +1,11 @@
 <script lang="ts">
+  import ArrowLeft from '~/assets/icons/arrow-left.svg?component';
+  import ArrowRight from '~/assets/icons/arrow-right.svg?component';
+
   export type Direction = 'previous' | 'next';
 </script>
 
 <script setup lang="ts">
-  import ArrowLeft from '~/assets/icons/arrow-left.svg?component';
-  import ArrowRight from '~/assets/icons/arrow-right.svg?component';
-
   const { direction, hidden } = defineProps<{
     direction: Direction;
     hidden: boolean;

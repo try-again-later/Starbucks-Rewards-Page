@@ -1,6 +1,6 @@
 <template>
   <ul class="getting-started-section__list">
-    <slot></slot>
+    <slot />
   </ul>
 </template>
 

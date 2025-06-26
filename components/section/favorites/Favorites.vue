@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <section class="favorites-section" ref="section">
+  <section ref="section" class="favorites-section">
     <SectionHeading variant="large" class="favorites-section__heading">
       Get your favorites for free
     </SectionHeading>
@@ -23,33 +23,38 @@
     <div class="favorites-section__tabs-container">
       <div class="favorites-section__tabs-wrapper">
         <div class="favorites-section__tabs">
-          <label v-for="(item, itemIndex) in items" class="favorites-section__tab-selector">
+          <label
+            v-for="(item, itemIndex) in items"
+            :key="itemIndex"
+            class="favorites-section__tab-selector"
+          >
             <input
+              v-model="selectedItemIndex"
               type="radio"
               name="items-for-stars"
               :value="itemIndex"
               class="visually-hidden"
-              v-model="selectedItemIndex"
-            />
+            >
             {{ item.starCount }}
           </label>
         </div>
         <div class="favorites-section__tab-slider-container">
-          <div class="favorites-section__tab-slider"></div>
+          <div class="favorites-section__tab-slider" />
         </div>
       </div>
     </div>
 
     <div class="favorites-section__items-wrapper">
       <div
-        class="favorites-section__item"
         v-for="(item, itemIndex) in items"
+        :key="itemIndex"
+        class="favorites-section__item"
         :class="{ 'favorites-section__item--selected': itemIndex === selectedItemIndex }"
       >
         <SectionHeading variant="small" class="favorites-section__item-heading">
           {{ item.title }}
         </SectionHeading>
-        <img :src="item.image" class="favorites-section__item-image" />
+        <img :src="item.image" class="favorites-section__item-image">
         <p class="favorites-section__item-description">{{ item.description }}</p>
       </div>
     </div>

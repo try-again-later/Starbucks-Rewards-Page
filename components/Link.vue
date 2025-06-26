@@ -8,7 +8,7 @@
 
 <template>
   <a class="link" :class="`${variant}-link`">
-    <slot></slot>
+    <slot />
   </a>
 </template>
 

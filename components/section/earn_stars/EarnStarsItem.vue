@@ -6,12 +6,12 @@
 
 <template>
   <li class="earn-stars-section__item">
-    <img :src="image" class="earn-stars-section__item-image" />
+    <img :src="image" class="earn-stars-section__item-image">
     <p class="earn-stars-section__item-heading">
-      <slot name="heading"></slot>
+      <slot name="heading" />
     </p>
     <p class="earn-stars-section__item-description">
-      <slot name="description"></slot>
+      <slot name="description" />
     </p>
   </li>
 </template>

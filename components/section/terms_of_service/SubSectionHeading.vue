@@ -1,6 +1,6 @@
 <template>
   <h3 class="term-of-service-section__sub-section-heading">
-    <slot></slot>
+    <slot />
   </h3>
 </template>
 

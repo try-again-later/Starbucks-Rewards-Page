@@ -1,11 +1,11 @@
 <script lang="ts">
+  import ArrowLeft from '~/assets/icons/arrow-left.svg?component';
+  import ArrowRight from '~/assets/icons/arrow-right.svg?component';
+
   export type Variant = 'link' | 'open-sub-menu' | 'close-sub-menu';
 </script>
 
 <script setup lang="ts">
-  import ArrowLeft from '~/assets/icons/arrow-left.svg?component';
-  import ArrowRight from '~/assets/icons/arrow-right.svg?component';
-
   type Props = {
     variant?: Variant;
   };
@@ -23,7 +23,7 @@
       class="header-menu-button__title"
       :class="{'header-menu-button__title--centered': variant === 'close-sub-menu'}"
     >
-      <slot></slot>
+      <slot />
     </span>
     <ArrowRight v-if="variant === 'open-sub-menu'" class="header-menu-button__icon" />
   </component>
