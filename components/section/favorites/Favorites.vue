@@ -54,7 +54,7 @@
         <SectionHeading variant="small" class="favorites-section__item-heading">
           {{ item.title }}
         </SectionHeading>
-        <img :src="item.image" class="favorites-section__item-image">
+        <img :src="item.image" class="favorites-section__item-image" alt="" loading="lazy">
         <p class="favorites-section__item-description">{{ item.description }}</p>
       </div>
     </div>

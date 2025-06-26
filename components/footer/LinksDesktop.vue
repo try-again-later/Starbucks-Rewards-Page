@@ -20,6 +20,9 @@
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
+  }
+
+  .footer-links-desktop__block {
     flex: 1;
   }
 

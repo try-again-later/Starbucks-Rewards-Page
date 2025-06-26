@@ -3,15 +3,26 @@
 </script>
 
 <script setup lang="ts">
+  import { useTemplateRef } from 'vue';
+
   type Props = {
     variant?: Variant;
     isLink?: boolean;
   };
   const { variant = 'text', isLink = false } = defineProps<Props>();
+
+  const element = useTemplateRef<HTMLElement>('element');
+  const focus = () => {
+    element.value?.focus();
+  };
+
+  defineExpose<{
+    focus: () => void;
+  }>({ focus });
 </script>
 
 <template>
-  <component :is="isLink ? 'a' : 'button'" :class="`${variant}-button`">
+  <component :is="isLink ? 'a' : 'button'" :class="`${variant}-button`" ref="element">
     <slot name="prepend" />
     <slot />
   </component>

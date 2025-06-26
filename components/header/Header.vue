@@ -31,7 +31,7 @@
   <header class="header">
     <div class="header__content-wrapper" :class="{ 'header__content-wrapper--fixed': menuOpened }">
       <div class="header__content">
-        <a class="header__logo-link" href="#"><Logo class="header__logo" /></a>
+        <a class="header__logo-link" href="#" title="Home page"><Logo class="header__logo" /></a>
 
         <nav class="header__desktop-nav">
           <ul class="header__desktop-nav-list">

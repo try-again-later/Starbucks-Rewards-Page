@@ -87,13 +87,13 @@
 
     pointer-events: none;
     opacity: 0;
-    background-color: rgba(0 0 0 / 35%);
+    background-color: black;
     transition: opacity 200ms;
   }
 
   .extras-modal__backdrop--toggled {
     pointer-events: auto;
-    opacity: 1;
+    opacity: 0.35;
   }
 
   .extras-modal {

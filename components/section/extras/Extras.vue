@@ -48,7 +48,12 @@
                     {{ detail.title }}
                   </SectionHeading>
                   <p class="extras-section-carousel__item-description">{{ detail.description }}</p>
-                  <img :src="detail.image" class="extras-section-carousel__item-image">
+                  <img
+                    :src="detail.image"
+                    class="extras-section-carousel__item-image"
+                    alt=""
+                    loading="lazy"
+                  >
                 </CarouselSlide>
               </Carousel>
             </div>
@@ -58,9 +63,10 @@
         <button
           class="extras-item__image-button"
           tabindex="-1"
+          title="Learn more"
           @click="modalsOpened[itemIndex] = true"
         >
-          <img :src="item.thumbnail" class="extras-item__image">
+          <img :src="item.thumbnail" class="extras-item__image" alt="" loading="lazy">
         </button>
       </li>
     </ul>

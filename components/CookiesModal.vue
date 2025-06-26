@@ -1,9 +1,14 @@
 <script setup lang="ts">
-  import { useTemplateRef } from 'vue';
+  import { useTemplateRef, onMounted } from 'vue';
 
   const modal = useTemplateRef('modal');
   const { isActive: opened } = useFocusTrap(modal, { clickOutsideDeactivates: true });
   opened.value = true;
+
+  const agreeButton = useTemplateRef<HTMLButtonElement>('agree-button');
+  onMounted(() => {
+    agreeButton.value?.focus();
+  });
 </script>
 
 <template>
@@ -21,19 +26,11 @@
     </p>
 
     <div class="cookies-modal__actions-section">
-      <Button
-        tabindex="2"
-        class="cookies-modal__settings-button"
-        variant="text"
-      >
+      <Button class="cookies-modal__settings-button" variant="text">
         Change cookie settings
       </Button>
 
-      <Button
-        tabindex="1"
-        variant="primary"
-        @click="opened = false"
-      >
+      <Button ref="agree-button" variant="primary" @click="opened = false">
         Agree
       </Button>
     </div>

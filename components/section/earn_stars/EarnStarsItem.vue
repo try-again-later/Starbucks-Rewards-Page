@@ -6,7 +6,7 @@
 
 <template>
   <li class="earn-stars-section__item">
-    <img :src="image" class="earn-stars-section__item-image">
+    <img :src="image" class="earn-stars-section__item-image" alt="" loading="lazy">
     <p class="earn-stars-section__item-heading">
       <slot name="heading" />
     </p>
